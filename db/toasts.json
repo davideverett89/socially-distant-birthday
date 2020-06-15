@@ -1,0 +1,62 @@
+{
+    "toast1" : {
+        "message" : "Happy Birthday! Miss you!",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "123456789"
+    },
+    "toast2" : {
+        "message" : "You always throw the best parties for everyone else!  Happy Birthday!",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "111222333"
+    },
+    "toast3" : {
+        "message" : "WOOO!!!  BIRTHDAY!!!",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "333222111"
+    },
+    "toast4" : {
+        "message" : "I'm sorry its not a boat or a float trip...Happy Birthday!",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "321321321"
+    },
+    "toast5" : {
+        "message" : "I've always loved your birthday games!  Here's our chance to embarrass you!",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "444555666"
+    },
+    "toast6" : {
+        "message" : "Some things get better with age ... you're one of them! Happy birthday.",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "555666777"
+    },
+    "toast7" : {
+        "message" : "May this day bring to you all things that make you smile. Happy birthday!",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "777666555"
+    },
+    "toast8" : {
+        "message" : "Age is not a destination, it's a journey!",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "987987987"
+    },
+    "toast9" : {
+        "message" : "Another year is added, but also another opportunity for growth and experience.",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "999888777"
+    },
+    "toast10" : {
+        "message" : "Happy birthday on your very special day, I hope that you don't die before you eat your cake.",
+        "birthdayId" : "birthday1",
+        "creationDate" : "2020-06-15",
+        "uid" : "888777666"
+    }
+}

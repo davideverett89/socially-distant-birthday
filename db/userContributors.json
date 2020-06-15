@@ -1,0 +1,102 @@
+{
+    "userContributor1" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user1"
+      },
+      "userContributor2" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user2"
+      },
+      "userContributor3" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user3"
+      },
+      "userContributor4" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user4"
+      },
+      "userContributor5" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user5"
+      },
+      "userContributor6" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user6"
+      },
+      "userContributor7" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user7"
+      },
+      "userContributor8" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user8"
+      },
+      "userContributor9" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user9"
+      },
+      "userContributor10" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user10"
+      },
+      "userContributor11" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user11"
+      },
+      "userContributor12" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user12"
+      },
+      "userContributor13" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user13"
+      },
+      "userContributor14" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user14"
+      },
+      "userContributor15" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user15"
+      },
+      "userContributor16" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user16"
+      },
+      "userContributor17" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user17"
+      },
+      "userContributor18" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user18"
+      },
+      "userContributor19" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user20"
+      },
+      "userContributor20" : {
+        "birthdayId" : "birthday1",
+        "userId" : "user21"
+      },
+      "userContributor21" : {
+        "birthdayId" : "birthday2",
+        "userId" : "user16"
+      },
+      "userContributor22" : {
+        "birthdayId" : "birthday2",
+        "userId" : "user17"
+      },
+      "userContributor23" : {
+        "birthdayId" : "birthday2",
+        "userId" : "user18"
+      },
+      "userContributor24" : {
+        "birthdayId" : "birthday2",
+        "userId" : "user20"
+      },
+      "userContributor25" : {
+        "birthdayId" : "birthday2",
+        "userId" : "user21"
+      }
+}
