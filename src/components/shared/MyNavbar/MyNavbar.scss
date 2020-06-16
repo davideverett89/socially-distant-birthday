@@ -1,0 +1,8 @@
+@import '../../../styles/variables';
+
+.MyNavbar {
+    display: block;
+    .logout-btn {
+        background-color: $tertiaryColor;
+    }
+}

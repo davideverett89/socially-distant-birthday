@@ -1,0 +1,18 @@
+@import '../../../styles/variables';
+
+.Auth {
+    display: block;
+    .auth-header {
+        color: $secondaryColor;
+    }
+    .auth-image {
+        height: 320px;
+        width: 320px;
+    }
+    .login-btn {
+        background-color: $tertiaryColor;
+        width: 450px;
+        height: 70px;
+        border: 1px solid black;
+    }
+}
