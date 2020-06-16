@@ -2,7 +2,9 @@
 
 .MyNavbar {
     display: block;
+    background-color: $secondaryColor;
     .logout-btn {
         background-color: $tertiaryColor;
+        color: black;
     }
 }
