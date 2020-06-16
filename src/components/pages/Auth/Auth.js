@@ -3,16 +3,42 @@ import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-import './Auth.scss';
+import authData from '../../../helpers/data/authData';
+import userData from '../../../helpers/data/userData';
 
+import './Auth.scss';
 import birthdayCake from '../../../images/1F382-birthday-cake-512.png';
 
 class Auth extends React.Component {
+  saveUser = () => {
+    const newUser = {
+      displayName: authData.getDisplayName(),
+      email: authData.getEmail(),
+      uid: authData.getUid(),
+    };
+    userData.postUser(newUser)
+      .then((user) => { const userId = user.data; console.log('A user was created!:', userId); })
+      .catch((err) => console.error('There was an issue with registering new user:', err));
+  }
+
+    userCheck = () => {
+      userData.getUserByEmail(authData.getEmail())
+        .then((thisUser) => {
+          if (thisUser.length === 0) {
+            this.saveUser();
+          }
+        })
+        .catch((err) => console.error('There was an issue checking for a user at login:', err));
+    }
+
     loginClickEvent = (e) => {
       e.preventDefault();
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider);
-      console.error('Logged IN!');
+      firebase.auth().signInWithPopup(provider)
+        .then(() => {
+          this.userCheck();
+        })
+        .catch((err) => console.error('There was an issue with logging in:', err));
     }
 
     render() {
