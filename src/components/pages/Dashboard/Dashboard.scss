@@ -2,6 +2,9 @@
 
 .Dashboard {
     display: block;
+    .dashboard-header {
+        color: $secondaryColor;
+    }
     .row {
         .birthday-column {
             border: 1px solid black;
