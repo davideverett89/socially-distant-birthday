@@ -1,3 +1,45 @@
+@import '../../../styles/variables';
+
 .Home {
     display: block;
+    .home-header {
+        color: $secondaryColor;
+    }
+    .big-image-container {
+        position: relative;
+        .covid-image {
+            width: 400px;
+            height: 400px;
+        }
+        .equal-image {
+            width: 400px;
+            height: 200px; 
+        }
+        .little-image-container {
+            .cancelled-image {
+                width: 400px;
+                height: 400px;
+                position: absolute;
+                z-index: 2;
+            }
+            .cake-image {
+                width: 400px;
+                height: 400px;
+                position: relative;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+        }
+    }
+    .home-intro {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: x-large;
+        color: $secondaryColor;
+    }
+    .home-dash-btn {
+        background-color: $tertiaryColor;
+        width: 500px;
+        border: 1px solid black;
+    }
 }
