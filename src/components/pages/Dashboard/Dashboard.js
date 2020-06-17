@@ -10,6 +10,7 @@ import './Dashboard.scss';
 class Dashboard extends React.Component {
   state = {
     myBirthdays: [],
+    myInvitedBirthdays: [],
   }
 
   getMyBirthdayEvents = () => {
@@ -20,13 +21,25 @@ class Dashboard extends React.Component {
       .catch((err) => console.error('There was an issue with getting user created birthdays:', err));
   }
 
+  getMyInvitedBirthdayEvents = () => {
+    smash.getInvitedBirthdaysByUserUid(authData.getUid())
+      .then((birthdays) => {
+        this.setState({ myInvitedBirthdays: birthdays });
+      })
+      .catch((err) => console.error('There is an issue with getting your invited birthdays:', err));
+  }
+
   componentDidMount() {
     this.getMyBirthdayEvents();
+    this.getMyInvitedBirthdayEvents();
   }
 
   render() {
-    const { myBirthdays } = this.state;
+    const { myBirthdays, myInvitedBirthdays } = this.state;
     const makeBirthdayCards = myBirthdays.map((birthday) => (
+      <BirthdayCard key={birthday.id} birthday={birthday} />
+    ));
+    const makeInvitations = myInvitedBirthdays.map((birthday) => (
       <BirthdayCard key={birthday.id} birthday={birthday} />
     ));
     return (
@@ -42,6 +55,7 @@ class Dashboard extends React.Component {
               <div className="col-6">
                 <div className="birthday-column">
                   <h3 className="m-2">Invited Birthdays</h3>
+                  {makeInvitations}
                 </div>
               </div>
             </div>
