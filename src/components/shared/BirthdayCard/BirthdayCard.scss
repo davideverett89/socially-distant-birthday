@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .BirthdayCard {
     display: block;
     .card-container {
@@ -7,5 +9,13 @@
         border-right: none;
         border-bottom: 1px solid black;
         border-left: none;
+        .row {
+            .third-column {
+                .single-view-btn {
+                    background-color: $primaryColor;
+                    border: 1px solid black;
+                }
+            }
+        }
     }
 }
