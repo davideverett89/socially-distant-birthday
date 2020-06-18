@@ -37,4 +37,8 @@ const getBirthdaysByCreatorUid = (creatorUid) => new Promise((resolve, reject) =
 
 const getBirthdayById = (birthdayId) => axios.get(`${baseUrl}/birthdays/${birthdayId}.json`);
 
-export default { getBirthdaysByCreatorUid, getBirthdayById, getBirthdays };
+const postBirthday = (newBirthday) => axios.post(`${baseUrl}/birthdays.json`, newBirthday);
+
+export default {
+  getBirthdaysByCreatorUid, getBirthdayById, getBirthdays, postBirthday,
+};
