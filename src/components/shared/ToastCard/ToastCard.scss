@@ -1,0 +1,9 @@
+@import '../../../styles/variables';
+
+.ToastCard {
+    display: block;
+    .toast-card-shell {
+      background-color: $secondaryColor;
+      color: $primaryColor;
+    }
+}

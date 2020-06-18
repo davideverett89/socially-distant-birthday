@@ -1,6 +1,7 @@
 import birthdayData from './birthdayData';
 import userData from './userData';
 import userContributorData from './userContributorData';
+import toastData from './toastData';
 
 const getBirthdaysWithGuestsOfHonor = (creatorUid) => new Promise((resolve, reject) => {
   birthdayData.getBirthdaysByCreatorUid(creatorUid).then((birthdays) => {
@@ -40,4 +41,35 @@ const getInvitedBirthdaysByUserUid = (userUid) => new Promise((resolve, reject) 
     .catch((err) => reject(err));
 });
 
-export default { getBirthdaysWithGuestsOfHonor, getInvitedBirthdaysByUserUid };
+const getSingleBirthdayWithGuestOfHonor = (birthdayId) => new Promise((resolve, reject) => {
+  birthdayData.getBirthdayById(birthdayId)
+    .then((response) => {
+      const birthday = response.data;
+      userData.getUsers().then((users) => {
+        const guestOfHonor = users.find((x) => x.uid === birthday.guestOfHonorUid);
+        birthday.guestOfHonor = guestOfHonor.displayName;
+        resolve(birthday);
+      });
+    })
+    .catch((err) => reject(err));
+});
+
+const getToastsWithContributorNameByBirthdayId = (birthdayId) => new Promise((resolve, reject) => {
+  toastData.getToastsByBirthdayId(birthdayId).then((toasts) => {
+    userData.getUsers().then((users) => {
+      const finalToasts = [];
+      toasts.forEach((singleToast) => {
+        const thisToast = { contributorName: '', ...singleToast };
+        const contributor = users.find((x) => x.uid === thisToast.uid);
+        thisToast.contributorName = contributor.displayName;
+        finalToasts.push(thisToast);
+      });
+      resolve(finalToasts);
+    });
+  })
+    .catch((err) => reject(err));
+});
+
+export default {
+  getBirthdaysWithGuestsOfHonor, getInvitedBirthdaysByUserUid, getSingleBirthdayWithGuestOfHonor, getToastsWithContributorNameByBirthdayId,
+};
