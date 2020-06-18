@@ -1,3 +1,11 @@
+@import '../../../styles/variables';
+
 .NewBirthday {
     display: block;
+    .new-birthday-form {
+        .birthday-save-btn {
+            background-color: $tertiaryColor;
+            border: 1px solid black;
+        }
+    }
 }
