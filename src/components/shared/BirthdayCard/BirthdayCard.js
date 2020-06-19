@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 import birthdayShape from '../../../helpers/propz/birthdayShape';
 
 import './BirthdayCard.scss';
@@ -7,10 +9,11 @@ import './BirthdayCard.scss';
 class BirthdayCard extends React.Component {
   static propTypes = {
     birthday: birthdayShape.birthdayShape,
+    removeBirthday: PropTypes.func.isRequired,
   }
 
   render() {
-    const { birthday } = this.props;
+    const { birthday, removeBirthday } = this.props;
     const singleLink = `/birthdays/${birthday.id}`;
     return (
         <div className="my-5 BirthdayCard col-12">
@@ -24,7 +27,8 @@ class BirthdayCard extends React.Component {
                             <p className="card-text">{birthday.date}</p>
                         </div>
                         <div className="col-4 third-column">
-                            <Link className="btn single-view-btn" to={singleLink}>View</Link>
+                            <Link className="mx-2 btn single-view-btn" to={singleLink}>View</Link>
+                            <button className="mx-2 btn delete-birthday-btn" onClick={() => removeBirthday(birthday.id)}>Cancel</button>
                         </div>
                     </div>
                 </div>

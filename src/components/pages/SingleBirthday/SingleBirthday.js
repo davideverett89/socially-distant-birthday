@@ -5,6 +5,7 @@ import smash from '../../../helpers/data/smash';
 import ToastCard from '../../shared/ToastCard/ToastCard';
 
 import './SingleBirthday.scss';
+import birthdayData from '../../../helpers/data/birthdayData';
 
 class SingleBirthday extends React.Component {
   state = {
@@ -23,6 +24,13 @@ class SingleBirthday extends React.Component {
       .catch((err) => console.error('There is an issue with getting a single birthday object and its toasts:', err));
   }
 
+  removeBirthday = () => {
+    const { birthdayId } = this.props.match.params;
+    birthdayData.deleteBirthday(birthdayId)
+      .then(() => this.props.history.push('/dashboard'))
+      .catch((err) => console.error('There was an issue with deleting this birthday:', err));
+  }
+
   render() {
     const { birthday, toasts } = this.state;
     const makeToasts = toasts.map((toast) => (
@@ -34,6 +42,7 @@ class SingleBirthday extends React.Component {
             <div className="d-flex flex-wrap">
               {makeToasts}
             </div>
+            <button className="btn delete-birthday-btn" onClick={this.removeBirthday}>Cancel</button>
         </div>
     );
   }
