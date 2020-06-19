@@ -19,6 +19,22 @@ const getUserContributorsByUserId = (userId) => new Promise((resolve, reject) =>
     .catch((err) => reject(err));
 });
 
+const getUserContributorsByBirthdayId = (birthdayId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/userContributors.json?orderBy="birthdayId"&equalTo="${birthdayId}"`)
+    .then((response) => {
+      const userContributorObject = response.data;
+      const userContributors = [];
+      if (userContributorObject !== null) {
+        Object.keys(userContributorObject).forEach((userContributorId) => {
+          userContributorObject[userContributorId].id = userContributorId;
+          userContributors.push(userContributorObject[userContributorId]);
+        });
+      }
+      resolve(userContributors);
+    })
+    .catch((err) => reject(err));
+});
+
 const postUserContributor = (newUserContributor) => axios.post(`${baseUrl}/userContributors.json`, newUserContributor);
 
-export default { getUserContributorsByUserId, postUserContributor };
+export default { getUserContributorsByUserId, postUserContributor, getUserContributorsByBirthdayId };
