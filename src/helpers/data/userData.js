@@ -20,6 +20,8 @@ const getUsers = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const getUserById = (userId) => axios.get(`${baseUrl}/users/${userId}`);
+
 const getUserByEmail = (email) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/users.json?orderBy="email"&equalTo="${email}"`)
     .then((response) => {
@@ -55,5 +57,5 @@ const getUserByUid = (uid) => new Promise((resolve, reject) => {
 const postUser = (newUser) => axios.post(`${baseUrl}/users.json`, newUser);
 
 export default {
-  getUserByEmail, postUser, getUserByUid, getUsers,
+  getUserByEmail, postUser, getUserByUid, getUsers, getUserById,
 };
