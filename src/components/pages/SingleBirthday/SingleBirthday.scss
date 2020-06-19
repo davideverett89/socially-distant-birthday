@@ -2,6 +2,10 @@
 
 .SingleBirthday {
     display: block;
+    .edit-birthday-btn {
+        background-color: $tertiaryColor;
+        border: 1px solid black;
+    }
     .delete-birthday-btn {
         background-color: $tertiaryColor;
         border: 1px solid black;

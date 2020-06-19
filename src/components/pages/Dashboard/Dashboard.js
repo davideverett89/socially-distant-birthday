@@ -47,10 +47,10 @@ class Dashboard extends React.Component {
   render() {
     const { myBirthdays, myInvitedBirthdays } = this.state;
     const makeBirthdayCards = myBirthdays.map((birthday) => (
-      <BirthdayCard key={birthday.id} birthday={birthday} removeBirthday={this.removeBirthday} />
+      <BirthdayCard key={birthday.id} birthday={birthday} removeBirthday={this.removeBirthday} currentUserCreated={true} />
     ));
     const makeInvitations = myInvitedBirthdays.map((birthday) => (
-      <BirthdayCard key={birthday.id} birthday={birthday} removeBirthday={this.removeBirthday} />
+      <BirthdayCard key={birthday.id} birthday={birthday} removeBirthday={this.removeBirthday} currentUserCreated={false} />
     ));
     return (
         <div className="Dashboard container-fluid p-5">

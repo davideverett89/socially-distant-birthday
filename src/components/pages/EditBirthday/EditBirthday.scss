@@ -1,3 +1,9 @@
+@import '../../../styles/variables';
+
 .EditBirthday {
     display: block;
+    .birthday-edit-btn {
+        background-color: $tertiaryColor;
+        border: 1px solid black;
+    }
 }

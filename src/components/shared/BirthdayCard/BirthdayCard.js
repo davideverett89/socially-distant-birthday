@@ -10,25 +10,28 @@ class BirthdayCard extends React.Component {
   static propTypes = {
     birthday: birthdayShape.birthdayShape,
     removeBirthday: PropTypes.func.isRequired,
+    currentUserCreated: PropTypes.bool.isRequired,
   }
 
   render() {
-    const { birthday, removeBirthday } = this.props;
+    const { birthday, removeBirthday, currentUserCreated } = this.props;
     const singleLink = `/birthdays/${birthday.id}`;
+    const editLink = `/birthdays/edit/${birthday.id}`;
     return (
         <div className="my-5 BirthdayCard col-12">
             <div className="mx-auto card-container">
                 <div className="card-body container-fluid">
                     <div className="row">
-                        <div className="col-4 first-column">
+                        <div className="col-3 first-column">
                             <h5 className="mb-0 card-title">{birthday.guestOfHonor}</h5>
                         </div>
-                        <div className="col-4 second-column">
+                        <div className="col-3 second-column">
                             <p className="card-text">{birthday.date}</p>
                         </div>
-                        <div className="col-4 third-column">
+                        <div className="col-6 third-column">
                             <Link className="mx-2 btn single-view-btn" to={singleLink}>View</Link>
-                            <button className="mx-2 btn delete-birthday-btn" onClick={() => removeBirthday(birthday.id)}>Cancel</button>
+                            {currentUserCreated ? <Link className="mx-2 btn edit-birthday-btn" to={editLink}>Update</Link> : ''}
+                            {currentUserCreated ? <button className="mx-2 btn delete-birthday-btn" onClick={() => removeBirthday(birthday.id)}>Cancel</button> : ''}
                         </div>
                     </div>
                 </div>
