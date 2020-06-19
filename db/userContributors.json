@@ -76,26 +76,22 @@
         "userId" : "user20"
       },
       "userContributor20" : {
-        "birthdayId" : "birthday1",
-        "userId" : "user21"
-      },
-      "userContributor21" : {
         "birthdayId" : "birthday2",
         "userId" : "user16"
       },
-      "userContributor22" : {
+      "userContributor21" : {
         "birthdayId" : "birthday2",
         "userId" : "user17"
       },
-      "userContributor23" : {
+      "userContributor22" : {
         "birthdayId" : "birthday2",
         "userId" : "user18"
       },
-      "userContributor24" : {
+      "userContributor23" : {
         "birthdayId" : "birthday2",
         "userId" : "user20"
       },
-      "userContributor25" : {
+      "userContributor24" : {
         "birthdayId" : "birthday2",
         "userId" : "user21"
       }
