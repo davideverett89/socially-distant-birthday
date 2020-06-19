@@ -1,3 +1,9 @@
+@import '../../../styles/variables';
+
 .SingleBirthday {
     display: block;
+    .delete-birthday-btn {
+        background-color: $tertiaryColor;
+        border: 1px solid black;
+    }
 }
