@@ -6,6 +6,7 @@ import authData from '../../../helpers/data/authData';
 import BirthdayCard from '../../shared/BirthdayCard/BirthdayCard';
 
 import './Dashboard.scss';
+import birthdayData from '../../../helpers/data/birthdayData';
 
 class Dashboard extends React.Component {
   state = {
@@ -29,6 +30,15 @@ class Dashboard extends React.Component {
       .catch((err) => console.error('There is an issue with getting your invited birthdays:', err));
   }
 
+  removeBirthday = (birthdayId) => {
+    birthdayData.deleteBirthday(birthdayId)
+      .then(() => {
+        this.getMyBirthdayEvents();
+        this.getMyInvitedBirthdayEvents();
+      })
+      .catch((err) => console.error('There was an issue with deleting this birthday:', err));
+  }
+
   componentDidMount() {
     this.getMyBirthdayEvents();
     this.getMyInvitedBirthdayEvents();
@@ -37,10 +47,10 @@ class Dashboard extends React.Component {
   render() {
     const { myBirthdays, myInvitedBirthdays } = this.state;
     const makeBirthdayCards = myBirthdays.map((birthday) => (
-      <BirthdayCard key={birthday.id} birthday={birthday} />
+      <BirthdayCard key={birthday.id} birthday={birthday} removeBirthday={this.removeBirthday} />
     ));
     const makeInvitations = myInvitedBirthdays.map((birthday) => (
-      <BirthdayCard key={birthday.id} birthday={birthday} />
+      <BirthdayCard key={birthday.id} birthday={birthday} removeBirthday={this.removeBirthday} />
     ));
     return (
         <div className="Dashboard container-fluid p-5">

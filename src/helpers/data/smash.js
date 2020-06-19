@@ -29,9 +29,11 @@ const getInvitedBirthdaysByUserUid = (userUid) => new Promise((resolve, reject) 
           const finalBirthdays = [];
           userContributors.forEach((singleUC) => {
             const invitedBirthday = birthdays.find((birthday) => birthday.id === singleUC.birthdayId);
-            const guestOfHonor = users.find((x) => x.uid === invitedBirthday.guestOfHonorUid);
-            invitedBirthday.guestOfHonor = guestOfHonor.displayName;
-            finalBirthdays.push(invitedBirthday);
+            if (invitedBirthday !== undefined) {
+              const guestOfHonor = users.find((x) => x.uid === invitedBirthday.guestOfHonorUid);
+              invitedBirthday.guestOfHonor = guestOfHonor.displayName;
+              finalBirthdays.push(invitedBirthday);
+            }
           });
           resolve(finalBirthdays);
         });

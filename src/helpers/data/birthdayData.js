@@ -39,6 +39,8 @@ const getBirthdayById = (birthdayId) => axios.get(`${baseUrl}/birthdays/${birthd
 
 const postBirthday = (newBirthday) => axios.post(`${baseUrl}/birthdays.json`, newBirthday);
 
+const deleteBirthday = (birthdayId) => axios.delete(`${baseUrl}/birthdays/${birthdayId}.json`);
+
 export default {
-  getBirthdaysByCreatorUid, getBirthdayById, getBirthdays, postBirthday,
+  getBirthdaysByCreatorUid, getBirthdayById, getBirthdays, postBirthday, deleteBirthday,
 };
