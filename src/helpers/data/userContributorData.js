@@ -19,4 +19,6 @@ const getUserContributorsByUserId = (userId) => new Promise((resolve, reject) =>
     .catch((err) => reject(err));
 });
 
-export default { getUserContributorsByUserId };
+const postUserContributor = (newUserContributor) => axios.post(`${baseUrl}/userContributors.json`, newUserContributor);
+
+export default { getUserContributorsByUserId, postUserContributor };
