@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import toastShape from '../../../helpers/propz/toastShape';
 
@@ -9,6 +10,7 @@ class ToastCard extends React.Component {
   static propTypes = {
     toast: toastShape.toastShape,
     removeToast: PropTypes.func.isRequired,
+    birthdayId: PropTypes.string.isRequired,
   }
 
   deleteToastEvent = (e) => {
@@ -18,11 +20,13 @@ class ToastCard extends React.Component {
   }
 
   render() {
-    const { toast } = this.props;
+    const { toast, birthdayId } = this.props;
+    const editLink = `/birthdays/${birthdayId}/toasts/edit/${toast.id}`;
     return (
       <div className="ToastCard col-3">
         <div className="toast-card-shell mb-3">
             <div className="d-flex justify-content-end card-header">
+              <Link className="btn edit-toast-btn" to={editLink}><i className="fas fa-edit fa-1x"></i></Link>
               <button className="btn toast-delete-btn" onClick={this.deleteToastEvent}>&#215;</button>
             </div>
             <div className="card-body">

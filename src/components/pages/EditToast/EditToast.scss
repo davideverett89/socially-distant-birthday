@@ -1,3 +1,11 @@
+@import '../../../styles/variables';
+
 .EditToast {
     display: block;
+    .update-toast-form {
+        .toast-update-btn {
+            background-color: $tertiaryColor;
+            border: 1px solid black;
+        }
+    }
 }

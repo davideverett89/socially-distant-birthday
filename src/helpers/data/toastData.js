@@ -19,8 +19,14 @@ const getToastsByBirthdayId = (birthdayId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const getSingleToast = (toastId) => axios.get(`${baseUrl}/toasts/${toastId}.json`);
+
 const postToast = (newToast) => axios.post(`${baseUrl}/toasts.json`, newToast);
 
 const deleteToast = (toastId) => axios.delete(`${baseUrl}/toasts/${toastId}.json`);
 
-export default { getToastsByBirthdayId, postToast, deleteToast };
+const patchToast = (toastId, editedMessage) => axios.patch(`${baseUrl}/toasts/${toastId}.json`, { message: editedMessage });
+
+export default {
+  getToastsByBirthdayId, postToast, deleteToast, getSingleToast, patchToast,
+};
