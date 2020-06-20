@@ -91,7 +91,7 @@ class NewBirthday extends React.Component {
 
   render() {
     const {
-      birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName,
+      birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName, invitees,
     } = this.state;
     const makeUserRadios = users.map((user, i) => (
       <div key={user.id} className="form-check">
@@ -106,6 +106,13 @@ class NewBirthday extends React.Component {
         <label className="form-check-label" htmlFor={`userCheck${i + 1}`}>{user.displayName}</label>
       </div>
     ));
+
+    const makeGuestList = invitees.map((user, i) => {
+      const thisUser = users.find((x) => x.id === user);
+      return (
+        <li key={`user${i + 1}`}>{thisUser.displayName}</li>
+      );
+    });
 
     return (
         <div className="NewBirthday my-5">
@@ -139,9 +146,13 @@ class NewBirthday extends React.Component {
                     <h2 className="display-4">{guestOfHonorName}</h2>
                     {guestOfHonorName === '' ? '' : <h2 className="display-4">on</h2>}
                     <h2 className="display-4">{birthdayDate}</h2>
+                    <h2>Guests Invited:</h2>
+                    <ul className="list-group">
+                      {makeGuestList}
+                    </ul>
                 </div>
               </div>
-              <button className="btn birthday-save-btn" onClick={this.saveBirthday}>Save Birthday</button>
+              <button className="my-4 btn birthday-save-btn" onClick={this.saveBirthday}>Save Birthday</button>
             </form>
         </div>
     );
