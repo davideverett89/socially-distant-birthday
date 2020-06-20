@@ -30,7 +30,7 @@ class Dashboard extends React.Component {
   }
 
   removeBirthday = (birthdayId) => {
-    smash.deleteBirthdayAndBirthdayInvitations(birthdayId)
+    smash.deleteBirthdayAndBirthdayInvitationsAndToasts(birthdayId)
       .then(() => {
         this.getMyBirthdayEvents();
         this.getMyInvitedBirthdayEvents();

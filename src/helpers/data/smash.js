@@ -72,18 +72,23 @@ const getToastsWithContributorNameByBirthdayId = (birthdayId) => new Promise((re
     .catch((err) => reject(err));
 });
 
-const deleteBirthdayAndBirthdayInvitations = (birthdayId) => new Promise((resolve, reject) => {
+const deleteBirthdayAndBirthdayInvitationsAndToasts = (birthdayId) => new Promise((resolve, reject) => {
   birthdayData.deleteBirthday(birthdayId).then(() => {
     userContributorData.getUserContributorsByBirthdayId(birthdayId).then((userContributors) => {
-      userContributors.forEach((userContributor) => {
-        userContributorData.deleteUserContributor(userContributor.id);
+      toastData.getToastsByBirthdayId(birthdayId).then((toasts) => {
+        userContributors.forEach((userContributor) => {
+          userContributorData.deleteUserContributor(userContributor.id);
+        });
+        toasts.forEach((toast) => {
+          toastData.deleteToast(toast.id);
+        });
+        resolve();
       });
-      resolve();
     });
   })
     .catch((err) => reject(err));
 });
 
 export default {
-  getBirthdaysWithGuestsOfHonor, getInvitedBirthdaysByUserUid, getSingleBirthdayWithGuestOfHonor, getToastsWithContributorNameByBirthdayId, deleteBirthdayAndBirthdayInvitations,
+  getBirthdaysWithGuestsOfHonor, getInvitedBirthdaysByUserUid, getSingleBirthdayWithGuestOfHonor, getToastsWithContributorNameByBirthdayId, deleteBirthdayAndBirthdayInvitationsAndToasts,
 };
