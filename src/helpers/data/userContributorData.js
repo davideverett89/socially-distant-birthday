@@ -37,4 +37,8 @@ const getUserContributorsByBirthdayId = (birthdayId) => new Promise((resolve, re
 
 const postUserContributor = (newUserContributor) => axios.post(`${baseUrl}/userContributors.json`, newUserContributor);
 
-export default { getUserContributorsByUserId, postUserContributor, getUserContributorsByBirthdayId };
+const deleteUserContributor = (userContributorId) => axios.delete(`${baseUrl}/userContributors/${userContributorId}.json`);
+
+export default {
+  getUserContributorsByUserId, postUserContributor, getUserContributorsByBirthdayId, deleteUserContributor,
+};
