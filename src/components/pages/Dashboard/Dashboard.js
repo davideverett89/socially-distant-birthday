@@ -6,7 +6,6 @@ import authData from '../../../helpers/data/authData';
 import BirthdayCard from '../../shared/BirthdayCard/BirthdayCard';
 
 import './Dashboard.scss';
-import birthdayData from '../../../helpers/data/birthdayData';
 
 class Dashboard extends React.Component {
   state = {
@@ -31,7 +30,7 @@ class Dashboard extends React.Component {
   }
 
   removeBirthday = (birthdayId) => {
-    birthdayData.deleteBirthday(birthdayId)
+    smash.deleteBirthdayAndBirthdayInvitations(birthdayId)
       .then(() => {
         this.getMyBirthdayEvents();
         this.getMyInvitedBirthdayEvents();

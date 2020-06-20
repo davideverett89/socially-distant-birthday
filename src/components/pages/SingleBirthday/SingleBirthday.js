@@ -7,7 +7,6 @@ import authData from '../../../helpers/data/authData';
 import ToastCard from '../../shared/ToastCard/ToastCard';
 
 import './SingleBirthday.scss';
-import birthdayData from '../../../helpers/data/birthdayData';
 
 class SingleBirthday extends React.Component {
   state = {
@@ -30,7 +29,7 @@ class SingleBirthday extends React.Component {
 
   removeBirthday = () => {
     const { birthdayId } = this.props.match.params;
-    birthdayData.deleteBirthday(birthdayId)
+    smash.deleteBirthdayAndBirthdayInvitations(birthdayId)
       .then(() => this.props.history.push('/dashboard'))
       .catch((err) => console.error('There was an issue with deleting this birthday:', err));
   }
