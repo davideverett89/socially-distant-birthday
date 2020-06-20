@@ -70,7 +70,7 @@ class App extends React.Component {
                 <PrivateRoute path='/home' component={Home} authed={authed} />
                 <PrivateRoute path='/dashboard' component={Dashboard} authed={authed} />
                 <PrivateRoute path='/birthdays/edit/:birthdayId' component={EditBirthday} authed={authed} />
-                <PrivateRoute path='/toasts/edit/:toastId' component={EditToast} authed={authed} />
+                <PrivateRoute path='/birthdays/:birthdayId/toasts/edit/:toastId' component={EditToast} authed={authed} />
                 <PrivateRoute path='/birthdays/new' component={NewBirthday} authed={authed} />
                 <PrivateRoute path='/birthdays/:birthdayId/toasts/new' component={NewToast} authed={authed} />
                 <PrivateRoute path='/birthdays/:birthdayId' component={SingleBirthday} authed={authed} />
