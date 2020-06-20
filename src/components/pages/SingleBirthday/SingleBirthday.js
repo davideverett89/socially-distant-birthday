@@ -34,7 +34,7 @@ class SingleBirthday extends React.Component {
 
   removeBirthday = () => {
     const { birthdayId } = this.props.match.params;
-    smash.deleteBirthdayAndBirthdayInvitations(birthdayId)
+    smash.deleteBirthdayAndBirthdayInvitationsAndToasts(birthdayId)
       .then(() => this.props.history.push('/dashboard'))
       .catch((err) => console.error('There was an issue with deleting this birthday:', err));
   }
