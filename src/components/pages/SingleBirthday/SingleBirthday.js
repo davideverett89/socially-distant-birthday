@@ -39,13 +39,15 @@ class SingleBirthday extends React.Component {
     const { birthday, toasts, currentUserCreated } = this.state;
     const { birthdayId } = this.props.match.params;
     const editLink = `/birthdays/edit/${birthdayId}`;
+    const newToastLink = `/birthdays/${birthdayId}/toasts/new`;
     const makeToasts = toasts.map((toast) => (
       <ToastCard key={toast.id} toast={toast} />
     ));
     return (
-        <div className="SingleBirthday">
+        <div className="SingleBirthday my-5">
             <h1>{birthday.guestOfHonor}'s Birthday!</h1>
-            <div className="d-flex flex-wrap">
+            <Link className="my-5 btn add-toast-btn" to={newToastLink}>Add New Toast</Link>
+            <div className="mb-3 d-flex flex-wrap">
               {makeToasts}
             </div>
             {

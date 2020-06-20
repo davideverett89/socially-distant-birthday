@@ -19,4 +19,6 @@ const getToastsByBirthdayId = (birthdayId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getToastsByBirthdayId };
+const postToast = (newToast) => axios.post(`${baseUrl}/toasts.json`, newToast);
+
+export default { getToastsByBirthdayId, postToast };
