@@ -2,8 +2,13 @@
 
 .EditBirthday {
     display: block;
-    .birthday-edit-btn {
-        background-color: $tertiaryColor;
+    .edit-birthday-form {
         border: 1px solid black;
+        background-color: $secondaryColor;
+        border-radius: 40px;
+        .birthday-edit-btn {
+            background-color: $tertiaryColor;
+            border: 1px solid black;
+        }
     }
 }

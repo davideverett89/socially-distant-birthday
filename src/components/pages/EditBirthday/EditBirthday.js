@@ -69,25 +69,34 @@ class EditBirthday extends React.Component {
     ));
 
     return (
-        <div className="EditBirthday">
+        <div className="EditBirthday my-5">
             <h1>Edit Birthday</h1>
-            <form className="col-9 mx-auto my-5 new-birthday-form">
-              <div className="row">
+            <form className="p-5 col-9 mx-auto my-5 edit-birthday-form">
+            <div className="row">
                 <div className="col-6">
-                  <div className="text-left m-auto date-picker">
-                    <label className="mx-2" htmlFor="start">Birthday date:</label>
-                    <input type="date" id="start" name="trip-start"
-                    value={birthdayDate}
-                    min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
-                    {/* This is all just a test */}
-                    <h2 className="display-4">I am planning a birthday event for:</h2>
-                    <h2 className="display-4">{guestOfHonorName}</h2>
-                    {guestOfHonorName === '' ? '' : <h2 className="display-4">On</h2>}
-                    <h2 className="display-4">{birthdayDate}</h2>
+                  <div className="row">
+                    <div className="text-left col-6">
+                      <h6>Whose birthday is it?</h6>
+                      {makeUserRadios}
+                    </div>
+                  </div>
+                  <div className="mt-5 col-9">
+                    <div className="text-left m-auto date-picker">
+                      <h6>When is it?</h6>
+                      <label className="mx-2" htmlFor="start">Birthday date:</label>
+                      <input type="date" id="start" name="trip-start"
+                      value={birthdayDate}
+                      min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
+                    </div>
                   </div>
                 </div>
-                <div className="text-left col-6">
-                  {makeUserRadios}
+                <div className="col-6">
+                  {/* This is all just a test */}
+                    <h2 className="display-4">I am planning a Birthday Event for:</h2>
+                    <h2 className="display-4">{guestOfHonorName}</h2>
+                    {guestOfHonorName === '' ? '' : <h2 className="display-4">on</h2>}
+                    <h2 className="display-4">{birthdayDate}</h2>
+                    <h2>Guests Invited:</h2>
                 </div>
               </div>
               <button className="btn birthday-edit-btn" onClick={this.updateBirthday}>Update Birthday</button>

@@ -3,6 +3,9 @@
 .NewBirthday {
     display: block;
     .new-birthday-form {
+        border: 1px solid black;
+        background-color: $secondaryColor;
+        border-radius: 40px;
         .birthday-save-btn {
             background-color: $tertiaryColor;
             border: 1px solid black;

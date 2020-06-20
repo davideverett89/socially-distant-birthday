@@ -4,27 +4,32 @@
     display: block;
     .home-header {
         color: $secondaryColor;
+        text-shadow:
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+         -1px 1px 0 #000,
+          1px 1px 0 #000;
     }
     .big-image-container {
         position: relative;
         .covid-image {
-            width: 400px;
-            height: 400px;
+            width: 200px;
+            height: 200px;
         }
         .equal-image {
-            width: 400px;
-            height: 200px; 
+            width: 200px;
+            height: 100px; 
         }
         .little-image-container {
             .cancelled-image {
-                width: 400px;
-                height: 400px;
+                width: 200px;
+                height: 200px;
                 position: absolute;
                 z-index: 2;
             }
             .cake-image {
-                width: 400px;
-                height: 400px;
+                width: 200px;
+                height: 200px;
                 position: relative;
                 top: 0;
                 left: 0;
@@ -34,8 +39,13 @@
     }
     .home-intro {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: x-large;
+        font-size: 40px;
         color: $secondaryColor;
+        text-shadow:
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+         -1px 1px 0 #000,
+          1px 1px 0 #000;
     }
     .home-dash-btn {
         background-color: $tertiaryColor;

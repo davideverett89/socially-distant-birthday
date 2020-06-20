@@ -91,7 +91,7 @@ class NewBirthday extends React.Component {
 
   render() {
     const {
-      birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName,
+      birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName, invitees,
     } = this.state;
     const makeUserRadios = users.map((user, i) => (
       <div key={user.id} className="form-check">
@@ -107,32 +107,52 @@ class NewBirthday extends React.Component {
       </div>
     ));
 
+    const makeGuestList = invitees.map((user, i) => {
+      const thisUser = users.find((x) => x.id === user);
+      return (
+        <li key={`user${i + 1}`}>{thisUser.displayName}</li>
+      );
+    });
+
     return (
         <div className="NewBirthday my-5">
-            <h1>New Birthday</h1>
-            <form className="col-9 mx-auto my-5 new-birthday-form">
+            <h1>Create A New Birthday</h1>
+            <form className="p-5 col-9 mx-auto my-5 new-birthday-form">
               <div className="row">
-                <div className="col-4">
-                  <div className="text-left m-auto date-picker">
-                    <label className="mx-2" htmlFor="start">Birthday date:</label>
-                    <input type="date" id="start" name="trip-start"
-                    value={birthdayDate}
-                    min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
-                    {/* This is all just a test */}
-                    <h2 className="display-4">I am planning a birthday event for:</h2>
-                    <h2 className="display-4">{guestOfHonorName}</h2>
-                    {guestOfHonorName === '' ? '' : <h2 className="display-4">On</h2>}
-                    <h2 className="display-4">{birthdayDate}</h2>
+                <div className="col-6">
+                  <div className="row">
+                    <div className="text-left col-6">
+                      <h6>Whose birthday is it?</h6>
+                      {makeUserRadios}
+                    </div>
+                    <div className="text-left col-6">
+                      <h6>Who are you inviting?</h6>
+                      {makeUserCheckboxes}
+                    </div>
+                  </div>
+                  <div className="mt-5 col-9">
+                    <div className="text-left m-auto date-picker">
+                      <h6>When is it?</h6>
+                      <label className="mx-2" htmlFor="start">Birthday date:</label>
+                      <input type="date" id="start" name="trip-start"
+                      value={birthdayDate}
+                      min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
+                    </div>
                   </div>
                 </div>
-                <div className="text-left col-4">
-                  {makeUserRadios}
-                </div>
-                <div className="text-left col-4">
-                  {makeUserCheckboxes}
+                <div className="col-6">
+                  {/* This is all just a test */}
+                    <h2 className="display-4">I am planning a Birthday Event for:</h2>
+                    <h2 className="display-4">{guestOfHonorName}</h2>
+                    {guestOfHonorName === '' ? '' : <h2 className="display-4">on</h2>}
+                    <h2 className="display-4">{birthdayDate}</h2>
+                    <h2>Guests Invited:</h2>
+                    <ul className="list-group">
+                      {makeGuestList}
+                    </ul>
                 </div>
               </div>
-              <button className="btn birthday-save-btn" onClick={this.saveBirthday}>Save Birthday</button>
+              <button className="my-4 btn birthday-save-btn" onClick={this.saveBirthday}>Save Birthday</button>
             </form>
         </div>
     );
