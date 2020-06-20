@@ -2,6 +2,10 @@
 
 .SingleBirthday {
     display: block;
+    .add-toast-btn {
+        background-color: $tertiaryColor;
+        border: 1px solid black;
+    }
     .edit-birthday-btn {
         background-color: $tertiaryColor;
         border: 1px solid black;
