@@ -21,4 +21,6 @@ const getToastsByBirthdayId = (birthdayId) => new Promise((resolve, reject) => {
 
 const postToast = (newToast) => axios.post(`${baseUrl}/toasts.json`, newToast);
 
-export default { getToastsByBirthdayId, postToast };
+const deleteToast = (toastId) => axios.delete(`${baseUrl}/toasts/${toastId}.json`);
+
+export default { getToastsByBirthdayId, postToast, deleteToast };
