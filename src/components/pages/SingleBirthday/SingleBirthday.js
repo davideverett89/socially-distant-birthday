@@ -18,7 +18,7 @@ class SingleBirthday extends React.Component {
 
   getBirthdayData = () => {
     const { birthdayId } = this.props.match.params;
-    smash.getSingleBirthdayWithGuestOfHonor(birthdayId)
+    smash.getSingleBirthdayWithGuestOfHonorAndInvitations(birthdayId)
       .then((birthday) => {
         const currentUserCreated = birthday.creatorUid === authData.getUid();
         this.setState({ birthday, currentUserCreated });
