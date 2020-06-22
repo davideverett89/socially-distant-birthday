@@ -37,6 +37,7 @@ class NewBirthday extends React.Component {
   birthdayGuestOfHonorUidChange = (e) => {
     const { userName } = e.target.dataset;
     this.setState({ birthdayGuestOfHonorUid: e.target.value, guestOfHonorName: userName });
+    this.resetUsers();
   }
 
   updateInvitees = (finalUsers) => {
@@ -47,6 +48,17 @@ class NewBirthday extends React.Component {
       }
     });
     this.setState({ invitees });
+  }
+
+  resetUsers = () => {
+    const { users } = this.state;
+    const finalUsers = [];
+    users.forEach((user) => {
+      const newUser = { ...user };
+      newUser.isChecked = false;
+      finalUsers.push(newUser);
+    });
+    this.setState({ users: finalUsers }, this.updateInvitees(finalUsers));
   }
 
   userIsCheckedChange = (e) => {
@@ -93,24 +105,32 @@ class NewBirthday extends React.Component {
     const {
       birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName, invitees,
     } = this.state;
-    const makeUserRadios = users.map((user, i) => (
-      <div key={user.id} className="form-check">
-        <input className="form-check-input" type="radio" name="userRadios" data-user-name={user.displayName} id={`userRadios${i + 1}`} value={user.uid} onChange={this.birthdayGuestOfHonorUidChange} checked={birthdayGuestOfHonorUid === user.uid} />
-        <label className="form-check-label" htmlFor={`userRadios${i + 1}`}>{user.displayName}</label>
-      </div>
-    ));
+    const makeUserRadios = users.map((user, i) => {
+      const isCurrentUser = user.uid === authData.getUid();
+      if (isCurrentUser) return '';
+      return (
+        <div key={user.id} className="form-check">
+          <input className="form-check-input" type="radio" name="userRadios" data-user-name={user.displayName} id={`userRadios${i + 1}`} value={user.uid} onChange={this.birthdayGuestOfHonorUidChange} checked={birthdayGuestOfHonorUid === user.uid} />
+          <label className="form-check-label" htmlFor={`userRadios${i + 1}`}>{user.displayName}</label>
+        </div>
+      );
+    });
 
-    const makeUserCheckboxes = users.map((user, i) => (
-      <div key={user.id} className="form-check">
-        <input className="form-check-input" type="checkbox" value={user.id} id={`userCheck${i + 1}`} onChange={this.userIsCheckedChange} checked={user.isChecked} />
-        <label className="form-check-label" htmlFor={`userCheck${i + 1}`}>{user.displayName}</label>
+    const makeUserCheckboxes = users.map((user, i) => {
+      const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
+      if (isCurrentUserOrGOH) return '';
+      return (
+        <div key={user.id} className="form-check">
+          <input className="form-check-input" type="checkbox" value={user.id} id={`userCheck${i + 1}`} onChange={this.userIsCheckedChange} checked={user.isChecked} />
+          <label className="form-check-label" htmlFor={`userCheck${i + 1}`}>{user.displayName}</label>
       </div>
-    ));
+      );
+    });
 
     const makeGuestList = invitees.map((user, i) => {
       const thisUser = users.find((x) => x.id === user);
       return (
-        <li key={`user${i + 1}`}>{thisUser.displayName}</li>
+        <li key={`invitation${i + 1}`} className="guest-list-item">{thisUser.displayName}</li>
       );
     });
 
@@ -140,14 +160,14 @@ class NewBirthday extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-6">
+                <div className="info-column col-6">
                   {/* This is all just a test */}
                     <h2 className="display-4">I am planning a Birthday Event for:</h2>
                     <h2 className="display-4">{guestOfHonorName}</h2>
                     {guestOfHonorName === '' ? '' : <h2 className="display-4">on</h2>}
                     <h2 className="display-4">{birthdayDate}</h2>
                     <h2>Guests Invited:</h2>
-                    <ul className="list-group">
+                    <ul className="guest-list col-6 mx-auto list-group list-group-flush">
                       {makeGuestList}
                     </ul>
                 </div>

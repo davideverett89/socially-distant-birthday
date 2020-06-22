@@ -10,5 +10,10 @@
             background-color: $tertiaryColor;
             border: 1px solid black;
         }
+        .info-column {
+            .guest-list {
+                list-style-type: none;
+            }
+        }
     }
 }
