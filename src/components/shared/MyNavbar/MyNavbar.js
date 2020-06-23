@@ -15,6 +15,9 @@ import {
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+import balloon from '../../../images/Purple-Balloon-P.png';
+import exclamation from '../../../images/exclamation-point.png';
+
 import './MyNavbar.scss';
 
 class MyNavbar extends React.Component {
@@ -63,8 +66,11 @@ class MyNavbar extends React.Component {
 
       return (
         <div className="MyNavbar">
-          <Navbar light expand="md">
-            <NavbarBrand href="/"><i className="mr-3 fas fa-birthday-cake"></i> { authed ? 'Socially Distant Birthday' : ''}</NavbarBrand>
+          <Navbar className="nav-container" light expand="md">
+            <NavbarBrand href="/">
+              <img className="balloon-logo" src={balloon} alt="balloon" />
+              <img className="exclamation" src={exclamation} alt="exclamation" />
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={isOpen} navbar>
               {buildNavLinks()}

@@ -2,6 +2,10 @@
 
 .Home {
     display: block;
+    .decorations {
+      z-index: 1;
+      background-color: white;
+    }
     .home-header {
         color: $secondaryColor;
         text-shadow:

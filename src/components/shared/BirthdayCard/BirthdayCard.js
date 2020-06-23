@@ -29,9 +29,9 @@ class BirthdayCard extends React.Component {
                             <p className="card-text">{birthday.date}</p>
                         </div>
                         <div className="col-6 third-column">
-                            <Link className="mx-2 btn single-view-btn" to={singleLink}>View</Link>
+                            <Link className="mx-2 btn btn-success single-view-btn" to={singleLink}>View</Link>
                             {currentUserCreated ? <Link className="mx-2 btn edit-birthday-btn" to={editLink}>Update</Link> : ''}
-                            {currentUserCreated ? <button className="mx-2 btn delete-birthday-btn" onClick={() => removeBirthday(birthday.id)}>Cancel</button> : ''}
+                            {currentUserCreated ? <button className="mx-2 btn btn-danger delete-birthday-btn" onClick={() => removeBirthday(birthday.id)}>Cancel</button> : ''}
                         </div>
                     </div>
                 </div>

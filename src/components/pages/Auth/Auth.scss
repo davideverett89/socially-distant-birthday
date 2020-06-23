@@ -10,9 +10,13 @@
          -1px 1px 0 #000,
           1px 1px 0 #000;
     }
+    .decorations {
+        background-color: white;
+    }
     .auth-image {
         height: 320px;
         width: 320px;
+        background-color: white;
     }
     .login-btn {
         background-color: $tertiaryColor;
