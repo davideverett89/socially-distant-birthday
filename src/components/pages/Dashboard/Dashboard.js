@@ -52,18 +52,18 @@ class Dashboard extends React.Component {
       <BirthdayCard key={birthday.id} birthday={birthday} removeBirthday={this.removeBirthday} currentUserCreated={false} />
     ));
     return (
-        <div className="Dashboard container-fluid p-5">
+        <div className="col-11 my-5 Dashboard container-fluid p-5">
             <h1 className="mb-5 display-4 dashboard-header">Your Birthday Dashboard!</h1>
             <div className="row">
               <div className="col-6">
                 <div className="birthday-column">
-                  <h3 className="m-2">Organized Birthdays</h3>
+                  <h2 className="m-2">Organized Birthdays</h2>
                   {makeBirthdayCards}
                 </div>
               </div>
               <div className="col-6">
                 <div className="birthday-column">
-                  <h3 className="m-2">Invited Birthdays</h3>
+                  <h2 className="m-2">Invited Birthdays</h2>
                   {makeInvitations}
                 </div>
               </div>
