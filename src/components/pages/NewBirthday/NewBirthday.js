@@ -136,7 +136,7 @@ class NewBirthday extends React.Component {
 
     return (
         <div className="NewBirthday my-5">
-            <h1>Create A New Birthday</h1>
+            <h1 className="new-birthday-header display-4">Create A New Birthday!</h1>
             <form className="p-5 col-9 mx-auto my-5 new-birthday-form">
               <div className="row">
                 <div className="col-6">

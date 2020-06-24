@@ -7,8 +7,7 @@ import authData from '../../../helpers/data/authData';
 import userData from '../../../helpers/data/userData';
 
 import './Auth.scss';
-import birthdayCake from '../../../images/1F382-birthday-cake-512.png';
-import decorations from '../../../images/Purple-Balloon-N.png';
+import cake from '../../../images/1F382-birthday-cake-512.png';
 
 class Auth extends React.Component {
   saveUser = () => {
@@ -45,11 +44,13 @@ class Auth extends React.Component {
 
     render() {
       return (
-        <div className="Auth d-flex flex-column align-items-center justify-content-between">
-            <img className="decorations" src={decorations} alt="decorations" />
-            <img className="my-5 col-12 auth-image" src={birthdayCake} alt="cake" />
-            <h2 className="my-2 display-4 auth-header">Please Sign In</h2>
-            <button className="my-5 btn login-btn" onClick={this.loginClickEvent}>Login</button>
+        <div className="Auth">
+            <div className="my-5 col-6 mx-auto auth-flex d-flex flex-column justify-content-center align-items-center">
+              <h1 className="display-1 brand-header">Welcome To Aparty!</h1>
+              <img className="auth-image" src={cake} alt="cake" />
+              <h2 className="my-2 display-4 auth-header">Please Sign In</h2>
+              <button className="my-5 btn login-btn" onClick={this.loginClickEvent}>Login</button>
+            </div>
         </div>
       );
     }

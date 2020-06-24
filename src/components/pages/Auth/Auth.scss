@@ -2,26 +2,59 @@
 
 .Auth {
     display: block;
+    .auth-flex {
+        background-color: $secondaryColor;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+        .brand-header {
+            font-family: $primaryFont;
+            color: $tertiaryColor;
+            text-shadow:
+            -1px -1px 0 #000,  
+             1px -1px 0 #000,
+             -1px 1px 0 #000,
+              1px 1px 0 #000;
+        }
+    }
     .auth-header {
-        color: $secondaryColor;
+        font-family: $secondaryFont;
+        color: $tertiaryColor;
         text-shadow:
         -1px -1px 0 #000,  
          1px -1px 0 #000,
          -1px 1px 0 #000,
           1px 1px 0 #000;
     }
-    .decorations {
-        background-color: white;
-    }
     .auth-image {
-        height: 320px;
-        width: 320px;
-        background-color: white;
+        max-width: 100%;
+        height: auto;
     }
     .login-btn {
         background-color: $tertiaryColor;
+        font-family: $primaryFont;
+        color: $secondaryColor;
+        font-size: 20px;
         width: 450px;
         height: 70px;
         border: 1px solid black;
+        text-shadow:
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+         -1px 1px 0 #000,
+          1px 1px 0 #000;
+          box-shadow:
+          0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+          0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+          0 12.5px 10px rgba(0, 0, 0, 0.06),
+          0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+          0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+          0 100px 80px rgba(0, 0, 0, 0.12);
     }
 }

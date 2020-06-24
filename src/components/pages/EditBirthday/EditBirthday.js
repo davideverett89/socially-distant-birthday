@@ -158,7 +158,7 @@ class EditBirthday extends React.Component {
 
     return (
         <div className="EditBirthday my-5">
-            <h1>Edit Birthday</h1>
+            <h1 className="edit-birthday-header display-4">Edit Birthday</h1>
             <form className="p-5 col-9 mx-auto my-5 edit-birthday-form">
             <div className="row">
                 <div className="col-6">

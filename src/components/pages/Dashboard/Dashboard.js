@@ -53,7 +53,7 @@ class Dashboard extends React.Component {
     ));
     return (
         <div className="Dashboard container-fluid p-5">
-            <h1 className="mb-5 display-2 dashboard-header">Your Birthday Dashboard</h1>
+            <h1 className="mb-5 display-4 dashboard-header">Your Birthday Dashboard!</h1>
             <div className="row">
               <div className="col-6">
                 <div className="birthday-column">
