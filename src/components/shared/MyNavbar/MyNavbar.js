@@ -65,7 +65,7 @@ class MyNavbar extends React.Component {
         <div className="MyNavbar">
           <Navbar className="nav-container" light expand="md">
             <NavbarBrand className="navbar-brand-container" href="/">
-              <h2 className="nav-brand">Apparty!</h2>
+              <h2 className="nav-brand">Apparty!!!</h2>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={isOpen} navbar>

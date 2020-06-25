@@ -46,7 +46,7 @@ class Auth extends React.Component {
       return (
         <div className="Auth">
             <div className="my-5 col-6 mx-auto auth-flex d-flex flex-column justify-content-center align-items-center">
-              <h1 className="display-1 brand-header">Welcome To Aparty!</h1>
+              <h1 className="display-1 brand-header">Welcome To Apparty!</h1>
               <img className="auth-image" src={cake} alt="cake" />
               <h2 className="my-2 display-4 auth-header">Please Sign In</h2>
               <button className="my-5 btn login-btn" onClick={this.loginClickEvent}>Login</button>
