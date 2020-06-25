@@ -3,8 +3,8 @@
 .EditBirthday {
     display: block;
     .edit-birthday-header {
-        font-family: 'Open Sans', sans-serif;
-        color: $secondaryColor;
+        color: $quaternaryColor;
+        font-family: $primaryFont;
         text-shadow:
         -1px -1px 0 #000,  
          1px -1px 0 #000,
@@ -13,8 +13,9 @@
     }
     .edit-birthday-form {
         border: 1px solid black;
+        padding-bottom: 35px !important;
         background-color: $secondaryColor;
-        border-radius: 40px;
+        border-radius: 10px;
         box-shadow:
         0 2.8px 2.2px rgba(0, 0, 0, 0.034),
         0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -22,17 +23,107 @@
         0 22.3px 17.9px rgba(0, 0, 0, 0.072),
         0 41.8px 33.4px rgba(0, 0, 0, 0.086),
         0 100px 80px rgba(0, 0, 0, 0.12);
-        .birthday-edit-btn {
-            background-color: $tertiaryColor;
+        .selection-column {
+            background-color: $primaryColor;
+            padding-left: 88px !important;
             border: 1px solid black;
+            border-radius: 10px;
+            box-shadow:
+            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
         }
         .info-column {
+            background-color: $primaryColor;
+            border: 1px solid black;
+            border-radius: 10px;
+            min-height: 691px;
+            box-shadow:
+            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
+            .guest-of-honor-name {
+                font-family: $primaryFont;
+                color: $tertiaryColor;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+            }
+            .birthday-date {
+                font-family: $primaryFont;
+                color: $tertiaryColor;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+            }
             h2 {
-                font-family: 'Open Sans', sans-serif;
+                font-family: $primaryFont;
+                color: $secondaryColor;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+            }
+            h3 {
+                font-family: $primaryFont;
+                color: $tertiaryColor;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+            }
+            .already-invited-header {
+                color: $secondaryColor;
+                font-family: $primaryFont;
+            }
+            .guest-invited-header {
+                color: $secondaryColor;
+                font-family: $primaryFont;
             }
             .guest-list {
+                font-family: $primaryFont;
+                font-size: 25px;
+                color: $tertiaryColor;
                 list-style-type: none;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+                  max-height: 300px;
+                  overflow-y: auto;
             }
+        }
+        .birthday-edit-btn {
+            font-family: $primaryFont;
+            font-size: 25px;
+            color: $secondaryColor;
+            background-color: $primaryColor;
+            border: 1px solid black;
+            box-shadow:
+            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
+            text-shadow:
+            -1px -1px 0 #000,  
+             1px -1px 0 #000,
+             -1px 1px 0 #000,
+              1px 1px 0 #000;
         }
     }
 }

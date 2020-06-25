@@ -136,43 +136,47 @@ class NewBirthday extends React.Component {
 
     return (
         <div className="NewBirthday my-5">
-            <h1 className="new-birthday-header display-4">Create A New Birthday!</h1>
-            <form className="p-5 col-9 mx-auto my-5 new-birthday-form">
+            <h1 className="new-birthday-header display-3">Create A New Birthday!</h1>
+            <form className="p-5 col-10 mx-auto my-5 new-birthday-form">
               <div className="row">
                 <div className="col-6">
-                  <div className="row">
-                    <div className="text-left col-6">
+                  <div className="p-5 mx-1 selection-column row">
+                    <div className="p-5 text-left col-6">
                       <h6>Whose birthday is it?</h6>
                       {makeUserRadios}
                     </div>
-                    <div className="text-left col-6">
+                    <div className="p-5 text-left col-6">
                       <h6>Who are you inviting?</h6>
                       {makeUserCheckboxes}
                     </div>
-                  </div>
-                  <div className="mt-5 col-9">
-                    <div className="text-left m-auto date-picker">
-                      <h6>When is it?</h6>
-                      <label className="mx-2" htmlFor="start">Birthday date:</label>
-                      <input type="date" id="start" name="trip-start"
-                      value={birthdayDate}
-                      min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
+                    <div className="mt-5 mx-auto col-9">
+                      <div className="text-left m-auto date-picker">
+                        <h6>When is it?</h6>
+                        <label className="mx-2" htmlFor="start">Birthday date:</label>
+                        <input type="date" id="start" name="trip-start"
+                        value={birthdayDate}
+                        min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="info-column col-6">
-                  {/* This is all just a test */}
+                <div className="col-6">
+                  <div className="info-column p-5 mx-1 d-flex flex-column justify-content-start align-items-center">
                     <h2 className="display-4">I am planning a Birthday Event for:</h2>
-                    <h2 className="display-4">{guestOfHonorName}</h2>
-                    {guestOfHonorName === '' ? '' : <h2 className="display-4">on</h2>}
-                    <h2 className="display-4">{birthdayDate}</h2>
-                    <h2>Guests Invited:</h2>
-                    <ul className="guest-list col-6 mx-auto list-group list-group-flush">
-                      {makeGuestList}
+                    {guestOfHonorName === ''
+                      ? (<h4 className="on">(Insert Name Here)</h4>)
+                      : (<h3 className="guest-of-honor-name">{guestOfHonorName}</h3>)
+                    }
+                    <h4 className="on">{birthdayDate === '' ? '(Insert Date Here)' : 'on'}</h4>
+                    <h3 className="birthday-date">{birthdayDate}</h3>
+                    <h2 className="display-4 my-2 guest-invited-header">Guests Invited:</h2>
+                    <ul className="p-3 guest-list col-6 mx-auto list-group list-group-flush">
+                        {makeGuestList}
                     </ul>
+                  </div>
                 </div>
               </div>
-              <button className="my-4 btn birthday-save-btn" onClick={this.saveBirthday}>Save Birthday</button>
+              <button className="mt-5 col-4 btn birthday-save-btn" onClick={this.saveBirthday}>Save</button>
             </form>
         </div>
     );

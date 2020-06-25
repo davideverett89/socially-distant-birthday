@@ -12,8 +12,8 @@ class Home extends React.Component {
   render() {
     return (
       <div className="Home">
-        <div className="p-3 home-flex my-5 col-6 mx-auto d-flex flex-column justify-content-center align-items-center">
-          <h1 className="home-header display-1">Welcome To Aparty!</h1>
+        <div className="p-3 home-flex my-5 col-9 mx-auto d-flex flex-column justify-content-center align-items-center">
+          <h1 className="home-header display-1">Welcome To Apparty!</h1>
           <div className="my-5 big-image-container d-flex flex-row justify-content-between align-items-center">
             <img className="covid-image" src={COVID} alt="COVID rendering" />
             <img className="mx-3 equal-image" src='https://i.ya-webdesign.com/images/does-not-equal-sign-png-4.png' alt="equals sign" />

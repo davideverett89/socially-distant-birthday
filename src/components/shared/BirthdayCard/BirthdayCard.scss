@@ -12,7 +12,7 @@
         .row {
             .column {
                 font-family: $primaryFont;
-                color: white;
+                color: $secondaryColor;
                 text-shadow:
                 -1px -1px 0 #000,  
                  1px -1px 0 #000,
@@ -37,7 +37,7 @@
                     0 100px 80px rgba(0, 0, 0, 0.12);
                 }
                 .single-view-btn {
-                    background-color: $secondaryColor;
+                    background-color: $senaryColor;
                     color: black;
                     border: 1px solid black;
                 }
@@ -46,6 +46,7 @@
                     border: 1px solid black;
                 }
                 .delete-birthday-btn {
+                    background-color: $quaternaryColor;
                     border: 1px solid black;
                 }
             }

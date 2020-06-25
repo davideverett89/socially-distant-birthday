@@ -14,7 +14,7 @@
         0 41.8px 33.4px rgba(0, 0, 0, 0.086),
         0 100px 80px rgba(0, 0, 0, 0.12);
         .home-header {
-            color: $tertiaryColor;
+            color: $primaryColor;
             font-family: 'Boogaloo', cursive;
             text-shadow:
             -1px -1px 0 #000,  
@@ -52,7 +52,7 @@
         .home-intro {
             font-family: $secondaryFont;
             font-size: 30px;
-            color: $tertiaryColor;
+            color: $primaryColor;
             text-shadow:
             -1px -1px 0 #000,  
              1px -1px 0 #000,
@@ -60,11 +60,11 @@
               1px 1px 0 #000;
         }
         .home-dash-btn {
-            background-color: $tertiaryColor;
-            padding-top: 19px;
+            background-color: $primaryColor;
+            padding-top: 14px;
             font-family: $primaryFont;
             color: $secondaryColor;
-            font-size: 20px;
+            font-size: 25px;
             width: 450px;
             height: 70px;
             border: 1px solid black;
