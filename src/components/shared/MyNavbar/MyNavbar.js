@@ -43,17 +43,17 @@ class MyNavbar extends React.Component {
         if (authed) {
           return (
             <Nav className="ml-auto" navbar>
-              <NavItem className="mx-2">
-                <NavLink tag={RRNavLink} to='/home'>Home</NavLink>
+              <NavItem className="mx-1">
+                <NavLink className="btn nav-btn" tag={RRNavLink} to='/home'>Home</NavLink>
               </NavItem>
-              <NavItem className="mx-2">
-                <NavLink tag={RRNavLink} to='/dashboard'>Dashboard</NavLink>
+              <NavItem className="mx-1">
+                <NavLink className="btn nav-btn" tag={RRNavLink} to='/dashboard'>Dashboard</NavLink>
               </NavItem>
-              <NavItem className="mx-2">
-                <NavLink tag={RRNavLink} to='/birthdays/new'>New Birthday</NavLink>
+              <NavItem className="mx-1">
+                <NavLink className="btn nav-btn" tag={RRNavLink} to='/birthdays/new'>New Birthday</NavLink>
               </NavItem>
-              <NavItem className="mx-2">
-                <NavLink className="btn logout-btn" onClick={this.logMeOut}>Logout</NavLink>
+              <NavItem className="mx-1">
+                <NavLink className="btn nav-btn logout-btn" onClick={this.logMeOut}>Logout</NavLink>
               </NavItem>
             </Nav>
           );
@@ -63,8 +63,10 @@ class MyNavbar extends React.Component {
 
       return (
         <div className="MyNavbar">
-          <Navbar light expand="md">
-            <NavbarBrand href="/"><i className="mr-3 fas fa-birthday-cake"></i> { authed ? 'Socially Distant Birthday' : ''}</NavbarBrand>
+          <Navbar className="nav-container" light expand="md">
+            <NavbarBrand className="navbar-brand-container" href="/">
+              <h2 className="nav-brand">Apparty!!!</h2>
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={isOpen} navbar>
               {buildNavLinks()}

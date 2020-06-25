@@ -35,14 +35,13 @@ class NewToast extends React.Component {
   render() {
     const { toastMessage } = this.state;
     return (
-        <div className="NewToast">
-            <h1>New Toast</h1>
-            <form className="col-9 mx-auto new-toast-form">
-              <div className="form-group">
-                <label htmlFor="toast-input">Say something nice:</label>
-                <textarea className="form-control" id="toast-input" rows="3" value={toastMessage} onChange={this.toastMessageChange}></textarea>
+        <div className="NewToast my-5">
+            <h1 className="display-3 new-toast-header">Say Something Nice!</h1>
+            <form className="p-5 col-9 mx-auto new-toast-form">
+              <div className="my-5 form-group">
+                <textarea className="toast-textarea form-control" id="toast-input" rows="3" value={toastMessage} onChange={this.toastMessageChange}></textarea>
               </div>
-              <button className="btn toast-save-btn" onClick={this.saveToast}>Add Toast</button>
+              <button className="my-5 col-4 btn toast-save-btn" onClick={this.saveToast}>Save</button>
             </form>
         </div>
     );

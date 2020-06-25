@@ -2,17 +2,43 @@
 
 .BirthdayCard {
     display: block;
+    background: none;
+    border-top: 1px solid white;
+    border-right: none;
+    border-bottom: 1px solid white;
+    border-left: none;
+    width: 90%;
     .card-container {
-        width: 90%;
-        background: none;
-        border-top: 1px solid black;
-        border-right: none;
-        border-bottom: 1px solid black;
-        border-left: none;
         .row {
+            .column {
+                font-family: $primaryFont;
+                color: $secondaryColor;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+                  h5 {
+                      font-size: x-large;
+                  }
+                  p {
+                      font-size: large;
+                  }
+            }
             .third-column {
+                .card-btn {
+                    font-family: $secondaryFont;
+                    box-shadow:
+                    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+                    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+                    0 12.5px 10px rgba(0, 0, 0, 0.06),
+                    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+                    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+                    0 100px 80px rgba(0, 0, 0, 0.12);
+                }
                 .single-view-btn {
-                    background-color: $primaryColor;
+                    background-color: $senaryColor;
+                    color: black;
                     border: 1px solid black;
                 }
                 .edit-birthday-btn {
@@ -20,7 +46,7 @@
                     border: 1px solid black;
                 }
                 .delete-birthday-btn {
-                    background-color: $tertiaryColor;
+                    background-color: $quaternaryColor;
                     border: 1px solid black;
                 }
             }

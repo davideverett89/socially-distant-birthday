@@ -2,11 +2,34 @@
 
 .MyNavbar {
     display: block;
-    background-color: $secondaryColor;
-    border: 1px solid black;
-    .logout-btn {
-        background-color: $tertiaryColor;
-        color: black;
-        border: 1px solid black;
+    background-color: $primaryColor;
+    border: 2px solid black;
+    .nav-container {
+        .navbar-brand-container {
+            .nav-brand {
+                font-family: $primaryFont;
+                color: $secondaryColor;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+                  font-size: 40px;
+            }
+        }
     }
+    .logout-btn {
+        color: $secondaryColor !important;
+    }
+}
+
+.nav-btn {
+    font-family: 'Boogaloo', cursive;
+    font-size: 30px;
+    color: $secondaryColor !important;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }

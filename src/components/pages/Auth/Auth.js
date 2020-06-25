@@ -7,7 +7,7 @@ import authData from '../../../helpers/data/authData';
 import userData from '../../../helpers/data/userData';
 
 import './Auth.scss';
-import birthdayCake from '../../../images/1F382-birthday-cake-512.png';
+import cake from '../../../images/1F382-birthday-cake-512.png';
 
 class Auth extends React.Component {
   saveUser = () => {
@@ -17,7 +17,7 @@ class Auth extends React.Component {
       uid: authData.getUid(),
     };
     userData.postUser(newUser)
-      .then((user) => { const userId = user.data; console.log('A user was created!:', userId); })
+      .then(() => {})
       .catch((err) => console.error('There was an issue with registering new user:', err));
   }
 
@@ -25,6 +25,7 @@ class Auth extends React.Component {
       userData.getUserByEmail(authData.getEmail())
         .then((thisUser) => {
           if (thisUser.length === 0) {
+            // If a user is pulled back, check if there is uid is blank, if it is blank, then update the uid and displayName. Add else statement.
             this.saveUser();
           }
         })
@@ -43,11 +44,13 @@ class Auth extends React.Component {
 
     render() {
       return (
-        <div className="Auth d-flex flex-column align-items-center justify-content-between">
-            <h1 className="my-2 col-12 display-1 auth-header">Socially Distant Birthday</h1>
-            <img className="my-5 col-12 auth-image" src={birthdayCake} alt="cake" />
-            <h2 className="my-2 display-4 auth-header">Please Sign In</h2>
-            <button className="my-5 btn login-btn" onClick={this.loginClickEvent}>Login</button>
+        <div className="Auth">
+            <div className="my-5 col-6 mx-auto auth-flex d-flex flex-column justify-content-center align-items-center">
+              <h1 className="display-1 brand-header">Welcome To Apparty!</h1>
+              <img className="auth-image" src={cake} alt="cake" />
+              <h2 className="my-2 display-4 auth-header">Please Sign In</h2>
+              <button className="my-5 btn login-btn" onClick={this.loginClickEvent}>Login</button>
+            </div>
         </div>
       );
     }

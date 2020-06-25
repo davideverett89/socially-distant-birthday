@@ -121,32 +121,20 @@ class EditBirthday extends React.Component {
       birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName, invitations, newInvitees,
     } = this.state;
 
-    const makeUserRadios = users.map((user, i) => {
-      const isCurrentUser = user.uid === authData.getUid();
-      const isUserAlreadyInvited = invitations.find((x) => x.userId === user.id) !== undefined;
-      if (isCurrentUser || isUserAlreadyInvited) return '';
-      return (
-        <div key={user.id} className="form-check">
-          <input className="form-check-input" type="radio" name="userRadios" data-user-name={user.displayName} id={`userRadios${i + 1}`} value={user.uid} onChange={this.birthdayGuestOfHonorUidChange} checked={birthdayGuestOfHonorUid === user.uid} />
-          <label className="form-check-label" htmlFor={`userRadios${i + 1}`}>{user.displayName}</label>
-        </div>
-      );
-    });
-
     const makeUserCheckboxes = users.map((user, i) => {
       const isUserAlreadyInvited = invitations.find((x) => x.userId === user.id) !== undefined;
       const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
-      if (isCurrentUserOrGOH || isUserAlreadyInvited) return '';
+      if (isCurrentUserOrGOH || isUserAlreadyInvited) return null;
       return (
         <div key={user.id} className="form-check">
           <input className="form-check-input" type="checkbox" value={user.id} id={`userCheck${i + 1}`} onChange={this.userIsCheckedChange} checked={user.isChecked} />
           <label className="form-check-label" htmlFor={`userCheck${i + 1}`}>{user.displayName}</label>
-      </div>
+        </div>
       );
     });
 
     const buildInviations = invitations.map((invitation) => (
-      <li key={invitation.id} className="guest-list-item">{invitation.invitedUserName}<button className="mx-1 btn" onClick={(e) => { e.preventDefault(); this.removeUserContributor(invitation.id); }}>&#215;</button></li>
+      <li key={invitation.id} className="guest-list-item">{invitation.invitedUserName}<button className="btn" onClick={(e) => { e.preventDefault(); this.removeUserContributor(invitation.id); }}>&#215;</button></li>
     ));
 
     const makeGuestList = newInvitees.map((user, i) => {
@@ -158,53 +146,50 @@ class EditBirthday extends React.Component {
 
     return (
         <div className="EditBirthday my-5">
-            <h1>Edit Birthday</h1>
-            <form className="p-5 col-9 mx-auto my-5 edit-birthday-form">
-            <div className="row">
+            <h1 className="edit-birthday-header display-3">Edit Birthday</h1>
+            <form className="p-5 col-10 mx-auto my-5 edit-birthday-form">
+              <div className="row">
                 <div className="col-6">
-                  <div className="row">
-                    <div className="text-left col-6">
-                      <h6>Whose birthday is it?</h6>
-                      {makeUserRadios}
-                    </div>
-                    <div className="text-left col-6">
-                      <h6>Who are you inviting?</h6>
+                  <div className="p-5 mx-1 selection-column row">
+                    <div className="p-5 text-left col-12">
+                      <h6>{makeUserCheckboxes.every((x) => x === null) ? '' : 'Who else would you like to invite?'}</h6>
                       {makeUserCheckboxes}
                     </div>
-                  </div>
-                  <div className="mt-5 col-9">
-                    <div className="text-left m-auto date-picker">
-                      <h6>When is it?</h6>
-                      <label className="mx-2" htmlFor="start">Birthday date:</label>
-                      <input type="date" id="start" name="trip-start"
-                      value={birthdayDate}
-                      min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
+                    <div className="mt-5 mx-auto col-9">
+                      <div className="text-left m-auto date-picker">
+                        <h6>Would you like to change the date?</h6>
+                        <label className="mx-2" htmlFor="start">Birthday date:</label>
+                        <input type="date" id="start" name="trip-start"
+                        value={birthdayDate}
+                        min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="info-column col-6">
-                  {/* This is all just a test */}
-                    <h2 className="display-4">I am planning a Birthday Event for:</h2>
-                    <h2 className="display-4">{guestOfHonorName}</h2>
-                    {guestOfHonorName === '' ? '' : <h2 className="display-4">on</h2>}
-                    <h2 className="display-4">{birthdayDate}</h2>
+                <div className="col-6">
+                  <div className="info-column p-5 mx-1 d-flex flex-column justify-content-around align-items-center">
+                    <h2 className="display-4">This Birthday Event is for:</h2>
+                    <h2 className="guest-of-honor-name">{guestOfHonorName}</h2>
+                    <h4 className="on">on</h4>
+                    <h2 className="birthday-date">{birthdayDate}</h2>
                     <div className="row">
                       <div className="col-6">
-                      <h2>Guests Already Invited:</h2>
-                        <ul className="guest-list mx-auto list-group list-group-flush">
+                        <h3 className="my-2 already-invited-header">Guests Already Invited:</h3>
+                        <ul className="p-3 guest-list mx-auto list-group list-group-flush">
                           {buildInviations}
                         </ul>
                       </div>
                       <div className="col-6">
-                        <h2>New Invited Guests:</h2>
-                        <ul className="guest-list mx-auto list-group list-group-flush">
+                        <h3 className="my-2 guest-invited-header">New Invited Guests:</h3>
+                        <ul className="p-3 guest-list mx-auto list-group list-group-flush">
                           {makeGuestList}
                         </ul>
                       </div>
                     </div>
+                  </div>
                 </div>
               </div>
-              <button className="my-4 btn birthday-edit-btn" onClick={this.updateBirthday}>Update Birthday</button>
+              <button className="mt-5 col-4 btn birthday-edit-btn" onClick={this.updateBirthday}>Update Birthday</button>
             </form>
         </div>
     );
