@@ -25,13 +25,13 @@ class ToastCard extends React.Component {
     return (
       <div className="ToastCard col-3">
         <div className="toast-card-shell mb-3">
-            <div className="d-flex justify-content-end card-header">
-              <Link className="btn edit-toast-btn" to={editLink}><i className="fas fa-edit fa-1x"></i></Link>
-              <button className="btn toast-delete-btn" onClick={this.deleteToastEvent}>&#215;</button>
+            <div className="header d-flex justify-content-between align-items-center card-header">
+              <Link className="mx-1 btn btn-outline-dark edit-toast-btn" to={editLink}><i className="fas fa-edit fa-1x"></i></Link>
+              <button className="mx-1 btn btn-outline-light toast-delete-btn" onClick={this.deleteToastEvent}><i className="fas fa-times"></i></button>
             </div>
-            <div className="card-body">
-                <h5 className="card-title">{toast.contributorName}</h5>
-                <p className="card-text">{toast.message}</p>
+            <div className="body card-body">
+                <h5 className="toast-text card-title">{toast.contributorName}</h5>
+                <p className="toast-text card-text">{toast.message}</p>
                 <small>{toast.creationDate}</small>
             </div>
         </div>

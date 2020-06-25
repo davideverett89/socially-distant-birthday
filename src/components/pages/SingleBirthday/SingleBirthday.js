@@ -54,9 +54,9 @@ class SingleBirthday extends React.Component {
       <ToastCard key={toast.id} toast={toast} birthdayId={birthdayId} removeToast={this.removeToast} />
     ));
     return (
-        <div className="SingleBirthday my-5">
-            <h1>{birthday.guestOfHonor}'s Birthday!</h1>
-            <Link className="my-5 btn add-toast-btn" to={newToastLink}>Add New Toast</Link>
+        <div className="SingleBirthday col-11 mx-auto my-5 p-5">
+            <h1 className="display-1 single-birthday-header">{birthday.guestOfHonor}'s Birthday!</h1>
+            <Link className="my-5 col-2 btn add-toast-btn" to={newToastLink}>Add New Toast</Link>
             <div className="mb-3 d-flex flex-wrap">
               {makeToasts}
             </div>

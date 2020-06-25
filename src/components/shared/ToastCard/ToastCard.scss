@@ -3,7 +3,20 @@
 .ToastCard {
     display: block;
     .toast-card-shell {
-      background-color: $secondaryColor;
-      color: $primaryColor;
+      background-image: url('../../../images/confetti.png');
+      border: 1px solid black;
+      border-radius: 10px;
+      box-shadow: inset 0 0 10px #000000;
+      .header {
+        background-image: $rainbowGradient;
+        border-radius: 10px 10px 0 0;
+        border-bottom: 1px solid black;
+        opacity: .7;
+      }
+      .body {
+        .toast-text {
+          font-family: $secondaryFont;
+        }
+      }
     }
 }
