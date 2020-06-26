@@ -5,6 +5,9 @@ import authData from '../../../helpers/data/authData';
 import birthdayData from '../../../helpers/data/birthdayData';
 import userContributorData from '../../../helpers/data/userContributorData';
 
+import UserRadio from '../../shared/UserRadio/UserRadio';
+import UserCheckbox from '../../shared/UserCheckbox/UserCheckbox';
+
 import './NewBirthday.scss';
 
 class NewBirthday extends React.Component {
@@ -105,14 +108,16 @@ class NewBirthday extends React.Component {
     const {
       birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName, invitees,
     } = this.state;
-    const makeUserRadios = users.map((user, i) => {
+    const makeUserRadios = users.map((user) => {
       const isCurrentUser = user.uid === authData.getUid();
       if (isCurrentUser) return '';
       return (
-        <div key={user.id} className="form-check">
-          <input className="form-check-input" type="radio" name="userRadios" data-user-name={user.displayName} id={`userRadios${i + 1}`} value={user.uid} onChange={this.birthdayGuestOfHonorUidChange} checked={birthdayGuestOfHonorUid === user.uid} />
-          <label className="form-check-label" htmlFor={`userRadios${i + 1}`}>{user.displayName}</label>
-        </div>
+        <UserRadio
+          key={user.id}
+          user={user}
+          birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
+          birthdayGuestOfHonorUidChange={this.birthdayGuestOfHonorUidChange}
+        />
       );
     });
 
@@ -120,10 +125,11 @@ class NewBirthday extends React.Component {
       const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
       if (isCurrentUserOrGOH) return '';
       return (
-        <div key={user.id} className="form-check">
-          <input className="form-check-input" type="checkbox" value={user.id} id={`userCheck${i + 1}`} onChange={this.userIsCheckedChange} checked={user.isChecked} />
-          <label className="form-check-label" htmlFor={`userCheck${i + 1}`}>{user.displayName}</label>
-      </div>
+        <UserCheckbox
+          key={user.id}
+          user={user}
+          userIsCheckedChange={this.userIsCheckedChange}
+        />
       );
     });
 
@@ -141,15 +147,15 @@ class NewBirthday extends React.Component {
               <div className="row">
                 <div className="col-6">
                   <div className="p-5 mx-1 selection-column row">
-                    <div className="p-5 text-left col-6">
-                      <h6>Whose birthday is it?</h6>
+                    <div className="p-5 text-left col-6 user-picker">
+                      <h6 className="guest-invited-header">Whose birthday is it?</h6>
                       {makeUserRadios}
                     </div>
-                    <div className="p-5 text-left col-6">
-                      <h6>Who are you inviting?</h6>
+                    <div className="p-5 text-left col-6 user-picker">
+                      <h6 className="guest-invited-header">Who are you inviting?</h6>
                       {makeUserCheckboxes}
                     </div>
-                    <div className="mt-5 mx-auto col-9">
+                    <div className="mt-5 mx-auto col-12">
                       <div className="text-left m-auto date-picker">
                         <h6>When is it?</h6>
                         <label className="mx-2" htmlFor="start">Birthday date:</label>

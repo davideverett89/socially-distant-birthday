@@ -14,7 +14,7 @@
     .new-birthday-form {
         border: 1px solid black;
         padding-bottom: 35px !important;
-        background-color: $secondaryColor;
+        background-color: $secondaryColor2;
         border-radius: 10px;
         box-shadow:
         0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -34,6 +34,11 @@
             0 22.3px 17.9px rgba(0, 0, 0, 0.072),
             0 41.8px 33.4px rgba(0, 0, 0, 0.086),
             0 100px 80px rgba(0, 0, 0, 0.12);
+            .user-picker {
+                max-height: 603px;
+                min-height: 603px;
+                overflow-y: auto;
+            }
         }
         .info-column {
             background-color: $primaryColor;
@@ -47,9 +52,32 @@
             0 22.3px 17.9px rgba(0, 0, 0, 0.072),
             0 41.8px 33.4px rgba(0, 0, 0, 0.086),
             0 100px 80px rgba(0, 0, 0, 0.12);
+            .guest-of-honor-name {
+                font-family: $primaryFont;
+                font-size: 50px;
+                color: $quaternaryColor;
+                margin-bottom: 0;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+            }
+            .birthday-date {
+                font-family: $primaryFont;
+                font-size: 45px;
+                color: $senaryColor;
+                margin-bottom: 0;
+                text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+            }
             h2 {
                 font-family: $primaryFont;
                 color: $secondaryColor;
+                margin-bottom: 0;
                 text-shadow:
                 -1px -1px 0 #000,  
                  1px -1px 0 #000,
@@ -80,6 +108,7 @@
                  -1px 1px 0 #000,
                   1px 1px 0 #000;
                   max-height: 300px;
+                  min-height: 300px;
                   overflow-y: auto;
             }
         }
