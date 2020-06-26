@@ -14,7 +14,7 @@
     .edit-birthday-form {
         border: 1px solid black;
         padding-bottom: 35px !important;
-        background-color: $secondaryColor;
+        background-color: $secondaryColor2;
         border-radius: 10px;
         box-shadow:
         0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -28,7 +28,7 @@
             padding-left: 88px !important;
             border: 1px solid black;
             border-radius: 10px;
-            min-height: 691px;
+            min-height: 811px;
             box-shadow:
             0 2.8px 2.2px rgba(0, 0, 0, 0.034),
             0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -36,12 +36,15 @@
             0 22.3px 17.9px rgba(0, 0, 0, 0.072),
             0 41.8px 33.4px rgba(0, 0, 0, 0.086),
             0 100px 80px rgba(0, 0, 0, 0.12);
+            .checkboxes {
+                min-height: 591px;
+            }
         }
         .info-column {
             background-color: $primaryColor;
             border: 1px solid black;
             border-radius: 10px;
-            min-height: 691px;
+            min-height: 811px;
             box-shadow:
             0 2.8px 2.2px rgba(0, 0, 0, 0.034),
             0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -51,7 +54,8 @@
             0 100px 80px rgba(0, 0, 0, 0.12);
             .guest-of-honor-name {
                 font-family: $primaryFont;
-                color: $tertiaryColor;
+                font-size: 50px;
+                color: $quaternaryColor;
                 text-shadow:
                 -1px -1px 0 #000,  
                  1px -1px 0 #000,
@@ -60,7 +64,8 @@
             }
             .birthday-date {
                 font-family: $primaryFont;
-                color: $tertiaryColor;
+                font-size: 45px;
+                color: $senaryColor;
                 text-shadow:
                 -1px -1px 0 #000,  
                  1px -1px 0 #000,
@@ -76,7 +81,7 @@
                  -1px 1px 0 #000,
                   1px 1px 0 #000;
             }
-            h3 {
+            h4 {
                 font-family: $primaryFont;
                 color: $tertiaryColor;
                 text-shadow:
@@ -104,6 +109,7 @@
                  -1px 1px 0 #000,
                   1px 1px 0 #000;
                   max-height: 300px;
+                  min-height: 300px;
                   overflow-y: auto;
             }
         }

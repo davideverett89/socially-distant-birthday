@@ -5,6 +5,8 @@ import birthdayData from '../../../helpers/data/birthdayData';
 import userData from '../../../helpers/data/userData';
 import authData from '../../../helpers/data/authData';
 
+import UserCheckbox from '../../shared/UserCheckbox/UserCheckbox';
+
 import './EditBirthday.scss';
 import userContributorData from '../../../helpers/data/userContributorData';
 
@@ -47,11 +49,6 @@ class EditBirthday extends React.Component {
   birthdayDateChange = (e) => {
     e.preventDefault();
     this.setState({ birthdayDate: e.target.value });
-  }
-
-  birthdayGuestOfHonorUidChange = (e) => {
-    const { userName } = e.target.dataset;
-    this.setState({ birthdayGuestOfHonorUid: e.target.value, guestOfHonorName: userName });
   }
 
   saveUserContributors = (birthdayId, invitees) => {
@@ -126,10 +123,11 @@ class EditBirthday extends React.Component {
       const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
       if (isCurrentUserOrGOH || isUserAlreadyInvited) return null;
       return (
-        <div key={user.id} className="form-check">
-          <input className="form-check-input" type="checkbox" value={user.id} id={`userCheck${i + 1}`} onChange={this.userIsCheckedChange} checked={user.isChecked} />
-          <label className="form-check-label" htmlFor={`userCheck${i + 1}`}>{user.displayName}</label>
-        </div>
+        <UserCheckbox
+          key={user.id}
+          user={user}
+          userIsCheckedChange={this.userIsCheckedChange}
+        />
       );
     });
 
@@ -144,18 +142,25 @@ class EditBirthday extends React.Component {
       );
     });
 
+    const isEmpty = makeUserCheckboxes.every((x) => x === null);
+
     return (
         <div className="EditBirthday my-5">
             <h1 className="edit-birthday-header display-3">Edit Birthday</h1>
             <form className="p-5 col-10 mx-auto my-5 edit-birthday-form">
               <div className="row">
                 <div className="col-6">
-                  <div className="p-5 mx-1 selection-column row">
-                    <div className="p-5 text-left col-12">
-                      <h6>{makeUserCheckboxes.every((x) => x === null) ? '' : 'Who else would you like to invite?'}</h6>
-                      {makeUserCheckboxes}
-                    </div>
-                    <div className="mt-5 mx-auto col-9">
+                  <div className={`p-5 mx-1 selection-column row ${isEmpty ? 'd-flex flex-column justify-content-center align-items-center' : ''}`}>
+                    {
+                      isEmpty
+                        ? ''
+                        : (
+                      <div className="p-5 text-left col-12 checkboxes">
+                        <h6>Who else would you like to invite?</h6>
+                        {makeUserCheckboxes}
+                      </div>)
+                    }
+                    <div className="mt-5 mx-auto col-12">
                       <div className="text-left m-auto date-picker">
                         <h6>Would you like to change the date?</h6>
                         <label className="mx-2" htmlFor="start">Birthday date:</label>
@@ -167,20 +172,20 @@ class EditBirthday extends React.Component {
                   </div>
                 </div>
                 <div className="col-6">
-                  <div className="info-column p-5 mx-1 d-flex flex-column justify-content-around align-items-center">
+                  <div className="info-column p-5 mx-1 d-flex flex-column justify-content-around align-items-stretch">
                     <h2 className="display-4">This Birthday Event is for:</h2>
                     <h2 className="guest-of-honor-name">{guestOfHonorName}</h2>
-                    <h4 className="on">on</h4>
+                    <h5 className="on">on</h5>
                     <h2 className="birthday-date">{birthdayDate}</h2>
                     <div className="row">
                       <div className="col-6">
-                        <h3 className="my-2 already-invited-header">Guests Already Invited:</h3>
+                        <h4 className="my-2 already-invited-header">Guests Invited:</h4>
                         <ul className="p-3 guest-list mx-auto list-group list-group-flush">
                           {buildInviations}
                         </ul>
                       </div>
                       <div className="col-6">
-                        <h3 className="my-2 guest-invited-header">New Invited Guests:</h3>
+                        <h4 className="my-2 guest-invited-header">New Invited Guests:</h4>
                         <ul className="p-3 guest-list mx-auto list-group list-group-flush">
                           {makeGuestList}
                         </ul>
