@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 import toastShape from '../../../helpers/propz/toastShape';
 
-import authData from '../../../helpers/data/authData';
-
 import './ToastCard.scss';
 
 class ToastCard extends React.Component {
@@ -13,16 +11,7 @@ class ToastCard extends React.Component {
     toast: toastShape.toastShape,
     removeToast: PropTypes.func.isRequired,
     birthdayId: PropTypes.string.isRequired,
-  }
-
-  state = {
-    isUserCreated: false,
-  }
-
-  componentDidMount() {
-    const { toast } = this.props;
-    const isUserCreated = toast.uid === authData.getUid();
-    this.setState({ isUserCreated });
+    isUserCreated: PropTypes.bool.isRequired,
   }
 
   deleteToastEvent = (e) => {
@@ -32,8 +21,7 @@ class ToastCard extends React.Component {
   }
 
   render() {
-    const { isUserCreated } = this.state;
-    const { toast, birthdayId } = this.props;
+    const { toast, birthdayId, isUserCreated } = this.props;
     const editLink = `/birthdays/${birthdayId}/toasts/edit/${toast.id}`;
     return (
       <div className="ToastCard col-3">

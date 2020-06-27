@@ -1,5 +1,7 @@
 import React from 'react';
 
+import moment from 'moment';
+
 import smash from '../../../helpers/data/smash';
 import authData from '../../../helpers/data/authData';
 
@@ -11,6 +13,7 @@ class Dashboard extends React.Component {
   state = {
     myBirthdays: [],
     myInvitedBirthdays: [],
+    myOwnBirthday: {},
   }
 
   getMyBirthdayEvents = () => {
@@ -29,6 +32,17 @@ class Dashboard extends React.Component {
       .catch((err) => console.error('There is an issue with getting your invited birthdays:', err));
   }
 
+  getMyOwnBirthday = () => {
+    smash.getSingleBirthdayWithGuestOfHonorByGuestOfHonorUid(authData.getUid())
+      .then((birthday) => {
+        const today = moment().format('YYYY-MM-DD');
+        if (birthday.date === today) {
+          this.setState({ myOwnBirthday: birthday });
+        }
+      })
+      .catch((err) => console.error('There is an issue with getting a single birthday:', err));
+  }
+
   removeBirthday = (birthdayId) => {
     smash.deleteBirthdayAndBirthdayInvitationsAndToasts(birthdayId)
       .then(() => {
@@ -41,10 +55,11 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.getMyBirthdayEvents();
     this.getMyInvitedBirthdayEvents();
+    this.getMyOwnBirthday();
   }
 
   render() {
-    const { myBirthdays, myInvitedBirthdays } = this.state;
+    const { myBirthdays, myInvitedBirthdays, myOwnBirthday } = this.state;
     const makeBirthdayCards = myBirthdays.map((birthday) => (
       <BirthdayCard key={birthday.id} birthday={birthday} removeBirthday={this.removeBirthday} currentUserCreated={true} />
     ));
@@ -66,6 +81,20 @@ class Dashboard extends React.Component {
                   <h2 className="m-2">Invited Birthdays</h2>
                   {makeInvitations}
                 </div>
+              </div>
+            </div>
+            <div className="mt-5 row">
+              <div className="col-10 mx-auto">
+                  {
+                    myOwnBirthday.id
+                      ? (
+                        <div className="birthday-column">
+                          <h2 className="your-birthday-column display-1">It's Your Birthday!!!</h2>
+                          <BirthdayCard key={myOwnBirthday.id} birthday={myOwnBirthday} />
+                          </div>
+                      )
+                      : ''
+                  }
               </div>
             </div>
         </div>
