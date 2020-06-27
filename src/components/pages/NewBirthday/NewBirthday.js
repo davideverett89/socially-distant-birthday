@@ -7,6 +7,7 @@ import userContributorData from '../../../helpers/data/userContributorData';
 
 import UserRadio from '../../shared/UserRadio/UserRadio';
 import UserCheckbox from '../../shared/UserCheckbox/UserCheckbox';
+import NewUserForm from '../../shared/NewUserForm/NewUserForm';
 
 import './NewBirthday.scss';
 
@@ -15,11 +16,13 @@ class NewBirthday extends React.Component {
     birthdayDate: '',
     birthdayGuestOfHonorUid: '',
     guestOfHonorName: '',
+    newUserEmail: '',
+    newUserName: '',
     users: [],
     invitees: [],
   }
 
-  componentDidMount() {
+  getInfo = () => {
     userData.getUsers()
       .then((_users) => {
         const users = [];
@@ -32,6 +35,10 @@ class NewBirthday extends React.Component {
       .catch((err) => console.error('There was an issue getting all users:', err));
   }
 
+  componentDidMount() {
+    this.getInfo();
+  }
+
   birthdayDateChange = (e) => {
     e.preventDefault();
     this.setState({ birthdayDate: e.target.value });
@@ -41,6 +48,16 @@ class NewBirthday extends React.Component {
     const { userName } = e.target.dataset;
     this.setState({ birthdayGuestOfHonorUid: e.target.value, guestOfHonorName: userName });
     this.resetUsers();
+  }
+
+  newUserEmailChange = (e) => {
+    e.preventDefault();
+    this.setState({ newUserEmail: e.target.value });
+  }
+
+  newUserNameChange = (e) => {
+    e.preventDefault();
+    this.setState({ newUserName: e.target.value });
   }
 
   updateInvitees = (finalUsers) => {
@@ -104,10 +121,30 @@ class NewBirthday extends React.Component {
       .catch((err) => console.error('Unable to create new birthday:', err));
   }
 
+  createTemporaryUser = (e) => {
+    e.preventDefault();
+    const { newUserEmail, newUserName } = this.state;
+    const newUser = {
+      displayName: newUserName,
+      email: newUserEmail,
+      uid: '',
+    };
+    userData.postUser(newUser)
+      .then(() => this.getInfo())
+      .catch((err) => console.error('There was an issue with createing a new user:', err));
+  }
+
   render() {
     const {
-      birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName, invitees,
+      birthdayDate,
+      birthdayGuestOfHonorUid,
+      users,
+      guestOfHonorName,
+      invitees,
+      newUserEmail,
+      newUserName,
     } = this.state;
+
     const makeUserRadios = users.map((user) => {
       const isCurrentUser = user.uid === authData.getUid();
       if (isCurrentUser) return '';
@@ -164,6 +201,13 @@ class NewBirthday extends React.Component {
                         min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
                       </div>
                     </div>
+                    <NewUserForm
+                      newUserEmail={newUserEmail}
+                      newUserEmailChange={this.newUserEmailChange}
+                      createTemporaryUser={this.createTemporaryUser}
+                      newUserName={newUserName}
+                      newUserNameChange={this.newUserNameChange}
+                    />
                   </div>
                 </div>
                 <div className="col-6">
