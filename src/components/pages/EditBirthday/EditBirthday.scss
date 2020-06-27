@@ -25,7 +25,6 @@
         0 100px 80px rgba(0, 0, 0, 0.12);
         .selection-column {
             background-color: $primaryColor;
-            padding-left: 88px !important;
             border: 1px solid black;
             border-radius: 10px;
             min-height: 811px;
@@ -36,9 +35,6 @@
             0 22.3px 17.9px rgba(0, 0, 0, 0.072),
             0 41.8px 33.4px rgba(0, 0, 0, 0.086),
             0 100px 80px rgba(0, 0, 0, 0.12);
-            .checkboxes {
-                min-height: 591px;
-            }
         }
         .info-column {
             background-color: $primaryColor;

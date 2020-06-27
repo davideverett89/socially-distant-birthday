@@ -144,25 +144,13 @@ class EditBirthday extends React.Component {
     const {
       birthdayDate,
       birthdayGuestOfHonorUid,
-      users, guestOfHonorName,
+      users,
+      guestOfHonorName,
       invitations,
       newInvitees,
       newUserEmail,
       newUserName,
     } = this.state;
-
-    // const makeUserCheckboxes = users.map((user, i) => {
-    //   const isUserAlreadyInvited = invitations.find((x) => x.userId === user.id) !== undefined;
-    //   const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
-    //   if (isCurrentUserOrGOH || isUserAlreadyInvited) return null;
-    //   return (
-    //     <UserCheckbox
-    //       key={user.id}
-    //       user={user}
-    //       userIsCheckedChange={this.userIsCheckedChange}
-    //     />
-    //   );
-    // });
 
     const buildInviations = invitations.map((invitation) => (
       <li key={invitation.id} className="guest-list-item">{invitation.invitedUserName}<button className="btn" onClick={(e) => { e.preventDefault(); this.removeUserContributor(invitation.id); }}>&#215;</button></li>
@@ -175,29 +163,20 @@ class EditBirthday extends React.Component {
       );
     });
 
-    // const isEmpty = makeUserCheckboxes.every((x) => x === null);
-    const isEmpty = false;
-
     return (
         <div className="EditBirthday my-5">
             <h1 className="edit-birthday-header display-3">Edit Birthday</h1>
             <form className="p-5 col-10 mx-auto my-5 edit-birthday-form">
               <div className="row">
                 <div className="col-6">
-                  <div className={`p-5 mx-1 selection-column row ${isEmpty ? 'd-flex flex-column justify-content-center align-items-center' : ''}`}>
-                    {
-                      isEmpty
-                        ? ''
-                        : (
-                          <UserCheckboxGroup
-                            users={users}
-                            birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
-                            userIsCheckedChange={this.userIsCheckedChange}
-                            invitations={invitations}
-                            isEdit={true}
-                          />
-                        )
-                    }
+                  <div className="py-5 px-2 mx-1 selection-column row d-flex flex-column justify-content-center align-items-center">
+                    <UserCheckboxGroup
+                      users={users}
+                      birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
+                      userIsCheckedChange={this.userIsCheckedChange}
+                      invitations={invitations}
+                      isEdit={true}
+                    />
                     <DatePicker
                       birthdayDate={birthdayDate}
                       birthdayDateChange={this.birthdayDateChange}

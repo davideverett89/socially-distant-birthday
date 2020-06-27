@@ -20,7 +20,7 @@ class UserRadioGroup extends React.Component {
     const { users, birthdayGuestOfHonorUid, birthdayGuestOfHonorUidChange } = this.props;
 
     return (
-      <div className="UserRadioGroup p-5 text-left col-6">
+      <div className="UserRadioGroup px-5 text-left col-6">
           <h6 className="guest-invited-header">Whose birthday is it?</h6>
           <div className="radios">
               {
@@ -28,7 +28,7 @@ class UserRadioGroup extends React.Component {
                     const isCurrentUser = user.uid === authData.getUid();
                     if (isCurrentUser) return '';
                     return (
-                        <UserRadio
+                      <UserRadio
                         key={user.id}
                         user={user}
                         birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}

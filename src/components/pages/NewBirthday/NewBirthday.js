@@ -159,7 +159,7 @@ class NewBirthday extends React.Component {
             <form className="p-5 col-10 mx-auto my-5 new-birthday-form">
               <div className="row">
                 <div className="col-6">
-                  <div className="p-5 mx-1 selection-column row">
+                  <div className="py-5 px-2 mx-1 selection-column row">
                     <UserRadioGroup
                       users={users}
                       birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
