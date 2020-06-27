@@ -20,23 +20,25 @@ class UserRadioGroup extends React.Component {
     const { users, birthdayGuestOfHonorUid, birthdayGuestOfHonorUidChange } = this.props;
 
     return (
-      <div className="UserRadioGroup px-5 text-left col-6">
-          <h6 className="guest-invited-header">Whose birthday is it?</h6>
-          <div className="radios">
-              {
-                  users.map((user) => {
-                    const isCurrentUser = user.uid === authData.getUid();
-                    if (isCurrentUser) return '';
-                    return (
-                      <UserRadio
-                        key={user.id}
-                        user={user}
-                        birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
-                        birthdayGuestOfHonorUidChange={birthdayGuestOfHonorUidChange}
-                      />
-                    );
-                  })
-              }
+      <div className="UserRadioGroup px-5 text-left mx-auto col-6">
+          <h6 className="mt-2 guest-invited-header text-white lead">Whose birthday is it?</h6>
+          <div className="overflow">
+            <div className="p-2 radios">
+                {
+                    users.map((user) => {
+                      const isCurrentUser = user.uid === authData.getUid();
+                      if (isCurrentUser) return '';
+                      return (
+                        <UserRadio
+                          key={user.id}
+                          user={user}
+                          birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
+                          birthdayGuestOfHonorUidChange={birthdayGuestOfHonorUidChange}
+                        />
+                      );
+                    })
+                }
+            </div>
           </div>
       </div>
     );

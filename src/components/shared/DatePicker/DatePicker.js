@@ -7,16 +7,17 @@ class DatePicker extends React.Component {
   static propTypes = {
     birthdayDate: PropTypes.string.isRequired,
     birthdayDateChange: PropTypes.func.isRequired,
+    isEdit: PropTypes.bool.isRequired,
   }
 
   render() {
-    const { birthdayDate, birthdayDateChange } = this.props;
+    const { birthdayDate, birthdayDateChange, isEdit } = this.props;
 
     return (
-      <div className="DatePicker mx-auto col-12">
-        <div className="text-left m-auto date-picker">
-            <h6>When is it?</h6>
-            <label className="mx-2" htmlFor="start">Birthday date:</label>
+      <div className="mt-2 DatePicker mx-auto col-12 d-flex justify-content-center align-items-center">
+        <div className="date-picker">
+            <h6 className="mt-1 lead">{isEdit ? 'Do you wish to change the date?' : 'When is it?'}</h6>
+            <label className="mx-3" htmlFor="start">Birthday date:</label>
             <input
                 type="date"
                 id="start"

@@ -175,6 +175,7 @@ class NewBirthday extends React.Component {
                     <DatePicker
                       birthdayDate={birthdayDate}
                       birthdayDateChange={this.birthdayDateChange}
+                      isEdit={false}
                     />
                     <NewUserForm
                       newUserEmail={newUserEmail}
