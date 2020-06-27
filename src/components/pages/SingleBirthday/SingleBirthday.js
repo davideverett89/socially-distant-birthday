@@ -54,9 +54,10 @@ class SingleBirthday extends React.Component {
     const { birthdayId } = this.props.match.params;
     const editLink = `/birthdays/edit/${birthdayId}`;
     const newToastLink = `/birthdays/${birthdayId}/toasts/new`;
-    const makeToasts = toasts.map((toast) => (
-      <ToastCard key={toast.id} toast={toast} birthdayId={birthdayId} removeToast={this.removeToast} />
-    ));
+    const makeToasts = toasts.map((toast) => {
+      const isUserCreated = toast.uid === authData.getUid();
+      return (<ToastCard key={toast.id} toast={toast} birthdayId={birthdayId} removeToast={this.removeToast} isUserCreated={isUserCreated} />);
+    });
     return (
         <div className="SingleBirthday col-11 mx-auto my-5 p-5">
             <h1 className="display-1 single-birthday-header">{birthday.guestOfHonor}'s Birthday!</h1>

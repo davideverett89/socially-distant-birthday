@@ -9,8 +9,8 @@ import './BirthdayCard.scss';
 class BirthdayCard extends React.Component {
   static propTypes = {
     birthday: birthdayShape.birthdayShape,
-    removeBirthday: PropTypes.func.isRequired,
-    currentUserCreated: PropTypes.bool.isRequired,
+    removeBirthday: PropTypes.func,
+    currentUserCreated: PropTypes.bool,
   }
 
   render() {
