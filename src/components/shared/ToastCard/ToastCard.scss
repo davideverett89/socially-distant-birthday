@@ -8,6 +8,7 @@
       border-radius: 10px;
       box-shadow: inset 0 0 10px #000000;
       .header {
+        min-height: 63px;
         background-image: $rainbowGradient;
         border-radius: 10px 10px 0 0;
         border-bottom: 1px solid black;
