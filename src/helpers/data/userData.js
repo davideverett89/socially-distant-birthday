@@ -56,6 +56,13 @@ const getUserByUid = (uid) => new Promise((resolve, reject) => {
 
 const postUser = (newUser) => axios.post(`${baseUrl}/users.json`, newUser);
 
+const patchUser = (userId, updatedDisplayName, updatedUid) => axios.patch(`${baseUrl}/users/${userId}.json`, { displayName: updatedDisplayName, uid: updatedUid });
+
 export default {
-  getUserByEmail, postUser, getUserByUid, getUsers, getUserById,
+  getUserByEmail,
+  postUser,
+  getUserByUid,
+  getUsers,
+  getUserById,
+  patchUser,
 };

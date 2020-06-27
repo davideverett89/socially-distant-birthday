@@ -6,6 +6,7 @@ import userData from '../../../helpers/data/userData';
 import authData from '../../../helpers/data/authData';
 
 import UserCheckbox from '../../shared/UserCheckbox/UserCheckbox';
+import NewUserForm from '../../shared/NewUserForm/NewUserForm';
 
 import './EditBirthday.scss';
 import userContributorData from '../../../helpers/data/userContributorData';
@@ -15,6 +16,8 @@ class EditBirthday extends React.Component {
     birthdayDate: '',
     birthdayGuestOfHonorUid: '',
     guestOfHonorName: '',
+    newUserEmail: '',
+    newUserName: '',
     users: [],
     invitations: [],
     newInvitees: [],
@@ -49,6 +52,16 @@ class EditBirthday extends React.Component {
   birthdayDateChange = (e) => {
     e.preventDefault();
     this.setState({ birthdayDate: e.target.value });
+  }
+
+  newUserEmailChange = (e) => {
+    e.preventDefault();
+    this.setState({ newUserEmail: e.target.value });
+  }
+
+  newUserNameChange = (e) => {
+    e.preventDefault();
+    this.setState({ newUserName: e.target.value });
   }
 
   saveUserContributors = (birthdayId, invitees) => {
@@ -113,9 +126,28 @@ class EditBirthday extends React.Component {
       .catch((err) => console.error('Unable to create new birthday:', err));
   }
 
+  createTemporaryUser = (e) => {
+    e.preventDefault();
+    const { newUserEmail, newUserName } = this.state;
+    const newUser = {
+      displayName: newUserName,
+      email: newUserEmail,
+      uid: 'temp-uid',
+    };
+    userData.postUser(newUser)
+      .then(() => this.getBirthdayInfo())
+      .catch((err) => console.error('There was an issue with createing a new user:', err));
+  }
+
   render() {
     const {
-      birthdayDate, birthdayGuestOfHonorUid, users, guestOfHonorName, invitations, newInvitees,
+      birthdayDate,
+      birthdayGuestOfHonorUid,
+      users, guestOfHonorName,
+      invitations,
+      newInvitees,
+      newUserEmail,
+      newUserName,
     } = this.state;
 
     const makeUserCheckboxes = users.map((user, i) => {
@@ -169,6 +201,13 @@ class EditBirthday extends React.Component {
                         min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
                       </div>
                     </div>
+                    <NewUserForm
+                      newUserEmail={newUserEmail}
+                      newUserEmailChange={this.newUserEmailChange}
+                      createTemporaryUser={this.createTemporaryUser}
+                      newUserName={newUserName}
+                      newUserNameChange={this.newUserNameChange}
+                    />
                   </div>
                 </div>
                 <div className="col-6">
