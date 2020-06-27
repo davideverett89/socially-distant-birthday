@@ -5,7 +5,8 @@ import birthdayData from '../../../helpers/data/birthdayData';
 import userData from '../../../helpers/data/userData';
 import authData from '../../../helpers/data/authData';
 
-import UserCheckbox from '../../shared/UserCheckbox/UserCheckbox';
+import UserCheckboxGroup from '../../shared/UserCheckboxGroup/UserCheckboxGroup';
+import DatePicker from '../../shared/DatePicker/DatePicker';
 import NewUserForm from '../../shared/NewUserForm/NewUserForm';
 
 import './EditBirthday.scss';
@@ -150,18 +151,18 @@ class EditBirthday extends React.Component {
       newUserName,
     } = this.state;
 
-    const makeUserCheckboxes = users.map((user, i) => {
-      const isUserAlreadyInvited = invitations.find((x) => x.userId === user.id) !== undefined;
-      const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
-      if (isCurrentUserOrGOH || isUserAlreadyInvited) return null;
-      return (
-        <UserCheckbox
-          key={user.id}
-          user={user}
-          userIsCheckedChange={this.userIsCheckedChange}
-        />
-      );
-    });
+    // const makeUserCheckboxes = users.map((user, i) => {
+    //   const isUserAlreadyInvited = invitations.find((x) => x.userId === user.id) !== undefined;
+    //   const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
+    //   if (isCurrentUserOrGOH || isUserAlreadyInvited) return null;
+    //   return (
+    //     <UserCheckbox
+    //       key={user.id}
+    //       user={user}
+    //       userIsCheckedChange={this.userIsCheckedChange}
+    //     />
+    //   );
+    // });
 
     const buildInviations = invitations.map((invitation) => (
       <li key={invitation.id} className="guest-list-item">{invitation.invitedUserName}<button className="btn" onClick={(e) => { e.preventDefault(); this.removeUserContributor(invitation.id); }}>&#215;</button></li>
@@ -174,7 +175,8 @@ class EditBirthday extends React.Component {
       );
     });
 
-    const isEmpty = makeUserCheckboxes.every((x) => x === null);
+    // const isEmpty = makeUserCheckboxes.every((x) => x === null);
+    const isEmpty = false;
 
     return (
         <div className="EditBirthday my-5">
@@ -187,20 +189,19 @@ class EditBirthday extends React.Component {
                       isEmpty
                         ? ''
                         : (
-                      <div className="p-5 text-left col-12 checkboxes">
-                        <h6>Who else would you like to invite?</h6>
-                        {makeUserCheckboxes}
-                      </div>)
+                          <UserCheckboxGroup
+                            users={users}
+                            birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
+                            userIsCheckedChange={this.userIsCheckedChange}
+                            invitations={invitations}
+                            isEdit={true}
+                          />
+                        )
                     }
-                    <div className="mt-5 mx-auto col-12">
-                      <div className="text-left m-auto date-picker">
-                        <h6>Would you like to change the date?</h6>
-                        <label className="mx-2" htmlFor="start">Birthday date:</label>
-                        <input type="date" id="start" name="trip-start"
-                        value={birthdayDate}
-                        min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
-                      </div>
-                    </div>
+                    <DatePicker
+                      birthdayDate={birthdayDate}
+                      birthdayDateChange={this.birthdayDateChange}
+                    />
                     <NewUserForm
                       newUserEmail={newUserEmail}
                       newUserEmailChange={this.newUserEmailChange}

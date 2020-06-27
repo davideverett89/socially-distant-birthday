@@ -1,0 +1,8 @@
+.UserCheckboxGroup {
+    display: block;
+    .checkboxes {
+        max-height: 550px;
+        min-height: 550px;
+        overflow-y: auto;
+    }
+}

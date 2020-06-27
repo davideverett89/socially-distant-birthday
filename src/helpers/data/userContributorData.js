@@ -40,5 +40,8 @@ const postUserContributor = (newUserContributor) => axios.post(`${baseUrl}/userC
 const deleteUserContributor = (userContributorId) => axios.delete(`${baseUrl}/userContributors/${userContributorId}.json`);
 
 export default {
-  getUserContributorsByUserId, postUserContributor, getUserContributorsByBirthdayId, deleteUserContributor,
+  getUserContributorsByUserId,
+  postUserContributor,
+  getUserContributorsByBirthdayId,
+  deleteUserContributor,
 };

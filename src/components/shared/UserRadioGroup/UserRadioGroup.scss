@@ -1,0 +1,8 @@
+.UserRadioGroup {
+    display: block;
+    .radios {
+        max-height: 550px;
+        min-height: 550px;
+        overflow-y: auto;
+    }
+}

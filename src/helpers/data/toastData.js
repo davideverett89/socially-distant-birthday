@@ -28,5 +28,9 @@ const deleteToast = (toastId) => axios.delete(`${baseUrl}/toasts/${toastId}.json
 const patchToast = (toastId, editedMessage) => axios.patch(`${baseUrl}/toasts/${toastId}.json`, { message: editedMessage });
 
 export default {
-  getToastsByBirthdayId, postToast, deleteToast, getSingleToast, patchToast,
+  getToastsByBirthdayId,
+  postToast,
+  deleteToast,
+  getSingleToast,
+  patchToast,
 };
