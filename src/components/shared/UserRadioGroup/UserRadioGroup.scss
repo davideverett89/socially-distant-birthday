@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+
+.UserRadioGroup {
+    display: block;
+    max-height: 500px;
+    .overflow {
+        overflow: hidden;
+        background-color: $senaryColor;
+        border: 1px solid black;
+        border-radius: 10px;
+        .radios {
+            max-height: 400px;
+            min-height: 400px;
+            overflow-y: auto;
+        }
+    }
+}

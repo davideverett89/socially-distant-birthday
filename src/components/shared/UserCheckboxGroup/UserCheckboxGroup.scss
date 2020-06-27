@@ -1,0 +1,18 @@
+@import '../../../styles/variables';
+
+.UserCheckboxGroup {
+    display: block;
+    max-height: 500px;
+    .overflow {
+        overflow: hidden;
+        background-color: $senaryColor;
+        border: 1px solid black;
+        border-radius: 10px;
+        .checkboxes {
+            max-height: 400px;
+            min-height: 400px;
+            overflow-y: auto;
+
+        }
+    }
+}

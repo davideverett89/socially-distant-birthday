@@ -5,8 +5,9 @@ import authData from '../../../helpers/data/authData';
 import birthdayData from '../../../helpers/data/birthdayData';
 import userContributorData from '../../../helpers/data/userContributorData';
 
-import UserRadio from '../../shared/UserRadio/UserRadio';
-import UserCheckbox from '../../shared/UserCheckbox/UserCheckbox';
+import UserRadioGroup from '../../shared/UserRadioGroup/UserRadioGroup';
+import UserCheckboxGroup from '../../shared/UserCheckboxGroup/UserCheckboxGroup';
+import DatePicker from '../../shared/DatePicker/DatePicker';
 import NewUserForm from '../../shared/NewUserForm/NewUserForm';
 
 import './NewBirthday.scss';
@@ -145,31 +146,6 @@ class NewBirthday extends React.Component {
       newUserName,
     } = this.state;
 
-    const makeUserRadios = users.map((user) => {
-      const isCurrentUser = user.uid === authData.getUid();
-      if (isCurrentUser) return '';
-      return (
-        <UserRadio
-          key={user.id}
-          user={user}
-          birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
-          birthdayGuestOfHonorUidChange={this.birthdayGuestOfHonorUidChange}
-        />
-      );
-    });
-
-    const makeUserCheckboxes = users.map((user, i) => {
-      const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
-      if (isCurrentUserOrGOH) return '';
-      return (
-        <UserCheckbox
-          key={user.id}
-          user={user}
-          userIsCheckedChange={this.userIsCheckedChange}
-        />
-      );
-    });
-
     const makeGuestList = invitees.map((user, i) => {
       const thisUser = users.find((x) => x.id === user);
       return (
@@ -183,24 +159,24 @@ class NewBirthday extends React.Component {
             <form className="p-5 col-10 mx-auto my-5 new-birthday-form">
               <div className="row">
                 <div className="col-6">
-                  <div className="p-5 mx-1 selection-column row">
-                    <div className="p-5 text-left col-6 user-picker">
-                      <h6 className="guest-invited-header">Whose birthday is it?</h6>
-                      {makeUserRadios}
-                    </div>
-                    <div className="p-5 text-left col-6 user-picker">
-                      <h6 className="guest-invited-header">Who are you inviting?</h6>
-                      {makeUserCheckboxes}
-                    </div>
-                    <div className="mt-5 mx-auto col-12">
-                      <div className="text-left m-auto date-picker">
-                        <h6>When is it?</h6>
-                        <label className="mx-2" htmlFor="start">Birthday date:</label>
-                        <input type="date" id="start" name="trip-start"
-                        value={birthdayDate}
-                        min="1900-01-01" max="2020-12-31" onChange={this.birthdayDateChange} />
-                      </div>
-                    </div>
+                  <div className="py-5 px-2 mx-1 selection-column row">
+                    <UserRadioGroup
+                      users={users}
+                      birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
+                      birthdayGuestOfHonorUidChange={this.birthdayGuestOfHonorUidChange}
+                    />
+                    <UserCheckboxGroup
+                      users={users}
+                      birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
+                      userIsCheckedChange={this.userIsCheckedChange}
+                      invitations={[]}
+                      isEdit={false}
+                    />
+                    <DatePicker
+                      birthdayDate={birthdayDate}
+                      birthdayDateChange={this.birthdayDateChange}
+                      isEdit={false}
+                    />
                     <NewUserForm
                       newUserEmail={newUserEmail}
                       newUserEmailChange={this.newUserEmailChange}

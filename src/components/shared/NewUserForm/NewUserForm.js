@@ -21,18 +21,18 @@ class NewUserForm extends React.Component {
       newUserNameChange,
     } = this.props;
     return (
-      <div className="mt-3 NewUserForm col-12 text-left">
-        <h6>Invite a new user to join the party!</h6>
-        <div className=" d-flex justify-content-around align-items-center">
+      <div className="mt-3 NewUserForm col-12 mx-auto text-left">
+        <h6 className="mt-1 new-user-form-header">Invite a new user to join the party!</h6>
+        <div className="form-body d-flex justify-content-around align-items-center">
             <div className="form-group mb-2">
-                <label htmlFor="new-user-email" className="sr-only">Email</label>
-                <input type="text" className="form-control-plaintext" id="new-user-email" onChange={newUserEmailChange} value={newUserEmail} placeholder="example@gmail.com" />
+                <label htmlFor="new-user-email" className="email-label">Email</label>
+                <input type="text" className="form-control" id="new-user-email" onChange={newUserEmailChange} value={newUserEmail} placeholder="example@gmail.com" />
             </div>
             <div className="form-group mb-2">
-                <label htmlFor="new-user-name" className="sr-only">Name</label>
-                <input type="text" className="form-control-plaintext" id="new-user-name" onChange={newUserNameChange} value={newUserName} placeholder="David Everett" />
+                <label htmlFor="new-user-name" className="name-label">Name</label>
+                <input type="text" className="form-control" id="new-user-name" onChange={newUserNameChange} value={newUserName} placeholder="David Everett" />
             </div>
-            <button className="btn btn-primary mb-2" onClick={createTemporaryUser}>Send Invitation</button>
+            <button className="btn mb-2 invite-btn" onClick={createTemporaryUser}>Send Invitation</button>
         </div>
       </div>
     );

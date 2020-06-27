@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
                         <div className="birthday-column">
                           <h2 className="your-birthday-column display-1">It's Your Birthday!!!</h2>
                           <BirthdayCard key={myOwnBirthday.id} birthday={myOwnBirthday} />
-                          </div>
+                        </div>
                       )
                       : ''
                   }
