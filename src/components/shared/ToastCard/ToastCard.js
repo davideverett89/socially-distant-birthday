@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import toastShape from '../../../helpers/propz/toastShape';
 
+import authData from '../../../helpers/data/authData';
+
 import './ToastCard.scss';
 
 class ToastCard extends React.Component {
@@ -13,6 +15,16 @@ class ToastCard extends React.Component {
     birthdayId: PropTypes.string.isRequired,
   }
 
+  state = {
+    isUserCreated: false,
+  }
+
+  componentDidMount() {
+    const { toast } = this.props;
+    const isUserCreated = toast.uid === authData.getUid();
+    this.setState({ isUserCreated });
+  }
+
   deleteToastEvent = (e) => {
     e.preventDefault();
     const { toast, removeToast } = this.props;
@@ -20,14 +32,23 @@ class ToastCard extends React.Component {
   }
 
   render() {
+    const { isUserCreated } = this.state;
     const { toast, birthdayId } = this.props;
     const editLink = `/birthdays/${birthdayId}/toasts/edit/${toast.id}`;
     return (
       <div className="ToastCard col-3">
         <div className="toast-card-shell mb-3">
             <div className="header d-flex justify-content-between align-items-center card-header">
-              <Link className="mx-1 btn btn-outline-dark edit-toast-btn" to={editLink}><i className="fas fa-edit fa-1x"></i></Link>
-              <button className="mx-1 btn btn-outline-light toast-delete-btn" onClick={this.deleteToastEvent}><i className="fas fa-times"></i></button>
+              {
+                isUserCreated
+                  ? (
+                  <React.Fragment>
+                    <Link className="mx-1 btn btn-outline-dark edit-toast-btn" to={editLink}><i className="fas fa-edit fa-1x"></i></Link>
+                    <button className="mx-1 btn btn-outline-light toast-delete-btn" onClick={this.deleteToastEvent}><i className="fas fa-times"></i></button>
+                  </React.Fragment>
+                  )
+                  : ''
+              }
             </div>
             <div className="body card-body">
                 <h5 className="toast-text card-title">{toast.contributorName}</h5>

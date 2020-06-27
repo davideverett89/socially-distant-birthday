@@ -28,7 +28,7 @@ class BirthdayCard extends React.Component {
                         <div className="col-3 column">
                             <p className="card-text">{birthday.date}</p>
                         </div>
-                        <div className="col-6 third-column d-flex flex-row justify-content-around">
+                        <div className="col-6 third-column d-flex flex-row justify-content-around align-items-center">
                             <Link className="card-btn btn single-view-btn" to={singleLink}>View</Link>
                             {currentUserCreated ? <Link className="card-btn btn edit-birthday-btn" to={editLink}>Update</Link> : ''}
                             {currentUserCreated ? <button className="card-btn btn btn-danger delete-birthday-btn" onClick={() => removeBirthday(birthday.id)}>Cancel</button> : ''}

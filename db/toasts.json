@@ -58,5 +58,11 @@
         "birthdayId" : "birthday1",
         "creationDate" : "June 20, 2020, 11:15:00 am",
         "uid" : "888777666"
+    },
+    "toast11" : {
+        "message" : "Happy birthday on your very special day, I hope that you don't die before you eat your cake.",
+        "birthdayId" : "birthday2",
+        "creationDate" : "June 20, 2020, 11:15:00 am",
+        "uid" : "888777666"
     }
 }

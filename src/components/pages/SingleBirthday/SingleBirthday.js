@@ -14,6 +14,7 @@ class SingleBirthday extends React.Component {
     birthday: {},
     toasts: [],
     currentUserCreated: false,
+    currentUserIsGuestOfHonor: false,
   }
 
   getBirthdayData = () => {
@@ -21,7 +22,8 @@ class SingleBirthday extends React.Component {
     smash.getSingleBirthdayWithGuestOfHonorAndInvitations(birthdayId)
       .then((birthday) => {
         const currentUserCreated = birthday.creatorUid === authData.getUid();
-        this.setState({ birthday, currentUserCreated });
+        const currentUserIsGuestOfHonor = birthday.guestOfHonorUid === authData.getUid();
+        this.setState({ birthday, currentUserCreated, currentUserIsGuestOfHonor });
         smash.getToastsWithContributorNameByBirthdayId(birthdayId)
           .then((toasts) => this.setState({ toasts }));
       })
@@ -46,7 +48,9 @@ class SingleBirthday extends React.Component {
   }
 
   render() {
-    const { birthday, toasts, currentUserCreated } = this.state;
+    const {
+      birthday, toasts, currentUserCreated, currentUserIsGuestOfHonor,
+    } = this.state;
     const { birthdayId } = this.props.match.params;
     const editLink = `/birthdays/edit/${birthdayId}`;
     const newToastLink = `/birthdays/${birthdayId}/toasts/new`;
@@ -56,7 +60,11 @@ class SingleBirthday extends React.Component {
     return (
         <div className="SingleBirthday col-11 mx-auto my-5 p-5">
             <h1 className="display-1 single-birthday-header">{birthday.guestOfHonor}'s Birthday!</h1>
-            <Link className="my-5 col-2 btn add-toast-btn" to={newToastLink}>Add New Toast</Link>
+            {
+            currentUserIsGuestOfHonor
+              ? ''
+              : (<Link className="my-5 col-2 btn add-toast-btn" to={newToastLink}>Add New Toast</Link>)
+            }
             <div className="mb-3 d-flex flex-wrap">
               {makeToasts}
             </div>
