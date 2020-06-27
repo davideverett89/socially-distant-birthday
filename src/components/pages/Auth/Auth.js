@@ -21,16 +21,28 @@ class Auth extends React.Component {
       .catch((err) => console.error('There was an issue with registering new user:', err));
   }
 
-    userCheck = () => {
-      userData.getUserByEmail(authData.getEmail())
-        .then((thisUser) => {
-          if (thisUser.length === 0) {
-            // If a user is pulled back, check if there is uid is blank, if it is blank, then update the uid and displayName. Add else statement.
-            this.saveUser();
+  updateUser = (userId) => {
+    const updatedDisplayName = authData.getDisplayName();
+    const updatedUid = authData.getUid();
+    userData.patchUser(userId, updatedDisplayName, updatedUid)
+      .then(() => {})
+      .catch((err) => console.error('There was an issue with updating a user:', err));
+  }
+
+  userCheck = () => {
+    userData.getUserByEmail(authData.getEmail())
+      .then((thisUser) => {
+        if (thisUser.length === 0) {
+          this.saveUser();
+        } else {
+          const isInvitedUser = thisUser[0].uid === 'temp-uid';
+          if (isInvitedUser) {
+            this.updateUser(thisUser[0].id);
           }
-        })
-        .catch((err) => console.error('There was an issue checking for a user at login:', err));
-    }
+        }
+      })
+      .catch((err) => console.error('There was an issue checking for a user at login:', err));
+  }
 
     loginClickEvent = (e) => {
       e.preventDefault();

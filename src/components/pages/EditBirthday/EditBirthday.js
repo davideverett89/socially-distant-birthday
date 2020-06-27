@@ -132,7 +132,7 @@ class EditBirthday extends React.Component {
     const newUser = {
       displayName: newUserName,
       email: newUserEmail,
-      uid: '',
+      uid: 'temp-uid',
     };
     userData.postUser(newUser)
       .then(() => this.getBirthdayInfo())

@@ -86,9 +86,11 @@ const getSingleBirthdayWithGuestOfHonorByGuestOfHonorUid = (guestOfHonorUid) => 
     .then((birthdays) => {
       const birthday = birthdays[0];
       userData.getUsers().then((users) => {
-        const guestOfHonor = users.find((x) => x.uid === birthday.guestOfHonorUid);
-        birthday.guestOfHonor = guestOfHonor.displayName;
-        resolve(birthday);
+        if (birthday !== undefined) {
+          const guestOfHonor = users.find((x) => x.uid === birthday.guestOfHonorUid);
+          birthday.guestOfHonor = guestOfHonor.displayName;
+          resolve(birthday);
+        }
       });
     })
     .catch((err) => reject(err));
