@@ -31,7 +31,11 @@ class NewBirthday extends React.Component {
           const thisUser = { isChecked: false, ...user };
           users.push(thisUser);
         });
-        this.setState({ users });
+        this.setState({
+          users,
+          newUserEmail: '',
+          newUserName: '',
+        });
       })
       .catch((err) => console.error('There was an issue getting all users:', err));
   }

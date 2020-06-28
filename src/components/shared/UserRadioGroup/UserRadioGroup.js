@@ -27,7 +27,7 @@ class UserRadioGroup extends React.Component {
                 {
                     users.map((user) => {
                       const isCurrentUser = user.uid === authData.getUid();
-                      if (isCurrentUser) return '';
+                      if (isCurrentUser) return null;
                       return (
                         <UserRadio
                           key={user.id}
