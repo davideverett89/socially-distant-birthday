@@ -40,6 +40,8 @@ class EditBirthday extends React.Component {
             guestOfHonorName: birthday.guestOfHonor,
             users: finalUsers,
             invitations: birthday.invitations,
+            newUserEmail: '',
+            newUserName: '',
           });
         });
       })
