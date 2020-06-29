@@ -9,7 +9,7 @@ const getBirthdaysWithGuestsOfHonor = (creatorUid) => new Promise((resolve, reje
       const finalBirthdays = [];
       birthdays.forEach((birthday) => {
         const thisBirthday = { guestOfHonor: '', ...birthday };
-        const guestOfHonor = users.find((user) => user.uid === thisBirthday.guestOfHonorUid);
+        const guestOfHonor = users.find((user) => user.id === thisBirthday.guestOfHonorId);
         if (guestOfHonor !== undefined) {
           thisBirthday.guestOfHonor = guestOfHonor.displayName;
         }
@@ -32,7 +32,7 @@ const getInvitedBirthdaysByUserUid = (userUid) => new Promise((resolve, reject) 
           userContributors.forEach((singleUC) => {
             const invitedBirthday = birthdays.find((birthday) => birthday.id === singleUC.birthdayId);
             if (invitedBirthday !== undefined) {
-              const guestOfHonor = users.find((x) => x.uid === invitedBirthday.guestOfHonorUid);
+              const guestOfHonor = users.find((x) => x.id === invitedBirthday.guestOfHonorId);
               if (guestOfHonor !== undefined) {
                 invitedBirthday.guestOfHonor = guestOfHonor.displayName;
               }
@@ -54,7 +54,7 @@ const getSingleBirthdayWithGuestOfHonorAndInvitations = (birthdayId) => new Prom
       birthday.invitations = [];
       userData.getUsers().then((users) => {
         userContributorData.getUserContributorsByBirthdayId(birthdayId).then((userContributors) => {
-          const guestOfHonor = users.find((x) => x.uid === birthday.guestOfHonorUid);
+          const guestOfHonor = users.find((x) => x.id === birthday.guestOfHonorId);
           birthday.guestOfHonor = guestOfHonor.displayName;
           userContributors.forEach((userContributor) => {
             const thisUserContributor = { invitedUserName: '', ...userContributor };
@@ -85,13 +85,13 @@ const getToastsWithContributorNameByBirthdayId = (birthdayId) => new Promise((re
     .catch((err) => reject(err));
 });
 
-const getSingleBirthdayWithGuestOfHonorByGuestOfHonorUid = (guestOfHonorUid) => new Promise((resolve, reject) => {
-  birthdayData.getBirthdaybyGuestOfHonorUid(guestOfHonorUid)
+const getSingleBirthdayWithGuestOfHonorByGuestOfHonorId = (guestOfHonorId) => new Promise((resolve, reject) => {
+  birthdayData.getBirthdaybyGuestOfHonorId(guestOfHonorId)
     .then((birthdays) => {
       const birthday = birthdays[0];
       userData.getUsers().then((users) => {
         if (birthday !== undefined) {
-          const guestOfHonor = users.find((x) => x.uid === birthday.guestOfHonorUid);
+          const guestOfHonor = users.find((x) => x.id === birthday.guestOfHonorId);
           birthday.guestOfHonor = guestOfHonor.displayName;
           resolve(birthday);
         }
@@ -123,5 +123,5 @@ export default {
   getSingleBirthdayWithGuestOfHonorAndInvitations,
   getToastsWithContributorNameByBirthdayId,
   deleteBirthdayAndBirthdayInvitationsAndToasts,
-  getSingleBirthdayWithGuestOfHonorByGuestOfHonorUid,
+  getSingleBirthdayWithGuestOfHonorByGuestOfHonorId,
 };

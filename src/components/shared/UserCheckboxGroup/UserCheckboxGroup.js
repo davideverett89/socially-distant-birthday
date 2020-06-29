@@ -13,7 +13,7 @@ import './UserCheckboxGroup.scss';
 class UserCheckboxGroup extends React.Component {
   static propTypes = {
     users: PropTypes.arrayOf(userShape.userShape),
-    birthdayGuestOfHonorUid: PropTypes.string.isRequired,
+    birthdayGuestOfHonorId: PropTypes.string.isRequired,
     userIsCheckedChange: PropTypes.func.isRequired,
     invitations: PropTypes.arrayOf(invitationShape.invitationShape),
     isEdit: PropTypes.bool.isRequired,
@@ -22,14 +22,14 @@ class UserCheckboxGroup extends React.Component {
   render() {
     const {
       users,
-      birthdayGuestOfHonorUid,
+      birthdayGuestOfHonorId,
       userIsCheckedChange,
       invitations,
       isEdit,
     } = this.props;
 
     const buildCheckboxes = users.map((user) => {
-      const isCurrentUserOrGOH = user.uid === authData.getUid() || user.uid === birthdayGuestOfHonorUid;
+      const isCurrentUserOrGOH = user.uid === authData.getUid() || user.id === birthdayGuestOfHonorId;
       const isUserAlreadyInvited = invitations.find((x) => x.userId === user.id) !== undefined;
       if (isCurrentUserOrGOH || isUserAlreadyInvited) return null;
       return (

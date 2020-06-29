@@ -22,7 +22,7 @@ class SingleBirthday extends React.Component {
     smash.getSingleBirthdayWithGuestOfHonorAndInvitations(birthdayId)
       .then((birthday) => {
         const currentUserCreated = birthday.creatorUid === authData.getUid();
-        const currentUserIsGuestOfHonor = birthday.guestOfHonorUid === authData.getUid();
+        const currentUserIsGuestOfHonor = birthday.guestOfHonorId === authData.getUid();
         this.setState({ birthday, currentUserCreated, currentUserIsGuestOfHonor });
         smash.getToastsWithContributorNameByBirthdayId(birthdayId)
           .then((toasts) => this.setState({ toasts }));

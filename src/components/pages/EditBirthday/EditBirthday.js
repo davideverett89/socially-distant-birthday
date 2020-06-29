@@ -15,7 +15,7 @@ import userContributorData from '../../../helpers/data/userContributorData';
 class EditBirthday extends React.Component {
   state = {
     birthdayDate: '',
-    birthdayGuestOfHonorUid: '',
+    birthdayGuestOfHonorId: '',
     guestOfHonorName: '',
     newUserEmail: '',
     newUserName: '',
@@ -36,7 +36,7 @@ class EditBirthday extends React.Component {
           });
           this.setState({
             birthdayDate: birthday.date,
-            birthdayGuestOfHonorUid: birthday.guestOfHonorUid,
+            birthdayGuestOfHonorId: birthday.guestOfHonorId,
             guestOfHonorName: birthday.guestOfHonor,
             users: finalUsers,
             invitations: birthday.invitations,
@@ -115,11 +115,11 @@ class EditBirthday extends React.Component {
   updateBirthday = (e) => {
     e.preventDefault();
     const { birthdayId } = this.props.match.params;
-    const { birthdayDate, birthdayGuestOfHonorUid, newInvitees } = this.state;
+    const { birthdayDate, birthdayGuestOfHonorId, newInvitees } = this.state;
     const updatedBirthday = {
       creatorUid: authData.getUid(),
       date: birthdayDate,
-      guestOfHonorUid: birthdayGuestOfHonorUid,
+      guestOfHonorId: birthdayGuestOfHonorId,
     };
     birthdayData.putBirthday(birthdayId, updatedBirthday)
       .then(() => {
@@ -135,17 +135,17 @@ class EditBirthday extends React.Component {
     const newUser = {
       displayName: newUserName,
       email: newUserEmail,
-      uid: 'temp-uid',
+      uid: '',
     };
     userData.postUser(newUser)
       .then(() => this.getBirthdayInfo())
-      .catch((err) => console.error('There was an issue with createing a new user:', err));
+      .catch((err) => console.error('There was an issue with creating a new user:', err));
   }
 
   render() {
     const {
       birthdayDate,
-      birthdayGuestOfHonorUid,
+      birthdayGuestOfHonorId,
       users,
       guestOfHonorName,
       invitations,
@@ -174,7 +174,7 @@ class EditBirthday extends React.Component {
                   <div className="py-5 px-2 mx-1 selection-column row">
                     <UserCheckboxGroup
                       users={users}
-                      birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
+                      birthdayGuestOfHonorId={birthdayGuestOfHonorId}
                       userIsCheckedChange={this.userIsCheckedChange}
                       invitations={invitations}
                       isEdit={true}

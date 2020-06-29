@@ -8,16 +8,16 @@ import './UserRadio.scss';
 class UserRadio extends React.Component {
   static propTypes = {
     user: userShape.userShape,
-    birthdayGuestOfHonorUid: PropTypes.string.isRequired,
-    birthdayGuestOfHonorUidChange: PropTypes.func.isRequired,
+    birthdayGuestOfHonorId: PropTypes.string.isRequired,
+    birthdayGuestOfHonorIdChange: PropTypes.func.isRequired,
   }
 
   render() {
-    const { user, birthdayGuestOfHonorUid, birthdayGuestOfHonorUidChange } = this.props;
+    const { user, birthdayGuestOfHonorId, birthdayGuestOfHonorIdChange } = this.props;
     return (
         <div className="UserRadio">
             <div className="form-check">
-                <input className="form-check-input" type="radio" name="userRadio" data-user-name={user.displayName} id={user.id} value={user.uid} onChange={birthdayGuestOfHonorUidChange} checked={birthdayGuestOfHonorUid === user.uid} />
+                <input className="form-check-input" type="radio" name="userRadio" data-user-name={user.displayName} id={user.id} value={user.uid} onChange={birthdayGuestOfHonorIdChange} checked={birthdayGuestOfHonorId === user.uid} />
                 <label className="form-check-label" htmlFor={user.id}>{user.displayName}</label>
             </div>
         </div>
