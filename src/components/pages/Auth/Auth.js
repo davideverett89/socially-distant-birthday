@@ -35,7 +35,7 @@ class Auth extends React.Component {
         if (thisUser.length === 0) {
           this.saveUser();
         } else {
-          const isInvitedUser = thisUser[0].uid === 'temp-uid';
+          const isInvitedUser = thisUser[0].uid === '';
           if (isInvitedUser) {
             this.updateUser(thisUser[0].id);
           }

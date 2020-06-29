@@ -15,7 +15,7 @@ import './NewBirthday.scss';
 class NewBirthday extends React.Component {
   state = {
     birthdayDate: '',
-    birthdayGuestOfHonorUid: '',
+    birthdayGuestOfHonorId: '',
     guestOfHonorName: '',
     newUserEmail: '',
     newUserName: '',
@@ -49,9 +49,9 @@ class NewBirthday extends React.Component {
     this.setState({ birthdayDate: e.target.value });
   }
 
-  birthdayGuestOfHonorUidChange = (e) => {
+  birthdayGuestOfHonorIdChange = (e) => {
     const { userName } = e.target.dataset;
-    this.setState({ birthdayGuestOfHonorUid: e.target.value, guestOfHonorName: userName });
+    this.setState({ birthdayGuestOfHonorId: e.target.value, guestOfHonorName: userName });
     this.resetUsers();
   }
 
@@ -111,11 +111,11 @@ class NewBirthday extends React.Component {
 
   saveBirthday = (e) => {
     e.preventDefault();
-    const { birthdayDate, birthdayGuestOfHonorUid, invitees } = this.state;
+    const { birthdayDate, birthdayGuestOfHonorId, invitees } = this.state;
     const newBirthday = {
       creatorUid: authData.getUid(),
       date: birthdayDate,
-      guestOfHonorUid: birthdayGuestOfHonorUid,
+      guestOfHonorId: birthdayGuestOfHonorId,
     };
     birthdayData.postBirthday(newBirthday)
       .then((response) => {
@@ -132,7 +132,7 @@ class NewBirthday extends React.Component {
     const newUser = {
       displayName: newUserName,
       email: newUserEmail,
-      uid: 'temp-uid',
+      uid: '',
     };
     userData.postUser(newUser)
       .then(() => this.getInfo())
@@ -142,7 +142,7 @@ class NewBirthday extends React.Component {
   render() {
     const {
       birthdayDate,
-      birthdayGuestOfHonorUid,
+      birthdayGuestOfHonorId,
       users,
       guestOfHonorName,
       invitees,
@@ -166,12 +166,12 @@ class NewBirthday extends React.Component {
                   <div className="py-5 px-2 mx-1 selection-column row">
                     <UserRadioGroup
                       users={users}
-                      birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
-                      birthdayGuestOfHonorUidChange={this.birthdayGuestOfHonorUidChange}
+                      birthdayGuestOfHonorId={birthdayGuestOfHonorId}
+                      birthdayGuestOfHonorIdChange={this.birthdayGuestOfHonorIdChange}
                     />
                     <UserCheckboxGroup
                       users={users}
-                      birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
+                      birthdayGuestOfHonorId={birthdayGuestOfHonorId}
                       userIsCheckedChange={this.userIsCheckedChange}
                       invitations={[]}
                       isEdit={false}

@@ -8,6 +8,7 @@ import authData from '../../../helpers/data/authData';
 import BirthdayCard from '../../shared/BirthdayCard/BirthdayCard';
 
 import './Dashboard.scss';
+import userData from '../../../helpers/data/userData';
 
 class Dashboard extends React.Component {
   state = {
@@ -33,12 +34,16 @@ class Dashboard extends React.Component {
   }
 
   getMyOwnBirthday = () => {
-    smash.getSingleBirthdayWithGuestOfHonorByGuestOfHonorUid(authData.getUid())
-      .then((birthday) => {
-        const today = moment().format('YYYY-MM-DD');
-        if (birthday.date === today) {
-          this.setState({ myOwnBirthday: birthday });
-        }
+    userData.getUsers()
+      .then((users) => {
+        const currentUser = users.find((x) => x.uid === authData.getUid());
+        smash.getSingleBirthdayWithGuestOfHonorByGuestOfHonorId(currentUser.id)
+          .then((birthday) => {
+            const today = moment().format('YYYY-MM-DD');
+            if (birthday.date === today) {
+              this.setState({ myOwnBirthday: birthday });
+            }
+          });
       })
       .catch((err) => console.error('There is an issue with getting a single birthday:', err));
   }

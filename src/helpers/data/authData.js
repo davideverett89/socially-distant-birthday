@@ -7,4 +7,8 @@ const getEmail = () => firebase.auth().currentUser.email;
 
 const getDisplayName = () => firebase.auth().currentUser.displayName;
 
-export default { getUid, getEmail, getDisplayName };
+export default {
+  getUid,
+  getEmail,
+  getDisplayName,
+};

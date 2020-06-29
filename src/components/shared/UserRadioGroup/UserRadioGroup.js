@@ -12,12 +12,12 @@ import './UserRadioGroup.scss';
 class UserRadioGroup extends React.Component {
   static propTypes = {
     users: PropTypes.arrayOf(userShape.userShape),
-    birthdayGuestOfHonorUid: PropTypes.string.isRequired,
-    birthdayGuestOfHonorUidChange: PropTypes.func.isRequired,
+    birthdayGuestOfHonorId: PropTypes.string.isRequired,
+    birthdayGuestOfHonorIdChange: PropTypes.func.isRequired,
   }
 
   render() {
-    const { users, birthdayGuestOfHonorUid, birthdayGuestOfHonorUidChange } = this.props;
+    const { users, birthdayGuestOfHonorId, birthdayGuestOfHonorIdChange } = this.props;
 
     return (
       <div className="UserRadioGroup px-5 text-left mx-auto col-6">
@@ -32,8 +32,8 @@ class UserRadioGroup extends React.Component {
                         <UserRadio
                           key={user.id}
                           user={user}
-                          birthdayGuestOfHonorUid={birthdayGuestOfHonorUid}
-                          birthdayGuestOfHonorUidChange={birthdayGuestOfHonorUidChange}
+                          birthdayGuestOfHonorId={birthdayGuestOfHonorId}
+                          birthdayGuestOfHonorIdChange={birthdayGuestOfHonorIdChange}
                         />
                       );
                     })

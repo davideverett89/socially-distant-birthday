@@ -35,8 +35,8 @@ const getBirthdaysByCreatorUid = (creatorUid) => new Promise((resolve, reject) =
     .catch((err) => reject(err));
 });
 
-const getBirthdaybyGuestOfHonorUid = (guestOfHonorUid) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/birthdays.json?orderBy="guestOfHonorUid"&equalTo="${guestOfHonorUid}"`)
+const getBirthdaybyGuestOfHonorId = (guestOfHonorId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/birthdays.json?orderBy="guestOfHonorId"&equalTo="${guestOfHonorId}"`)
     .then((response) => {
       const birthdayObject = response.data;
       const birthdays = [];
@@ -66,5 +66,5 @@ export default {
   postBirthday,
   deleteBirthday,
   putBirthday,
-  getBirthdaybyGuestOfHonorUid,
+  getBirthdaybyGuestOfHonorId,
 };
