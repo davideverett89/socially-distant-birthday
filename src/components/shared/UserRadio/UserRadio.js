@@ -17,7 +17,7 @@ class UserRadio extends React.Component {
     return (
         <div className="UserRadio">
             <div className="form-check">
-                <input className="form-check-input" type="radio" name="userRadio" data-user-name={user.displayName} id={user.id} value={user.uid} onChange={birthdayGuestOfHonorIdChange} checked={birthdayGuestOfHonorId === user.uid} />
+                <input className="form-check-input" type="radio" name="userRadio" data-user-name={user.displayName} id={user.id} value={user.id} onChange={birthdayGuestOfHonorIdChange} checked={birthdayGuestOfHonorId === user.uid} />
                 <label className="form-check-label" htmlFor={user.id}>{user.displayName}</label>
             </div>
         </div>
