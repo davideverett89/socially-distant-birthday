@@ -19,8 +19,7 @@ class Home extends React.Component {
             </div>
           </div>
           <p className="home-intro col-12 my-5 mx-auto lead">
-            Don't let quarantine get you down!  Use this tool to let your friends know you're thinking about them on their birthday!
-            Create a birthday event, invite all your friends, and remind that special someone that their friends still exist and that life has meaning!
+            A socially distant birthday tracking and celebration app!  Remind that special someone that their friends still exist and that life has meaning!
           </p>
           <Link className="my-5 btn home-dash-btn" to="/dashboard">Go To Dashboard</Link>
         </div>

@@ -27,24 +27,24 @@
             .covid-image {
                 text-shadow:
                 -3px -3px 0 $quaternaryColor,  
-                 -5px -5px 0 $tertiaryColor,
-                 -7px -7px 0 $senaryColor,
-                  -9px -9px 0 $senaryColor;
-                  color: $primaryColor;
+                -6px -6px 0 $tertiaryColor,
+                -8px -8px 0 $senaryColor,
+                 -10px -10px 0 $senaryColor;
+                 color: $primaryColor;
             }
             .not-equal-image {
-                color: $tertiaryColor;
                 width: 120px;
                 height: 100px;
                 text-shadow:
-                -1px -1px 0 #000,  
-                 1px -1px 0 #000,
-                 -1px 1px 0 #000,
-                  1px 1px 0 #000;
+                -3px -3px 0 $quaternaryColor,  
+                -6px -6px 0 $primaryColor,
+                -8px -8px 0 $senaryColor,
+                 -10px -10px 0 $senaryColor;
+                 color: $tertiaryColor;
             }
             .little-image-container {
                 .cancelled-image {
-                    color: red;
+                    color: $quaternaryColor;
                     position: absolute;
                     z-index: 2;
                     top: 41px;
@@ -62,9 +62,9 @@
                     z-index: 1;
                     text-shadow:
                     -3px -3px 0 $quaternaryColor,  
-                    -5px -5px 0 $tertiaryColor,
-                    -7px -7px 0 $senaryColor,
-                     -9px -9px 0 $senaryColor;
+                    -6px -6px 0 $tertiaryColor,
+                    -8px -8px 0 $senaryColor,
+                     -10px -10px 0 $senaryColor;
                      color: $primaryColor;
                 }
             }

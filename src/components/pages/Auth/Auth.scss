@@ -35,6 +35,12 @@
     .auth-image {
         max-width: 100%;
         height: auto;
+        text-shadow:
+        -3px -3px 0 $quaternaryColor,  
+        -6px -6px 0 $tertiaryColor,
+        -8px -8px 0 $senaryColor,
+         -10px -10px 0 $senaryColor;
+         color: $primaryColor;
     }
     .login-btn {
         background-color: $primaryColor;
