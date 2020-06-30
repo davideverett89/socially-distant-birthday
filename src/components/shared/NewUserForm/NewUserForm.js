@@ -21,8 +21,8 @@ class NewUserForm extends React.Component {
       newUserNameChange,
     } = this.props;
     return (
-      <div className="mt-3 NewUserForm col-12 mx-auto text-left">
-        <h6 className="mt-1 new-user-form-header">Add a new user and invite them to the party!</h6>
+      <div className="mt-3 px-3 NewUserForm col-12 mx-auto text-left">
+        <h6 className="mt-2 new-user-form-header">Add a new user and invite them to the party!</h6>
         <div className="form-body d-flex justify-content-around align-items-center">
             <div className="form-group mb-2">
                 <label htmlFor="new-user-email" className="email-label">Email</label>
