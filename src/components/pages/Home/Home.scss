@@ -25,27 +25,47 @@
         .big-image-container {
             position: relative;
             .covid-image {
-                width: 200px;
-                height: 200px;
+                text-shadow:
+                -3px -3px 0 $quaternaryColor,  
+                -6px -6px 0 $tertiaryColor,
+                -8px -8px 0 $senaryColor,
+                 -10px -10px 0 $senaryColor;
+                 color: $primaryColor;
             }
-            .equal-image {
+            .not-equal-image {
                 width: 120px;
-                height: 100px; 
+                height: 100px;
+                text-shadow:
+                -3px -3px 0 $quaternaryColor,  
+                -6px -6px 0 $primaryColor,
+                -8px -8px 0 $senaryColor,
+                 -10px -10px 0 $senaryColor;
+                 color: $tertiaryColor;
             }
             .little-image-container {
                 .cancelled-image {
-                    width: 200px;
-                    height: 200px;
+                    color: $quaternaryColor;
                     position: absolute;
                     z-index: 2;
+                    top: 41px;
+                    left: 389px;
+                    text-shadow:
+                    -1px -1px 0 #000,  
+                     1px -1px 0 #000,
+                     -1px 1px 0 #000,
+                      1px 1px 0 #000;
                 }
                 .cake-image {
-                    width: 200px;
-                    height: 200px;
                     position: relative;
                     top: 0;
                     left: 0;
                     z-index: 1;
+                    text-shadow:
+                    -3px -3px 0 $quaternaryColor,  
+                    -6px -6px 0 $tertiaryColor,
+                    -8px -8px 0 $senaryColor,
+                     -10px -10px 0 $senaryColor;
+                     color: $primaryColor;
                 }
             }
         }

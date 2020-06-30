@@ -7,7 +7,6 @@ import authData from '../../../helpers/data/authData';
 import userData from '../../../helpers/data/userData';
 
 import './Auth.scss';
-import cake from '../../../images/1F382-birthday-cake-512.png';
 
 class Auth extends React.Component {
   saveUser = () => {
@@ -59,7 +58,7 @@ class Auth extends React.Component {
         <div className="Auth">
             <div className="my-5 col-6 mx-auto auth-flex d-flex flex-column justify-content-center align-items-center">
               <h1 className="display-1 brand-header">Welcome To Apparty!</h1>
-              <img className="auth-image" src={cake} alt="cake" />
+              <i className="auth-image fas fa-birthday-cake fa-10x"></i>
               <h2 className="my-2 display-4 auth-header">Please Sign In</h2>
               <button className="my-5 btn login-btn" onClick={this.loginClickEvent}>Login</button>
             </div>

@@ -171,7 +171,7 @@ class EditBirthday extends React.Component {
             <form className="p-5 col-10 mx-auto my-5 edit-birthday-form">
               <div className="row">
                 <div className="col-6">
-                  <div className="py-5 px-2 mx-1 selection-column row">
+                  <div className="pb-5 px-2 mx-1 selection-column row">
                     <UserCheckboxGroup
                       users={users}
                       birthdayGuestOfHonorId={birthdayGuestOfHonorId}
