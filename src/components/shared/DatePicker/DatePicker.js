@@ -14,7 +14,7 @@ class DatePicker extends React.Component {
     const { birthdayDate, birthdayDateChange, isEdit } = this.props;
 
     return (
-      <div className="mt-2 DatePicker mx-auto col-12 d-flex justify-content-center align-items-center">
+      <div className="mt-2 px-3 DatePicker mx-auto col-12 d-flex justify-content-center align-items-center">
         <div className="date-picker">
             <h6 className="mt-1 lead">{isEdit ? 'Do you wish to change the date?' : 'When is it?'}</h6>
             <label className="mx-3" htmlFor="start">Birthday date:</label>

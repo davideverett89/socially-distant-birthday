@@ -44,7 +44,7 @@ class UserCheckboxGroup extends React.Component {
     const isEmpty = buildCheckboxes.every((x) => x === null);
 
     return (
-      <div className={`UserCheckboxGroup px-5 text-left mx-auto ${isEdit ? 'col-9' : 'col-6'}`}>
+      <div className={`UserCheckboxGroup px-3 text-left mx-auto ${isEdit ? 'col-9' : 'col-6'}`}>
         {
           isEmpty
             ? ''

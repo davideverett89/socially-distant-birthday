@@ -2,8 +2,9 @@
 
 .DatePicker {
     display: block;
-    background-color: $senaryColor;
+    background-color: $secondaryColor;
     border: 1px solid black;
     border-radius: 10px;
     max-height: 200px;
+    box-shadow: inset 0 0 10px #000000;
 }
