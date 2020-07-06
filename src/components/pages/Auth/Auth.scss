@@ -1,5 +1,32 @@
 @import '../../../styles/variables';
 
+@media (max-width: 869px) {
+    .brand-header {
+        font-size: 5.5rem;
+    }
+    .auth-header {
+        font-size: 3rem;
+    }
+  }
+
+@media (max-width: 576px) {
+  .brand-header {
+      font-size: 5rem;
+  }
+  .auth-header {
+      font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+    .brand-header {
+        font-size: 4.5rem;
+    }
+    .auth-header {
+        font-size: 2rem;
+    }
+  }
+
 .Auth {
     display: block;
     .auth-flex {
@@ -21,6 +48,7 @@
              1px -1px 0 #000,
              -1px 1px 0 #000,
               1px 1px 0 #000;
+              z-index: 1;
         }
     }
     .auth-header {
@@ -47,7 +75,7 @@
         font-family: $primaryFont;
         color: $secondaryColor;
         font-size: 25px;
-        width: 450px;
+        // width: 450px;
         height: 70px;
         border: 1px solid black;
         text-shadow:
