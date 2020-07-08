@@ -75,13 +75,13 @@ class Dashboard extends React.Component {
         <div className="col-11 my-5 Dashboard container-fluid p-5">
             <h1 className="mb-5 display-4 dashboard-header">Your Birthday Dashboard!</h1>
             <div className="row">
-              <div className="col-6">
+              <div className="my-3 col-lg-6 col-xl-6">
                 <div className="birthday-column">
                   <h2 className="m-2">Organized Birthdays</h2>
                   {makeBirthdayCards}
                 </div>
               </div>
-              <div className="col-6">
+              <div className="my-3 col-lg-6 col-xl-6">
                 <div className="birthday-column">
                   <h2 className="m-2">Invited Birthdays</h2>
                   {makeInvitations}

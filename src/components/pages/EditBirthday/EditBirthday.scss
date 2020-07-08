@@ -1,5 +1,46 @@
 @import '../../../styles/variables';
 
+@media (min-width: 450px) {
+    .guest-of-honor-name {
+        font-size: 3rem;
+    }
+    .birthday-date {
+        font-size: 3rem;
+    }
+    .declaration {
+        font-size: 2.5rem;
+    }
+    .guest-list {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 450px) {
+    .guest-of-honor-name {
+        font-size: 2rem;
+    }
+    .birthday-date {
+        font-size: 2rem;
+    }
+    .declaration {
+        font-size: 1.5rem;
+    }
+    .guest-list {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 355px) {
+    .guest-list {
+        font-size: 18px;
+    }
+}
+@media (max-width: 320px) {
+    .guest-list {
+        font-size: 14px;
+    }
+}
+
 .EditBirthday {
     display: block;
     .edit-birthday-header {
@@ -27,8 +68,6 @@
             background-color: $primaryColor;
             border: 1px solid black;
             border-radius: 10px;
-            min-height: 812px;
-            max-height: 812px;
             box-shadow:
             0 2.8px 2.2px rgba(0, 0, 0, 0.034),
             0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -41,8 +80,8 @@
             background-color: $primaryColor;
             border: 1px solid black;
             border-radius: 10px;
-            min-height: 812px;
-            max-height: 812px;
+            min-height: 712px;
+            max-height: 712px;
             box-shadow:
             0 2.8px 2.2px rgba(0, 0, 0, 0.034),
             0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -52,7 +91,6 @@
             0 100px 80px rgba(0, 0, 0, 0.12);
             .guest-of-honor-name {
                 font-family: $primaryFont;
-                font-size: 50px;
                 color: $quaternaryColor;
                 text-shadow:
                 -1px -1px 0 #000,  
@@ -62,7 +100,6 @@
             }
             .birthday-date {
                 font-family: $primaryFont;
-                font-size: 45px;
                 color: $senaryColor;
                 text-shadow:
                 -1px -1px 0 #000,  
@@ -98,7 +135,7 @@
             }
             .guest-list {
                 font-family: $primaryFont;
-                font-size: 20px;
+                font-size: 18px;
                 color: $tertiaryColor;
                 list-style-type: none;
                 text-shadow:
@@ -106,8 +143,8 @@
                  1px -1px 0 #000,
                  -1px 1px 0 #000,
                   1px 1px 0 #000;
-                  max-height: 300px;
-                  min-height: 300px;
+                  max-height: 120px;
+                  min-height: 120px;
                   overflow-y: auto;
             }
         }

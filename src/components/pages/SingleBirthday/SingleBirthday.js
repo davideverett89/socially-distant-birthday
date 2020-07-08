@@ -59,12 +59,12 @@ class SingleBirthday extends React.Component {
       return (<ToastCard key={toast.id} toast={toast} birthdayId={birthdayId} removeToast={this.removeToast} isUserCreated={isUserCreated} />);
     });
     return (
-        <div className="SingleBirthday col-11 mx-auto my-5 p-5">
-            <h1 className="display-1 single-birthday-header">{birthday.guestOfHonor}'s Birthday!</h1>
+        <div className="SingleBirthday col-12 mx-auto my-5 p-1">
+            <h1 className="single-birthday-header">{birthday.guestOfHonor}'s Birthday!</h1>
             {
             currentUserIsGuestOfHonor
               ? ''
-              : (<Link className="my-5 col-2 btn add-toast-btn" to={newToastLink}>Add New Toast</Link>)
+              : (<Link className="my-5 col-9 col-sm-6 col-md-4 col-lg-4 col-xl-2 btn add-toast-btn" to={newToastLink}>Add New Toast</Link>)
             }
             <div className="mb-3 d-flex flex-wrap">
               {makeToasts}
@@ -72,10 +72,10 @@ class SingleBirthday extends React.Component {
             {
               currentUserCreated
                 ? (
-                <React.Fragment>
+                <div className="mb-3">
                   <Link className="mx-2 btn edit-birthday-btn" to={editLink}>Update</Link>
                   <button className="mx-2 btn delete-birthday-btn" onClick={this.removeBirthday}>Cancel</button>
-                </React.Fragment>
+                </div>
                 )
                 : ''
             }

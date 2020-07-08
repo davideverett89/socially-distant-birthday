@@ -39,7 +39,7 @@ class EditToast extends React.Component {
     return (
         <div className="EditToast my-5">
             <h1 className="display-3 edit-toast-header">Edit Your Message</h1>
-            <form className="p-5 col-9 mx-auto update-toast-form">
+            <form className="p-5 col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 mx-auto update-toast-form">
               <div className="my-5 form-group">
                 <textarea className="toast-textarea form-control" id="toast-input" rows="3" value={toastMessage} onChange={this.toastMessageChange}></textarea>
               </div>

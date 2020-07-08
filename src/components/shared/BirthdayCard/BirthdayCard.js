@@ -22,16 +22,16 @@ class BirthdayCard extends React.Component {
             <div className="card-container">
                 <div className="card-body container-fluid">
                     <div className="row">
-                        <div className="col-3 column">
-                            <h5 className="mb-0 card-title">{birthday.guestOfHonor}</h5>
+                        <div className="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 column d-flex flex-column justify-content-center align-items-center">
+                            <h5 className="mb-0">{birthday.guestOfHonor}</h5>
                         </div>
-                        <div className="col-3 column">
-                            <p className="card-text">{birthday.date}</p>
+                        <div className="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 column d-flex flex-column justify-content-center align-items-center">
+                            <p className="m-auto">{birthday.date}</p>
                         </div>
-                        <div className="col-6 third-column d-flex flex-row justify-content-around align-items-center">
-                            <Link className="card-btn btn single-view-btn" to={singleLink}>View</Link>
-                            {currentUserCreated ? <Link className="card-btn btn edit-birthday-btn" to={editLink}>Update</Link> : ''}
-                            {currentUserCreated ? <button className="card-btn btn btn-danger delete-birthday-btn" onClick={() => removeBirthday(birthday.id)}>Cancel</button> : ''}
+                        <div className="my-1 col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 third-column container-fluid">
+                            <Link className="col-12 card-btn btn single-view-btn" to={singleLink}>View</Link>
+                            {currentUserCreated ? <Link className="my-1 col-12 card-btn btn edit-birthday-btn" to={editLink}>Update</Link> : ''}
+                            {currentUserCreated ? <button className="col-12 card-btn btn btn-danger delete-birthday-btn" onClick={() => removeBirthday(birthday.id)}>Cancel</button> : ''}
                         </div>
                     </div>
                 </div>
