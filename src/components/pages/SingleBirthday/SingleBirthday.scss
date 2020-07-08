@@ -1,5 +1,23 @@
 @import '../../../styles/variables';
 
+@media (min-width: 410px) {
+    .single-birthday-header {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .single-birthday-header {
+        font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 410px) {
+    .single-birthday-header {
+        font-size: 3.5rem;
+    }
+}
+
 .SingleBirthday {
     display: block;
     background-color: $secondaryColor2;

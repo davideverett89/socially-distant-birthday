@@ -24,7 +24,7 @@ class ToastCard extends React.Component {
     const { toast, birthdayId, isUserCreated } = this.props;
     const editLink = `/birthdays/${birthdayId}/toasts/edit/${toast.id}`;
     return (
-      <div className="ToastCard col-3">
+      <div className="ToastCard col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
         <div className="toast-card-shell mb-3">
             <div className="header d-flex justify-content-between align-items-center card-header">
               {
