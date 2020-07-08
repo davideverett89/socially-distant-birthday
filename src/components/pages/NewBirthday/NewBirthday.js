@@ -160,10 +160,10 @@ class NewBirthday extends React.Component {
     return (
         <div className="NewBirthday my-5">
             <h1 className="new-birthday-header display-3">Create A New Birthday!</h1>
-            <form className="p-5 col-10 mx-auto my-5 new-birthday-form">
+            <form className="p-5 col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 mx-auto my-5 new-birthday-form">
               <div className="row">
-                <div className="col-6">
-                  <div className="pb-5 px-2 mx-1 selection-column row">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                  <div className="pb-5 px-2 mx-1 my-1 selection-column row">
                     <UserRadioGroup
                       users={users}
                       birthdayGuestOfHonorId={birthdayGuestOfHonorId}
@@ -190,17 +190,17 @@ class NewBirthday extends React.Component {
                     />
                   </div>
                 </div>
-                <div className="col-6">
-                  <div className="info-column p-5 mx-1 d-flex flex-column justify-content-start align-items-center">
-                    <h2 className="display-4">I am planning a Birthday Event for:</h2>
+                <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                  <div className="info-column p-5 my-1 mx-1 d-flex flex-column justify-content-start align-items-center">
+                    <h2 className="declaration">I am planning a Birthday Event for:</h2>
                     {guestOfHonorName === ''
-                      ? (<h4 className="on">(Insert Name Here)</h4>)
+                      ? ''
                       : (<h3 className="guest-of-honor-name">{guestOfHonorName}</h3>)
                     }
-                    <h4 className="on">{birthdayDate === '' ? '(Insert Date Here)' : 'on'}</h4>
+                    <h4 className="on">{birthdayDate === '' ? '' : 'on'}</h4>
                     <h3 className="birthday-date">{birthdayDate}</h3>
-                    <h2 className="display-4 my-2 guest-invited-header">Guests Invited:</h2>
-                    <ul className="p-3 guest-list col-6 mx-auto list-group list-group-flush">
+                    <h2 className="declaration my-2 guest-invited-header">Guests Invited:</h2>
+                    <ul className="p-3 guest-list col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mx-auto list-group list-group-flush">
                         {makeGuestList}
                     </ul>
                   </div>

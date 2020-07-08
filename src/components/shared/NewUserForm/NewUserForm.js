@@ -28,11 +28,11 @@ class NewUserForm extends React.Component {
                 <label htmlFor="new-user-email" className="email-label">Email</label>
                 <input type="text" className="form-control" id="new-user-email" onChange={newUserEmailChange} value={newUserEmail} placeholder="example@gmail.com" />
             </div>
-            <div className="form-group mb-2">
+            <div className="mx-1 form-group mb-2">
                 <label htmlFor="new-user-name" className="name-label">Name</label>
                 <input type="text" className="form-control" id="new-user-name" onChange={newUserNameChange} value={newUserName} placeholder="David Everett" />
             </div>
-            <button className="btn mb-2 invite-btn" onClick={createTemporaryUser}>Add New User</button>
+            <button className="btn mb-2 invite-btn" onClick={createTemporaryUser}>Add</button>
         </div>
       </div>
     );

@@ -20,7 +20,7 @@ class UserRadioGroup extends React.Component {
     const { users, birthdayGuestOfHonorId, birthdayGuestOfHonorIdChange } = this.props;
 
     return (
-      <div className="UserRadioGroup px-3 text-left mx-auto col-6">
+      <div className="UserRadioGroup px-3 text-left mx-auto col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
           <h6 className="mt-2 guest-invited-header text-white lead">Whose birthday is it?</h6>
           <div className="overflow">
             <div className="p-2 radios">
