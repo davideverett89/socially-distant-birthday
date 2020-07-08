@@ -168,10 +168,10 @@ class EditBirthday extends React.Component {
     return (
         <div className="EditBirthday my-5">
             <h1 className="edit-birthday-header display-3">Edit Birthday</h1>
-            <form className="p-5 col-10 mx-auto my-5 edit-birthday-form">
+            <form className="p-5 col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 mx-auto my-5 edit-birthday-form">
               <div className="row">
-                <div className="col-6">
-                  <div className="pb-5 px-2 mx-1 selection-column row">
+                <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                  <div className="pb-5 px-2 mx-1 my-1 selection-column row">
                     <UserCheckboxGroup
                       users={users}
                       birthdayGuestOfHonorId={birthdayGuestOfHonorId}
@@ -193,21 +193,21 @@ class EditBirthday extends React.Component {
                     />
                   </div>
                 </div>
-                <div className="col-6">
-                  <div className="info-column p-5 mx-1 d-flex flex-column justify-content-around align-items-stretch">
-                    <h2 className="display-4">This Birthday Event is for:</h2>
+                <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                  <div className="px-2 info-column p-1 mx-1 d-flex flex-column justify-content-around align-items-stretch">
+                    <h2 className="declaration">This Birthday Event is for:</h2>
                     <h2 className="guest-of-honor-name">{guestOfHonorName}</h2>
                     <h5 className="on">on</h5>
                     <h2 className="birthday-date">{birthdayDate}</h2>
                     <div className="row">
-                      <div className="col-6">
-                        <h4 className="my-2 already-invited-header">Guests Invited:</h4>
-                        <ul className="p-3 guest-list mx-auto list-group list-group-flush">
+                      <div className="col-12">
+                        <h4 className="declaration already-invited-header">Guests Invited:</h4>
+                        <ul className="guest-list mx-auto list-group list-group-flush">
                           {buildInviations}
                         </ul>
                       </div>
-                      <div className="col-6">
-                        <h4 className="my-2 guest-invited-header">New Invited Guests:</h4>
+                      <div className="col-12">
+                        <h4 className="my-2 declaration guest-invited-header">New Invited Guests:</h4>
                         <ul className="p-3 guest-list mx-auto list-group list-group-flush">
                           {makeGuestList}
                         </ul>
@@ -216,7 +216,7 @@ class EditBirthday extends React.Component {
                   </div>
                 </div>
               </div>
-              <button className="mt-5 col-4 btn birthday-edit-btn" onClick={this.updateBirthday}>Update Birthday</button>
+              <button className="mt-5 col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 btn birthday-edit-btn" onClick={this.updateBirthday}>Update</button>
             </form>
         </div>
     );
