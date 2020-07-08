@@ -7,21 +7,18 @@ import './Home.scss';
 class Home extends React.Component {
   render() {
     return (
-      <div className="Home">
-        <div className="p-3 home-flex my-5 col-9 mx-auto d-flex flex-column justify-content-center align-items-center">
+      <div className="Home col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 mx-auto">
+        <div className="p-3 home-flex my-5 d-flex flex-column justify-content-center align-items-center">
           <h1 className="home-header display-1">Welcome To Apparty!</h1>
-          <div className="my-5 big-image-container d-flex flex-row justify-content-between align-items-center">
-            <i className="covid-image fas fa-virus fa-10x"></i>
-            <i className="not-equal-image mx-5 fas fa-not-equal fa-7x"></i>
-            <div className="little-image-container">
-              <i className="cancelled-image fas fa-ban fa-7x"></i>
-              <i className="cake-image fas fa-birthday-cake fa-10x"></i>
-            </div>
+          <div className="my-5 big-image-container container-fluid">
+            <i className="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 cake-image fas fa-birthday-cake fa-5x"></i>
+            <i className="my-5 col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 people-image fas fa-people-arrows fa-7x"></i>
+            <i className="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 cake-image fas img-fluid fa-birthday-cake fa-5x"></i>
           </div>
-          <p className="home-intro col-12 my-5 mx-auto lead">
-            A socially distant birthday tracking and celebration app!  Remind that special someone that their friends still exist and that life has meaning!
+          <p className="home-intro col-12 my-3 mx-auto">
+            A socially distant birthday tracking and celebration app!
           </p>
-          <Link className="my-5 btn home-dash-btn" to="/dashboard">Go To Dashboard</Link>
+          <Link className="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 my-5 btn home-dash-btn" to="/dashboard">Dashboard</Link>
         </div>
       </div>
     );

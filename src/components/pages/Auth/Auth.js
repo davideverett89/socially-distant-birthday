@@ -58,9 +58,9 @@ class Auth extends React.Component {
         <div className="Auth mx-auto col-12 col-sm-10 col-md-10 col-lg-9 col-xl-9">
             <div className="my-5 auth-flex d-flex flex-column justify-content-center align-items-center">
               <h1 className="m-1 display-1 brand-header">Welcome To Apparty!</h1>
-              <i className="my-2 auth-image fas fa-birthday-cake fa-10x"></i>
-              <h2 className="my-2 display-4 auth-header">Please Sign In</h2>
-              <button className="col-6 my-5 btn login-btn" onClick={this.loginClickEvent}>Login</button>
+              <i className="my-5 auth-image fas fa-people-arrows fa-10x"></i>
+              <h2 className="my-2 auth-header">Please Sign In</h2>
+              <button className="col-4 my-5 btn login-btn" onClick={this.loginClickEvent}>Login</button>
             </div>
         </div>
       );

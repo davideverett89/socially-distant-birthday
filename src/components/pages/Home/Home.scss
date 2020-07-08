@@ -1,5 +1,38 @@
 @import '../../../styles/variables';
 
+@media (min-width: 898px) {
+    .home-intro {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 898px) {
+    .home-header {
+        font-size: 4.5rem;
+    }
+    .home-intro {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-header {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 576px) {
+  .home-header {
+      font-size: 4rem;
+  }
+}
+
+@media (max-width: 360px) {
+    .home-header {
+        font-size: 3.5rem;
+    }
+}
+
 .Home {
     display: block;
     .home-flex {
@@ -24,7 +57,11 @@
         }
         .big-image-container {
             position: relative;
-            .covid-image {
+            .cake-image {
+                position: relative;
+                top: 0;
+                left: 0;
+                z-index: 1;
                 text-shadow:
                 -3px -3px 0 $quaternaryColor,  
                 -6px -6px 0 $tertiaryColor,
@@ -32,9 +69,7 @@
                  -10px -10px 0 $senaryColor;
                  color: $primaryColor;
             }
-            .not-equal-image {
-                width: 120px;
-                height: 100px;
+            .people-image {
                 text-shadow:
                 -3px -3px 0 $quaternaryColor,  
                 -6px -6px 0 $primaryColor,
@@ -55,23 +90,22 @@
                      -1px 1px 0 #000,
                       1px 1px 0 #000;
                 }
-                .cake-image {
-                    position: relative;
-                    top: 0;
-                    left: 0;
-                    z-index: 1;
-                    text-shadow:
-                    -3px -3px 0 $quaternaryColor,  
-                    -6px -6px 0 $tertiaryColor,
-                    -8px -8px 0 $senaryColor,
-                     -10px -10px 0 $senaryColor;
-                     color: $primaryColor;
-                }
+                // .cake-image {
+                //     position: relative;
+                //     top: 0;
+                //     left: 0;
+                //     z-index: 1;
+                //     text-shadow:
+                //     -3px -3px 0 $quaternaryColor,  
+                //     -6px -6px 0 $tertiaryColor,
+                //     -8px -8px 0 $senaryColor,
+                //      -10px -10px 0 $senaryColor;
+                //      color: $primaryColor;
+                // }
             }
         }
         .home-intro {
             font-family: $secondaryFont;
-            font-size: 30px;
             color: $primaryColor;
             text-shadow:
             -1px -1px 0 #000,  
@@ -81,11 +115,9 @@
         }
         .home-dash-btn {
             background-color: $primaryColor;
-            padding-top: 14px;
             font-family: $primaryFont;
             color: $secondaryColor;
             font-size: 25px;
-            width: 450px;
             height: 70px;
             border: 1px solid black;
             text-shadow:
