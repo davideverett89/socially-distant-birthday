@@ -1,6 +1,8 @@
+@import '../../../styles/variables';
+
 .PhotoUploader {
     display: block;
-    .image-preview {
-        height: auto;
+    .photo-check {
+        color: $senaryColor;
     }
 }

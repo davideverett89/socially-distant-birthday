@@ -1,11 +1,13 @@
 {
     "birthday1" : {
         "date" : "2020-06-28",
+        "image" : "",
         "guestOfHonorId" : "user19",
         "creatorUid" : "LfkWzxZU7zZfiEHnnhJQTmUI4oX2"
       },
       "birthday2" : {
         "date" : "2020-07-20",
+        "image" : "",
         "guestOfHonorId" : "user4",
         "creatorUid" : "789789789"
     }

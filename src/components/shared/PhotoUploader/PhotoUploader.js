@@ -4,7 +4,7 @@ import './PhotoUploader.scss';
 
 class PhotoUploader extends React.Component {
     uploadImage = async (e) => {
-      const { toastImageChange } = this.props;
+      const { toastImageChange, birthdayImageChange, isToast } = this.props;
       const { files } = e.target;
       const data = new FormData();
       data.append('file', files[0]);
@@ -18,14 +18,18 @@ class PhotoUploader extends React.Component {
       );
       const file = await res.json();
       const newImage = file.secure_url;
-      toastImageChange(newImage);
+      if (isToast) {
+        toastImageChange(newImage);
+      } else {
+        birthdayImageChange(newImage);
+      }
     };
 
     render() {
-      const { toastImage } = this.props;
+      const { image } = this.props;
       return (
         <div className="PhotoUploader col-9">
-            <h3>Upload An Image</h3>
+            <h6 className="mt-2 photo-uploader-header">Upload An Image</h6>
             <input
                 type="file"
                 name="file"
@@ -33,9 +37,9 @@ class PhotoUploader extends React.Component {
                 onChange={this.uploadImage}
             />
             {
-                toastImage === ''
-                  ? ('')
-                  : (<img className="col-2 image-preview img-fluid" src={toastImage} alt="toast" />)
+                image && image !== ''
+                  ? (<i className="mx-2 photo-check fas fa-check"></i>)
+                  : ('')
             }
         </div>
       );

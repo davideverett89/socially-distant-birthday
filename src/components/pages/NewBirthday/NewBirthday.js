@@ -9,12 +9,14 @@ import UserRadioGroup from '../../shared/UserRadioGroup/UserRadioGroup';
 import UserCheckboxGroup from '../../shared/UserCheckboxGroup/UserCheckboxGroup';
 import DatePicker from '../../shared/DatePicker/DatePicker';
 import NewUserForm from '../../shared/NewUserForm/NewUserForm';
+import PhotoUploader from '../../shared/PhotoUploader/PhotoUploader';
 
 import './NewBirthday.scss';
 
 class NewBirthday extends React.Component {
   state = {
     birthdayDate: '',
+    birthdayImage: '',
     birthdayGuestOfHonorId: '',
     guestOfHonorName: '',
     newUserEmail: '',
@@ -44,9 +46,17 @@ class NewBirthday extends React.Component {
     this.getInfo();
   }
 
+  componentWillUnmount() {
+    this.setState({ birthdayImage: '' });
+  }
+
   birthdayDateChange = (e) => {
     e.preventDefault();
     this.setState({ birthdayDate: e.target.value });
+  }
+
+  birthdayImageChange = (image) => {
+    this.setState({ birthdayImage: image });
   }
 
   birthdayGuestOfHonorIdChange = (e) => {
@@ -111,10 +121,16 @@ class NewBirthday extends React.Component {
 
   saveBirthday = (e) => {
     e.preventDefault();
-    const { birthdayDate, birthdayGuestOfHonorId, invitees } = this.state;
+    const {
+      birthdayDate,
+      birthdayImage,
+      birthdayGuestOfHonorId,
+      invitees,
+    } = this.state;
     const newBirthday = {
       creatorUid: authData.getUid(),
       date: birthdayDate,
+      image: birthdayImage,
       guestOfHonorId: birthdayGuestOfHonorId,
     };
     birthdayData.postBirthday(newBirthday)
@@ -142,6 +158,7 @@ class NewBirthday extends React.Component {
   render() {
     const {
       birthdayDate,
+      birthdayImage,
       birthdayGuestOfHonorId,
       users,
       guestOfHonorName,
@@ -181,6 +198,7 @@ class NewBirthday extends React.Component {
                       birthdayDateChange={this.birthdayDateChange}
                       isEdit={false}
                     />
+                    <PhotoUploader birthdayImageChange={this.birthdayImageChange} image={birthdayImage} isToast={false} />
                     <NewUserForm
                       newUserEmail={newUserEmail}
                       newUserEmailChange={this.newUserEmailChange}

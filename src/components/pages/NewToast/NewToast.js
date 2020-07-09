@@ -13,6 +13,15 @@ class NewToast extends React.Component {
   state = {
     toastMessage: '',
     toastImage: '',
+    isMounted: false,
+  }
+
+  componentDidMount() {
+    this.setState({ isMounted: true });
+  }
+
+  componentWillUnmount() {
+    this.setState({ isMounted: false });
   }
 
   toastMessageChange = (e) => {
@@ -49,7 +58,7 @@ class NewToast extends React.Component {
               <div className="my-5 form-group">
                 <textarea className="toast-textarea form-control" id="toast-input" rows="3" value={toastMessage} onChange={this.toastMessageChange}></textarea>
               </div>
-              <PhotoUploader toastImageChange={this.toastImageChange} toastImage={toastImage} />
+              <PhotoUploader toastImageChange={this.toastImageChange} image={toastImage} isToast={true} />
               <button className="my-5 col-4 btn toast-save-btn" onClick={this.saveToast}>Save</button>
             </form>
         </div>
