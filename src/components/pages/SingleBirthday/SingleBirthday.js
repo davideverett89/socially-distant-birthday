@@ -64,7 +64,7 @@ class SingleBirthday extends React.Component {
             <h1 className="single-birthday-header">{birthday.guestOfHonor}'s Birthday!</h1>
             {
               hasImage
-                ? (<img className="align-self-center col-1 birthday-image" src={birthday.image} alt={birthday.guestOfHonor} />)
+                ? (<img className="align-self-center col-2 birthday-image" src={birthday.image} alt={birthday.guestOfHonor} />)
                 : <h2>No image</h2>
             }
             {

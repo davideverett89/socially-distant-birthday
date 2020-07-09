@@ -28,9 +28,10 @@ class PhotoUploader extends React.Component {
     render() {
       const { image } = this.props;
       return (
-        <div className="PhotoUploader col-9">
+        <div className="PhotoUploader col-12 mx-auto px-5 mt-3">
             <h6 className="mt-2 photo-uploader-header">Upload An Image</h6>
             <input
+                className="mb-1 mx-auto"
                 type="file"
                 name="file"
                 placeholder="Upload an image"

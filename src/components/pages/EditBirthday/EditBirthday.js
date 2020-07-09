@@ -3,11 +3,11 @@ import React from 'react';
 import smash from '../../../helpers/data/smash';
 import birthdayData from '../../../helpers/data/birthdayData';
 import userData from '../../../helpers/data/userData';
-import authData from '../../../helpers/data/authData';
 
 import UserCheckboxGroup from '../../shared/UserCheckboxGroup/UserCheckboxGroup';
 import DatePicker from '../../shared/DatePicker/DatePicker';
 import NewUserForm from '../../shared/NewUserForm/NewUserForm';
+import PhotoUploader from '../../shared/PhotoUploader/PhotoUploader';
 
 import './EditBirthday.scss';
 import userContributorData from '../../../helpers/data/userContributorData';
@@ -15,6 +15,7 @@ import userContributorData from '../../../helpers/data/userContributorData';
 class EditBirthday extends React.Component {
   state = {
     birthdayDate: '',
+    birthdayImage: '',
     birthdayGuestOfHonorId: '',
     guestOfHonorName: '',
     newUserEmail: '',
@@ -36,6 +37,7 @@ class EditBirthday extends React.Component {
           });
           this.setState({
             birthdayDate: birthday.date,
+            birthdayImage: birthday.image,
             birthdayGuestOfHonorId: birthday.guestOfHonorId,
             guestOfHonorName: birthday.guestOfHonor,
             users: finalUsers,
@@ -52,9 +54,17 @@ class EditBirthday extends React.Component {
     this.getBirthdayInfo();
   }
 
+  componentWillUnmount() {
+    this.setState({ birthdayImage: '' });
+  }
+
   birthdayDateChange = (e) => {
     e.preventDefault();
     this.setState({ birthdayDate: e.target.value });
+  }
+
+  birthdayImageChange = (image) => {
+    this.setState({ birthdayImage: image });
   }
 
   newUserEmailChange = (e) => {
@@ -115,13 +125,15 @@ class EditBirthday extends React.Component {
   updateBirthday = (e) => {
     e.preventDefault();
     const { birthdayId } = this.props.match.params;
-    const { birthdayDate, birthdayGuestOfHonorId, newInvitees } = this.state;
-    const updatedBirthday = {
-      creatorUid: authData.getUid(),
-      date: birthdayDate,
-      guestOfHonorId: birthdayGuestOfHonorId,
-    };
-    birthdayData.putBirthday(birthdayId, updatedBirthday)
+    const { birthdayDate, birthdayImage, newInvitees } = this.state;
+    // const updatedBirthday = {
+    //   creatorUid: authData.getUid(),
+    //   date: birthdayDate,
+    //   guestOfHonorId: birthdayGuestOfHonorId,
+    // };
+    const updatedBirthdayDate = birthdayDate;
+    const updateBirthdayImage = birthdayImage;
+    birthdayData.patchBirthday(birthdayId, updatedBirthdayDate, updateBirthdayImage)
       .then(() => {
         this.saveUserContributors(birthdayId, newInvitees);
         this.props.history.push('/dashboard');
@@ -145,6 +157,7 @@ class EditBirthday extends React.Component {
   render() {
     const {
       birthdayDate,
+      birthdayImage,
       birthdayGuestOfHonorId,
       users,
       guestOfHonorName,
@@ -184,6 +197,7 @@ class EditBirthday extends React.Component {
                       birthdayDateChange={this.birthdayDateChange}
                       isEdit={true}
                     />
+                    <PhotoUploader birthdayImageChange={this.birthdayImageChange} image={birthdayImage} isToast={false} />
                     <NewUserForm
                       newUserEmail={newUserEmail}
                       newUserEmailChange={this.newUserEmailChange}
