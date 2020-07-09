@@ -5,11 +5,14 @@ import moment from 'moment';
 import authData from '../../../helpers/data/authData';
 import toastData from '../../../helpers/data/toastData';
 
+import PhotoUploader from '../../shared/PhotoUploader/PhotoUploader';
+
 import './NewToast.scss';
 
 class NewToast extends React.Component {
   state = {
     toastMessage: '',
+    toastImage: '',
   }
 
   toastMessageChange = (e) => {
@@ -17,13 +20,18 @@ class NewToast extends React.Component {
     this.setState({ toastMessage: e.target.value });
   }
 
+  toastImageChange = (image) => {
+    this.setState({ toastImage: image });
+  }
+
   saveToast = (e) => {
     e.preventDefault();
     const { birthdayId } = this.props.match.params;
-    const { toastMessage } = this.state;
+    const { toastMessage, toastImage } = this.state;
     const newToast = {
       birthdayId,
       message: toastMessage,
+      image: toastImage,
       creationDate: moment().format('MMMM Do YYYY, h:mm:ss a'),
       uid: authData.getUid(),
     };
@@ -33,7 +41,7 @@ class NewToast extends React.Component {
   }
 
   render() {
-    const { toastMessage } = this.state;
+    const { toastMessage, toastImage } = this.state;
     return (
         <div className="NewToast my-5">
             <h1 className="display-3 new-toast-header">Say Something Nice!</h1>
@@ -41,6 +49,7 @@ class NewToast extends React.Component {
               <div className="my-5 form-group">
                 <textarea className="toast-textarea form-control" id="toast-input" rows="3" value={toastMessage} onChange={this.toastMessageChange}></textarea>
               </div>
+              <PhotoUploader toastImageChange={this.toastImageChange} toastImage={toastImage} />
               <button className="my-5 col-4 btn toast-save-btn" onClick={this.saveToast}>Save</button>
             </form>
         </div>
