@@ -57,7 +57,7 @@ const postBirthday = (newBirthday) => axios.post(`${baseUrl}/birthdays.json`, ne
 
 const deleteBirthday = (birthdayId) => axios.delete(`${baseUrl}/birthdays/${birthdayId}.json`);
 
-const putBirthday = (birthdayId, updatedBirthday) => axios.put(`${baseUrl}/birthdays/${birthdayId}.json`, updatedBirthday);
+const patchBirthday = (birthdayId, updatedBirthdayDate, updatedBirthdayImage) => axios.patch(`${baseUrl}/birthdays/${birthdayId}.json`, { date: updatedBirthdayDate, image: updatedBirthdayImage });
 
 export default {
   getBirthdaysByCreatorUid,
@@ -65,6 +65,6 @@ export default {
   getBirthdays,
   postBirthday,
   deleteBirthday,
-  putBirthday,
+  patchBirthday,
   getBirthdaybyGuestOfHonorId,
 };

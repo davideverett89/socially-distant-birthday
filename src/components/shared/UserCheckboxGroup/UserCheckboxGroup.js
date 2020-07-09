@@ -50,7 +50,7 @@ class UserCheckboxGroup extends React.Component {
             ? ''
             : (
               <React.Fragment>
-                <h6 className="mt-2 guest-invited-header text-white lead">{isEdit ? 'Who else are you inviting?' : 'Who are you inviting?'}</h6>
+                <h6 className="mt-2 guest-invited-header">{isEdit ? 'Who else are you inviting?' : 'Who are you inviting?'}</h6>
                 <div className="overflow">
                   <div className="p-2 checkboxes mx-auto">
                     {buildCheckboxes}

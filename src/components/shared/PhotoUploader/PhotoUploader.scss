@@ -1,6 +1,9 @@
 @import '../../../styles/variables';
 
-.DatePicker {
+.PhotoUploader {
     display: block;
     max-height: 200px;
+    .photo-check {
+        color: $senaryColor;
+    }
 }

@@ -25,7 +25,7 @@ const postToast = (newToast) => axios.post(`${baseUrl}/toasts.json`, newToast);
 
 const deleteToast = (toastId) => axios.delete(`${baseUrl}/toasts/${toastId}.json`);
 
-const patchToast = (toastId, editedMessage) => axios.patch(`${baseUrl}/toasts/${toastId}.json`, { message: editedMessage });
+const patchToast = (toastId, editedMessage, editedImage) => axios.patch(`${baseUrl}/toasts/${toastId}.json`, { message: editedMessage, image: editedImage });
 
 export default {
   getToastsByBirthdayId,

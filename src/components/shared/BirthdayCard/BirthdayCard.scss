@@ -1,5 +1,17 @@
 @import '../../../styles/variables';
 
+@media (min-width: 576px) {
+    .full-length {
+        min-height: 122px;
+    }
+}
+
+@media (max-width: 576px) {
+    .full-length {
+        max-height: 122px;
+    }
+}
+
 .BirthdayCard {
     display: block;
     background: none;

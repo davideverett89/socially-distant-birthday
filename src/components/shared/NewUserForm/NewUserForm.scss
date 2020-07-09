@@ -2,11 +2,7 @@
 
 .NewUserForm {
     display: block;
-    background-color: $secondaryColor;
-    border: 1px solid black;
-    border-radius: 10px;
     max-height: 200px;
-    box-shadow: inset 0 0 10px #000000;
     .form-body {
         input {
             border: 1px solid black;
@@ -14,8 +10,8 @@
         .invite-btn {
             font-family: $primaryFont;
             font-size: 20px;
-            color: $secondaryColor;
-            background-color: $tertiaryColor;
+            color: $primaryColor;
+            background-color: $secondaryColor;
             border: 1px solid black;
             box-shadow:
             0 2.8px 2.2px rgba(0, 0, 0, 0.034),

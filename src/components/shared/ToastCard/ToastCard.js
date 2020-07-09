@@ -23,6 +23,7 @@ class ToastCard extends React.Component {
   render() {
     const { toast, birthdayId, isUserCreated } = this.props;
     const editLink = `/birthdays/${birthdayId}/toasts/edit/${toast.id}`;
+    const noImage = toast.image === '';
     return (
       <div className="ToastCard col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
         <div className="toast-card-shell mb-3">
@@ -40,6 +41,11 @@ class ToastCard extends React.Component {
             </div>
             <div className="body card-body">
                 <h5 className="toast-text card-title">{toast.contributorName}</h5>
+                {
+                  noImage
+                    ? ('')
+                    : (<img className="mb-2 img-fluid toast-img col-6" src={toast.image} alt={toast.id} />)
+                }
                 <p className="toast-text card-text">{toast.message}</p>
                 <small>{toast.creationDate}</small>
             </div>
