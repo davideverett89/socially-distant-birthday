@@ -79,7 +79,7 @@ class Dashboard extends React.Component {
                   {
                     myOwnBirthday.id
                       ? (
-                        <div className="birthday-column">
+                        <div className="birthday-column your-birthday-box">
                           <h2 className="your-birthday-column">It's Your Birthday!!!</h2>
                           <BirthdayCard key={myOwnBirthday.id} birthday={myOwnBirthday} />
                         </div>

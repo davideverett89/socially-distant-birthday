@@ -117,6 +117,21 @@ const deleteBirthdayAndBirthdayInvitationsAndToasts = (birthdayId) => new Promis
     .catch((err) => reject(err));
 });
 
+const getUserEmailsWithCurrentBirthday = (date) => new Promise((resolve, reject) => {
+  birthdayData.getBirthdays().then((birthdays) => {
+    userData.getUsers().then((users) => {
+      const finalUserEmails = [];
+      const todaysBirthdays = birthdays.filter((x) => x.date === date);
+      todaysBirthdays.forEach((birthday) => {
+        const guestOfHonor = users.find((x) => x.id === birthday.guestOfHonorId);
+        finalUserEmails.push(guestOfHonor.email);
+      });
+      resolve(finalUserEmails);
+    });
+  })
+    .catch((err) => reject(err));
+});
+
 export default {
   getBirthdaysWithGuestsOfHonor,
   getInvitedBirthdaysByUserUid,
@@ -124,4 +139,5 @@ export default {
   getToastsWithContributorNameByBirthdayId,
   deleteBirthdayAndBirthdayInvitationsAndToasts,
   getSingleBirthdayWithGuestOfHonorByGuestOfHonorId,
+  getUserEmailsWithCurrentBirthday,
 };
