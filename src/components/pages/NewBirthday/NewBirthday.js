@@ -4,6 +4,7 @@ import userData from '../../../helpers/data/userData';
 import authData from '../../../helpers/data/authData';
 import birthdayData from '../../../helpers/data/birthdayData';
 import userContributorData from '../../../helpers/data/userContributorData';
+import notificationData from '../../../helpers/data/notificationData';
 
 import UserRadioGroup from '../../shared/UserRadioGroup/UserRadioGroup';
 import UserCheckboxGroup from '../../shared/UserCheckboxGroup/UserCheckboxGroup';
@@ -109,6 +110,22 @@ class NewBirthday extends React.Component {
     this.setState({ users: finalUsers }, this.updateInvitees(finalUsers));
   }
 
+  sendInvitations = (invitees) => {
+    const addresses = [];
+    userData.getUsers()
+      .then((users) => {
+        invitees.forEach((singleInvitee) => {
+          const invitedUser = users.find((x) => x.id === singleInvitee);
+          addresses.push(invitedUser.email);
+        });
+        const siteUrl = 'https://socially-distant-birthday.web.app/';
+        const subject = 'You\'ve been invited to Apparty!';
+        const message = `${authData.getDisplayName()} has invited you to a birthday event! Come join the fun: ${siteUrl}`;
+        notificationData.sendEmails(addresses, subject, message);
+      })
+      .catch((err) => console.error('There was an issue with getting all the users:', err));
+  }
+
   saveUserContributors = (birthdayId, invitees) => {
     invitees.forEach((userId) => {
       const newUserContributor = {
@@ -117,6 +134,7 @@ class NewBirthday extends React.Component {
       };
       userContributorData.postUserContributor(newUserContributor);
     });
+    this.sendInvitations(invitees);
   };
 
   saveBirthday = (e) => {
