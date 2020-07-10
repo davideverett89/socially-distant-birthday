@@ -1,5 +1,29 @@
 @import '../../../styles/variables';
 
+@media (min-width: 992px) {
+    .your-birthday-column {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .your-birthday-column {
+        font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 775px) {
+    .your-birthday-column {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .your-birthday-column {
+        font-size: 3rem;
+    }
+}
+
 .Dashboard {
     display: block;
     background-color: $secondaryColor2;
