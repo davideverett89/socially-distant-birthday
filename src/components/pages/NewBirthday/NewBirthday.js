@@ -118,7 +118,7 @@ class NewBirthday extends React.Component {
           const invitedUser = users.find((x) => x.id === singleInvitee);
           addresses.push(invitedUser.email);
         });
-        const siteUrl = 'https://socially-distant-birthday.web.app/';
+        const siteUrl = 'https://socially-distant-birthday.firebaseapp.com';
         const subject = 'You\'ve been invited to Apparty!';
         const message = `${authData.getDisplayName()} has invited you to a birthday event! Come join the fun: ${siteUrl}`;
         notificationData.sendEmails(addresses, subject, message);
