@@ -12,7 +12,7 @@ class Home extends React.Component {
           <h1 className="home-header display-1">Welcome To Apparty!</h1>
           <div className="my-5 big-image-container container-fluid">
             <i className="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 cake-image fas fa-birthday-cake fa-7x"></i>
-            <i className="my-5 col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 people-image fas fa-people-arrows fa-7x"></i>
+            <i className="my-5 col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 people-image fas fa-people-arrows fa-10x"></i>
             <i className="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 cake-image fas img-fluid fa-birthday-cake fa-7x"></i>
           </div>
           <p className="home-intro col-12 my-3 mx-auto">
