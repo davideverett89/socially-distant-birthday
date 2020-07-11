@@ -6,7 +6,7 @@
       background-image: url('../../../images/confetti.png');
       border: 1px solid black;
       border-radius: 10px;
-      box-shadow: inset 0 0 10px #000000;
+      box-shadow: inset 0 0 10px -2px rgba(0,0,0,0.75);
       .header {
         min-height: 63px;
         background-image: $rainbowGradient;
@@ -17,9 +17,13 @@
       .body {
         .toast-text {
           font-family: $secondaryFont;
+          font-weight: 900;
         }
         .toast-image {
           height: auto;
+        }
+        small {
+          background-color: white;
         }
       }
     }

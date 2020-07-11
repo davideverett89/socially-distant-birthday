@@ -227,7 +227,7 @@ class NewBirthday extends React.Component {
                   </div>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                  <div className="info-column p-2 my-1 mx-1 d-flex flex-column justify-content-start align-items-center">
+                  <div className="info-column p-2 my-1 mx-1 d-flex flex-column justify-content-center align-items-center">
                     <h2 className="declaration">I am planning a Birthday Event for:</h2>
                     {guestOfHonorName === ''
                       ? ''

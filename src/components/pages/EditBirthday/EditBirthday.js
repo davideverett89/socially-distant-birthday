@@ -208,7 +208,7 @@ class EditBirthday extends React.Component {
                   </div>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                  <div className="px-2 info-column p-1 mx-1 d-flex flex-column justify-content-around align-items-stretch">
+                  <div className="px-2 info-column p-1 mx-1 d-flex flex-column justify-content-center align-items-stretch">
                     <h2 className="declaration">This Birthday Event is for:</h2>
                     <h2 className="guest-of-honor-name">{guestOfHonorName}</h2>
                     <h5 className="on">on</h5>

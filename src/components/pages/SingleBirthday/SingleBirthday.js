@@ -8,6 +8,7 @@ import toastData from '../../../helpers/data/toastData';
 import ToastCard from '../../shared/ToastCard/ToastCard';
 
 import './SingleBirthday.scss';
+import userData from '../../../helpers/data/userData';
 
 class SingleBirthday extends React.Component {
   state = {
@@ -22,10 +23,13 @@ class SingleBirthday extends React.Component {
     smash.getSingleBirthdayWithGuestOfHonorAndInvitations(birthdayId)
       .then((birthday) => {
         const currentUserCreated = birthday.creatorUid === authData.getUid();
-        const currentUserIsGuestOfHonor = birthday.guestOfHonorId === authData.getUid();
-        this.setState({ birthday, currentUserCreated, currentUserIsGuestOfHonor });
-        smash.getToastsWithContributorNameByBirthdayId(birthdayId)
-          .then((toasts) => this.setState({ toasts }));
+        userData.getUserByUid(authData.getUid()).then((user) => {
+          const thisUser = user[0];
+          const currentUserIsGuestOfHonor = birthday.guestOfHonorId === thisUser.id;
+          this.setState({ birthday, currentUserCreated, currentUserIsGuestOfHonor });
+          smash.getToastsWithContributorNameByBirthdayId(birthdayId)
+            .then((toasts) => this.setState({ toasts }));
+        });
       })
       .catch((err) => console.error('There is an issue with getting a single birthday object and its toasts:', err));
   }
@@ -64,7 +68,7 @@ class SingleBirthday extends React.Component {
             <h1 className="single-birthday-header">{birthday.guestOfHonor}'s Birthday!</h1>
             {
               hasImage
-                ? (<img className="align-self-center col-2 birthday-image" src={birthday.image} alt={birthday.guestOfHonor} />)
+                ? (<img className="align-self-center col-4 birthday-image" src={birthday.image} alt={birthday.guestOfHonor} />)
                 : <h2>No image</h2>
             }
             {

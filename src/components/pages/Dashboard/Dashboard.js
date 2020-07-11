@@ -74,6 +74,20 @@ class Dashboard extends React.Component {
     return (
         <div className="col-11 my-5 Dashboard container-fluid p-5">
             <h1 className="mb-5 display-4 dashboard-header">Your Birthday Dashboard!</h1>
+            <div className="mt-5 row">
+              <div className="col-10 mx-auto">
+                  {
+                    myOwnBirthday.id
+                      ? (
+                        <div className="birthday-column your-birthday-box">
+                          <h2 className="your-birthday-column">It's Your Birthday!!!</h2>
+                          <BirthdayCard key={myOwnBirthday.id} birthday={myOwnBirthday} />
+                        </div>
+                      )
+                      : ''
+                  }
+              </div>
+            </div>
             <div className="row">
               <div className="my-3 col-lg-6 col-xl-6">
                 <div className="birthday-column">
@@ -86,20 +100,6 @@ class Dashboard extends React.Component {
                   <h2 className="m-2">Invited Birthdays</h2>
                   {makeInvitations}
                 </div>
-              </div>
-            </div>
-            <div className="mt-5 row">
-              <div className="col-10 mx-auto">
-                  {
-                    myOwnBirthday.id
-                      ? (
-                        <div className="birthday-column">
-                          <h2 className="your-birthday-column display-1">It's Your Birthday!!!</h2>
-                          <BirthdayCard key={myOwnBirthday.id} birthday={myOwnBirthday} />
-                        </div>
-                      )
-                      : ''
-                  }
               </div>
             </div>
         </div>
