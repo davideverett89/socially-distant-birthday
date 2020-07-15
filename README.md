@@ -2,12 +2,13 @@
 ## Live Version: 
 Click [HERE](https://socially-distant-birthday.firebaseapp.com/home) to check out the deployed version.
 ## Description:
-Apparty is a socially distant birthday tracking and celebration app.  It allows users to log on, create a birthday event for a friend, invite and notify other friends of said event, and allow those friends to log on and leave toasts for the guest of honor.  The guest of honor will then be notified of the event on the date of their birthday and be able to log on and see what their friends have to say.
+Apparty is a socially distant birthday tracking and celebration app.  It allows users to log on, create a birthday event for a friend, invite and notify other friends of said event, and allow those friends to log on and leave toasts and upload images for the guest of honor.  The guest of honor will then be notified of the event on the date of their birthday and then be able to log on and see what their friends have to say.
 ## Features:
 * Full CRUD on birthday events if the user is the creator of said event.
 * Full CRUD on any toast left by the user.
 * Read-only on birthday events if the user is the birthday's guest of honor.
-* Email/SMS notifications via Twilio for invited users and the birthday guest of honor.
+* Email notifications for invited users and the birthday guest of honor.
+* Image upload so friends can share memorable pictures.
 ## Technologies Used:
 * React
 * React Router DOM
@@ -18,7 +19,8 @@ Apparty is a socially distant birthday tracking and celebration app.  It allows 
 * Firebase
     * Authentication via Google
     * Realtime Database
-* Twilio
+* Node.js email notification API using Nodemail and deployed to Heroku.
+* Cloudinary for image uploading
 * Webpack
 * JavaScript
 * HTML5
