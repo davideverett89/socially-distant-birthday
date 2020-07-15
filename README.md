@@ -27,32 +27,32 @@ Apparty is a socially distant birthday tracking and celebration app.  It allows 
 * CSS3/Sass
 ## Screenshots:
 ### Authentication Page
-![Auth Page](src/images/auth-page.png)
+![Auth Page](src/images/authPage.png)
 ### Home/Landing Page
-![Home Page](src/images/home-page.png)
+![Home Page](src/images/homePage.png)
 ### Birthday Dashboard
-![Dashboard](src/images/birthday-dashboard.png)
+![Dashboard](src/images/birthdayDashboard.png)
 ### Create New Birthday Page
 #### Top View
-![New Birthday 1](src/images/new-birthday-1.png)
+![New Birthday 1](src/images/newBirthday-1.png)
 #### Bottom View
-![New Birthday 2](src/images/new-birthday-2.png)
+![New Birthday 2](src/images/newBirthday-2.png)
 ### Single Birthday View
 #### User Created Birthay: Top View
-![Single Birthday 1](src/images/single-birthday-1.png)
+![Single Birthday 1](src/images/singleBirthday-1.png)
 #### User Created Birthday: Bottom View
-![Single Birthday 2](src/images/single-birthday-2.png)
+![Single Birthday 2](src/images/singleBirthday-2.png)
 #### User Invited Birthday
-![Single Birthday 3](src/images/single-birthday-3.png)
+![Single Birthday 3](src/images/singleBirthday-3.png)
 ### Edit Birthday Page
 #### Top View
-![Edit Birthday 1](src/images/edit-birthday-1.png)
+![Edit Birthday 1](src/images/editBirthday-1.png)
 #### Bottom View
-![Edit Birthday 2](src/images/edit-birthday-2.png)
+![Edit Birthday 2](src/images/editBirthday-2.png)
 ### New Toast Page
 ![New Toast Page](src/images/new-toast.png)
 ### Edit Toast Page
-![Edit Toast Page](src/images/edit-toast.png)
+![Edit Toast Page](src/images/editToast.png)
 ## How To Run:
 1. Clone down this repository to a local directory of your choosing.
 2. `cd` into the repository and run `npm install` in your terminal.
